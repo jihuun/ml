@@ -1,4 +1,3 @@
-{% include "../math.md" %}  
 
 $$
 y = \int_x^yk^3
