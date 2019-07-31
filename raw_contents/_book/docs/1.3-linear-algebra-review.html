@@ -1,0 +1,458 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.3. Linear Algebra Review · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="1.2-linear-regression-with-one-variable.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1-introduction.html">
+            
+                <a href="1-introduction.html">
+            
+                    
+                    1. Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="1.1-introduction.html">
+            
+                <a href="1.1-introduction.html">
+            
+                    
+                    1.1. Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="1.2-linear-regression-with-one-variable.html">
+            
+                <a href="1.2-linear-regression-with-one-variable.html">
+            
+                    
+                    1.2. Linear Regression with One Variable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.3" data-path="1.3-linear-algebra-review.html">
+            
+                <a href="1.3-linear-algebra-review.html">
+            
+                    
+                    1.3. Linear Algebra Review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.3. Linear Algebra Review</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ]
+    }
+    });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> 
+</script>
+
+<script> MathJax.Hub.Queue(["Typeset",MathJax.Hub]); </script>
+
+
+<h2 id="13-linear-algebra-review">1.3. Linear Algebra Review</h2>
+<hr>
+<h3 id="131-vector">1.3.1 Vector</h3>
+<p>A vector is a matrix with one column and many rows:    </p>
+<p><script type="math/tex; ">  
+\begin{bmatrix}    
+w \\    
+x \\    
+y \\    
+z    
+\end{bmatrix}    
+</script>  </p>
+<p>So vectors are a subset of matrices. The above vector is a 4 x 1 matrix.    </p>
+<h4 id="notations">notations</h4>
+<p>4 demensional Vector &#xC774;&#xB2E4;.    </p>
+<ul>
+<li>$A_{ij}$<br>refers to the element in the ith row and jth column of matrix A.    </li>
+<li>A vector with &apos;n&apos; rows is referred to as an &apos;n&apos;-dimensional vector.    </li>
+<li>$v_i$<br>refers to the element in the ith row of the vector.    </li>
+<li>In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the arrays are 0-indexed.    </li>
+<li>Matrices are usually denoted by uppercase names while vectors are lowercase.    </li>
+<li>&quot;Scalar&quot; means that an object is a single value, not a vector or matrix.    </li>
+<li>$\mathbb{R}$<br>refers to the set of scalar real numbers.    </li>
+<li>$\mathbb{R^n}$<br>refers to the set of n-dimensional vectors of real numbers.    </li>
+</ul>
+<h4 id="octavematlab-commands">Octave/Matlab commands</h4>
+<pre><code class="lang-matlab"><span class="hljs-comment">% The ; denotes we are going back to a new row.    </span>
+A = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>; <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>; <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>; <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>]    
+<span class="hljs-comment">% Initialize a vector     </span>
+v = [<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span>]     
+
+<span class="hljs-comment">% Get the dimension of the matrix A where m = rows and n = columns    </span>
+[m,n] = <span class="hljs-built_in">size</span>(A)    
+<span class="hljs-comment">% You could also store it this way    </span>
+dim_A = <span class="hljs-built_in">size</span>(A)    
+<span class="hljs-comment">% Get the dimension of the vector v     </span>
+dim_v = <span class="hljs-built_in">size</span>(v)    
+<span class="hljs-comment">% Now lets index into the 2nd row 3rd column of matrix A    </span>
+A_23 = A(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
+</code></pre>
+<h3 id="132-matrix-addition-and-substriction-and-&#xC2A4;&#xCE7C;&#xB77C;&#xACF1;">1.3.2 Matrix addition and substriction and &#xC2A4;&#xCE7C;&#xB77C;&#xACF1;</h3>
+<p>In scalar multiplication, we simply multiply every element by the scalar value:<br><img src="img/scalar_mul.png" alt="">    </p>
+<p>In scalar division, we simply divide every element by the scalar value:<br><img src="img/scalar_div.png" alt="">    </p>
+<h4 id="octavematlab-commands">Octave/Matlab commands</h4>
+<pre><code class="lang-matlab"><span class="hljs-comment">% Initialize matrix A and B     </span>
+A = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>; <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>]    
+B = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>; <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]    
+<span class="hljs-comment">% Initialize constant s     </span>
+s = <span class="hljs-number">2</span>    
+
+<span class="hljs-comment">% See how element-wise addition works    </span>
+add_AB = A + B     
+<span class="hljs-comment">% See how element-wise subtraction works    </span>
+sub_AB = A - B    
+<span class="hljs-comment">% See how scalar multiplication works    </span>
+mult_As = A * s    
+<span class="hljs-comment">% Divide A by s    </span>
+div_As = A / s    
+<span class="hljs-comment">% What happens if we have a Matrix + scalar?    </span>
+add_As = A + s
+</code></pre>
+<h3 id="133-matrix--vector-multiplication">1.3.3. Matrix * Vector Multiplication</h3>
+<p><img src="img/matrix_mul.png" alt="">    </p>
+<p><code>m x n matrix</code> X <code>n x 1 vector</code> =&gt;  <code>m x 1</code> vector    </p>
+<ul>
+<li>&#xC0AC;&#xB840;<br>&#xD589;&#xB82C;&#xACF1;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xBAA8;&#xB4E0; &#xC9D1;&#xAC12;&#xC744; &#xD3B8;&#xD558;&#xAC8C; &#xC608;&#xCE21;&#xD560;&#xC218; &#xC788;&#xB2E4;.  &#xAC01; x&#xBCC0;&#xC218;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; y&#xAC12;&#xC744; &#xD55C;&#xBC88;&#xC5D0; &#xACC4;&#xC0B0;&#xD560; &#xC218; &#xC788;&#xB2E4;.     </li>
+</ul>
+<p><img src="img/mat_mul_ex.png" alt="">    </p>
+<p>Hypothesis function $h_\theta(x) = -40 + 0.25x$ &#xAC00; &#xC788;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD558;&#xACE0; &#xB0B4;&#xAC00; &#xAC00;&#xC9C4; &#xC9D1;&#xD06C;&#xAE30;&#xAC00; &#xC67C;&#xCABD;&#xC758; 4&#xAC1C;&#xC758; &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC744;&#xB54C; &#xAC00;&#xACA9;&#xC744; &#xC608;&#xCE21;&#xD574;&#xBCF4;&#xC790;. &#xD589;&#xB82C;&#xACF1;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xD55C;&#xBC88;&#xC5D0; &#xACC4;&#xC0B0;&#xD560; &#xC218; &#xC788;&#xB2E4;.     </p>
+<p>&#xC6B0;&#xB9AC;&#xB294; &#xC774;&#xB7F0; &#xC5F0;&#xC0B0;&#xC744; &#xB2E4;&#xB978; &#xBAA8;&#xB378;&#xC5D0;&#xC11C; regression &#xC744; &#xAC1C;&#xBC1C;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xC5F0;&#xC0B0;&#xC790;&#xB85C; &#xC798; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.     </p>
+<h4 id="octavematlab-commands">Octave/Matlab commands</h4>
+<pre><code class="lang-matlab"><span class="hljs-comment">% Initialize matrix A     </span>
+A = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>; <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>;<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>]     
+<span class="hljs-comment">% Initialize vector v     </span>
+v = [<span class="hljs-number">1</span>; <span class="hljs-number">1</span>; <span class="hljs-number">1</span>]     
+
+<span class="hljs-comment">% Multiply A * v    </span>
+Av = A * v
+</code></pre>
+<h3 id="134-matrix--matrix-multiplication">1.3.4. Matrix * Matrix Multiplication</h3>
+<p><img src="img/matrix_mul2.png" alt=""><br>An <code>m x n matrix</code> multiplied by an <code>n x o matrix</code> results in an <code>m x o matrix</code>    </p>
+<p>&#xD589;&#xB82C;&#xACF1;&#xC740; &#xC5EC;&#xB7EC;&#xAC1C;&#xC758; &#xACC4;&#xC0B0;&#xC2DD;&#xC744; &#xD558;&#xB098;&#xC758; &#xD589;&#xB82C;&#xACF1;&#xC148;&#xC73C;&#xB85C; &#xD45C;&#xD604;&#xD558;&#xAC8C; &#xD574;&#xC900;&#xB2E4;.     </p>
+<ul>
+<li>&#xC0AC;&#xB840;    </li>
+</ul>
+<p>&#xC774;&#xBC88;&#xC5D4; &#xC5EC;&#xB7EC;&#xAC1C;&#xC758; &#xC9D1;&#xD06C;&#xAE30;&#xC5D0; &#xB300;&#xD55C; &#xAC00;&#xACA9; &#xC608;&#xCE21;&#xC744; &#xD560;&#xB54C;, &#xC5EC;&#xB7EC;&#xAC1C;&#xC758; &#xAC00;&#xC124;&#xD568;&#xC218;&#xB97C; &#xC788;&#xB2E4;&#xACE0; &#xD558;&#xC790;. matrix&#xACF1;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xD55C;&#xBC88;&#xC5D0; &#xACC4;&#xC0B0; &#xD560; &#xC218; &#xC788;&#xB2E4;.<br><img src="img/mat_mul_ex2.png" alt="">    </p>
+<blockquote>
+<p>&#xACB0;&#xACFC; matrix&#xC758; &#xC5F4;&#xC774; &#xAC01; &#xC9D1;&#xD06C;&#xAE30;&#xC5D0; &#xC0C1;&#xC751;&#xD558;&#xB294; &#xC608;&#xCE21; &#xAC00;&#xACA9;&#xC774;&#xB2E4;.     </p>
+</blockquote>
+<h4 id="octavematlab-commands">Octave/Matlab commands</h4>
+<pre><code class="lang-matlab"><span class="hljs-comment">% Initialize a 3 by 2 matrix     </span>
+A = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>; <span class="hljs-number">3</span>, <span class="hljs-number">4</span>;<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]    
+<span class="hljs-comment">% Initialize a 2 by 1 matrix     </span>
+B = [<span class="hljs-number">1</span>; <span class="hljs-number">2</span>]     
+
+<span class="hljs-comment">% We expect a resulting matrix of (3 by 2)*(2 by 1) = (3 by 1)     </span>
+mult_AB = A*B
+</code></pre>
+<h3 id="135-matrix-multiplication-properties">1.3.5. Matrix Multiplication Properties</h3>
+<ul>
+<li>&#xAD50;&#xD658;&#xBC95;&#xCE59; X<br>Matrices are not commutative: A&#x2217;B&#x2260;B&#x2217;A    </li>
+<li><p>&#xACB0;&#xD569;&#xBC95;&#xCE59; O<br>Matrices are associative: (A&#x2217;B)&#x2217;C=A&#x2217;(B&#x2217;C)    </p>
+</li>
+<li><p>Identity Matrix (&#xD56D;&#xB4F1;&#xC6D0;)    </p>
+</li>
+</ul>
+<p><img src="img/i_matrix.png" alt="">    </p>
+<p>&#xAD50;&#xD658;&#xBC95;&#xCE59;, &#xACB0;&#xD569;&#xBC95;&#xCE59; &#xBAA8;&#xB450; &#xC131;&#xB9BD;    </p>
+<h4 id="octavematlab-commands">Octave/Matlab commands</h4>
+<pre><code class="lang-matlab"><span class="hljs-comment">% Initialize random matrices A and B     </span>
+A = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]    
+B = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>;<span class="hljs-number">0</span>,<span class="hljs-number">2</span>]    
+
+<span class="hljs-comment">% Initialize a 2 by 2 identity matrix    </span>
+I = <span class="hljs-built_in">eye</span>(<span class="hljs-number">2</span>)    
+<span class="hljs-comment">% The above notation is the same as I = [1,0;0,1]    </span>
+<span class="hljs-comment">% What happens when we multiply I*A ?    </span>
+IA = I*A     
+<span class="hljs-comment">% How about A*I ?    </span>
+AI = A*I     
+<span class="hljs-comment">% Compute A*B     </span>
+AB = A*B     
+<span class="hljs-comment">% Is it equal to B*A?     </span>
+BA = B*A     
+<span class="hljs-comment">% Note that IA = AI but AB != BA</span>
+</code></pre>
+<h3 id="136-inverse-and-transpose">1.3.6. Inverse and Transpose</h3>
+<ul>
+<li><p>Inverse matrix &#xC5ED;&#xD589;&#xB82C;<br><img src="img/inverse_matrix.png" alt=""><br>The inverse of a matrix A is denoted $A^{-1}$. Multiplying by the inverse results in the identity matrix.    </p>
+</li>
+<li><p>Transpose matrix &#xC804;&#xCE58;&#xD589;&#xB82C;<br>90&#xB3C4; &#xD68C;&#xC804;&#xB41C; &#xD589;&#xB82C; The transposition of a matrix is like rotating the matrix 90&#xB0; in clockwise direction and then reversing it.<br><img src="img/transpose.png" alt="">    </p>
+</li>
+</ul>
+<h4 id="octavematlab-commands">Octave/Matlab commands</h4>
+<pre><code class="lang-matlab">% Initialize matrix A     
+A = [1,2,0;0,5,6;7,0,9]    
+
+% Transpose A     
+A_trans = A&apos;   //&apos;    
+% Take the inverse of A     
+A_inv = inv(A)    
+% What is A^(-1)*A?     
+A_invA = inv(A)*A
+</code></pre>
+<p>&#xB2E4;&#xC74C; &#xC2DC;&#xAC04;&#xBD80;&#xD130; linear algebra &#xB97C; &#xB2E4;&#xB8F0;&#xC218; &#xC788;&#xB294; &#xD234;&#xC5D0; &#xB300;&#xD574; &#xC0B4;&#xD3B4;&#xBCF8;&#xB2E4;.     </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.2-linear-regression-with-one-variable.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 1.2. Linear Regression with One Variable">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.3. Linear Algebra Review","level":"2.1.3","depth":2,"previous":{"title":"1.2. Linear Regression with One Variable","level":"2.1.2","depth":2,"path":"docs/1.2-linear-regression-with-one-variable.md","ref":"docs/1.2-linear-regression-with-one-variable.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/1.3-linear-algebra-review.md","mtime":"2019-07-31T11:03:49.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T11:49:22.706Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

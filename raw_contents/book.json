@@ -1,0 +1,12 @@
+{
+    "plugins": ["ga"],
+    "plugins": ["mathjax"],
+    "pluginsConfig": {
+        "ga": {
+            "token": "UA-144728298-1"
+        }
+    },
+    "variables": {
+        "BASE_URL": "http://soopsaram.com/ml"
+    }
+}

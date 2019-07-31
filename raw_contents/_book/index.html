@@ -1,0 +1,553 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Machine Learning · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="docs/1-introduction.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="docs/1-introduction.html">
+            
+                <a href="docs/1-introduction.html">
+            
+                    
+                    1. Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="docs/1.1-introduction.html">
+            
+                <a href="docs/1.1-introduction.html">
+            
+                    
+                    1.1. Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="docs/1.2-linear-regression-with-one-variable.html">
+            
+                <a href="docs/1.2-linear-regression-with-one-variable.html">
+            
+                    
+                    1.2. Linear Regression with One Variable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="docs/1.3-linear-algebra-review.html">
+            
+                <a href="docs/1.3-linear-algebra-review.html">
+            
+                    
+                    1.3. Linear Algebra Review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Machine Learning</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="introduction">Introduction</h1>
+<p>&#xC774; &#xBB38;&#xC11C;&#xB294; Andrew Ng &#xAD50;&#xC218;&#xC758; Coursera class &#xC778; Machine Learning &#xAC15;&#xC758; &#xC5D0;&#xC11C; &#xBC30;&#xC6B4; &#xB0B4;&#xC6A9;&#xC744; &#xC815;&#xB9AC;&#xD55C; &#xBB38;&#xC11C;&#xC774;&#xB2E4;. &#xAC15;&#xC758; &#xB9C1;&#xD06C;: <a href="https://www.coursera.org/learn/machine-learning" target="_blank">https://www.coursera.org/learn/machine-learning</a></p>
+<p>&#xC791;&#xC131;: &#xAE40;&#xC9C0;&#xD6C8; (jihuun.k@gmail.com)</p>
+<h2 id="table-of-contents">Table Of Contents</h2>
+<hr>
+<ul>
+<li><a href="#machine-learning-course----by-andrew-ng">Machine Learning course &#xC815;&#xB9AC; by Andrew Ng</a></li>
+<li><a href="#1-introduction">1. Introduction</a><ul>
+<li><a href="#11-introduction">1.1. Introduction</a><ul>
+<li><a href="#111-----">1.1.1. &#xC751;&#xC6A9;&#xBD84;&#xC57C;</a></li>
+<li><a href="#112-ml-------">1.1.2. ML &#xB450;&#xAC00;&#xC9C0; &#xC815;&#xC758;</a></li>
+<li><a href="#113-ml--------">1.1.3. ML &#xC54C;&#xACE0;&#xB9AC;&#xC998; &#xC885;&#xB958;</a></li>
+<li><a href="#114-supervised-learning--------">1.1.4. Supervised Learning (&#xC9C0;&#xB3C4; &#xD559;&#xC2B5;)</a></li>
+<li><a href="#115-unsupervised-learning---------">1.1.5. Unsupervised Learning (&#xBE44;&#xC9C0;&#xB3C4; &#xD559;&#xC2B5;)</a></li>
+<li><a href="#116-----reinforcement-learning">1.1.6. &#xCC38;&#xACE0;: Reinforcement Learning</a></li>
+</ul>
+</li>
+<li><a href="#12-linear-regression-with-one-variable">1.2. Linear Regression with One Variable</a><ul>
+<li><a href="#121-model-and-cost-function">1.2.1. Model and Cost Function</a></li>
+<li><a href="#122-linear-regression">1.2.2 Linear Regression</a></li>
+<li><a href="#123-model-representation">1.2.3. Model Representation</a></li>
+<li><a href="#124-cost-function-------">1.2.4. Cost Function (&#xBE44;&#xC6A9;&#xD568;&#xC218;)</a></li>
+<li><a href="#125-simplified-cost-function-of-linear-regression">1.2.5. Simplified Cost function of Linear Regression</a></li>
+<li><a href="#126-cost-function-of-linear-regression">1.2.6. Cost function of Linear Regression</a></li>
+<li><a href="#127-parameter-learning--gradient-descent-">1.2.7. Parameter Learning (Gradient Descent)</a></li>
+<li><a href="#128-gradient-descent------------">1.2.8. Gradient Descent &#xC54C;&#xACE0;&#xB9AC;&#xC998; &#xC218;&#xD559;&#xC801; &#xC815;&#xC758;</a></li>
+<li><a href="#129-learning-rate------">1.2.9. Learning rate&#xC640; &#xBBF8;&#xBD84;&#xACC4;&#xC218;</a></li>
+<li><a href="#1210-gradient-descent-for-linear-regression">1.2.10. Gradient Descent for Linear Regression</a></li>
+</ul>
+</li>
+<li><a href="#13-linear-algebra-review">1.3. Linear Algebra Review</a><ul>
+<li><a href="#131-vector">1.3.1 Vector</a></li>
+<li><a href="#132-matrix-addition-and-substriction-and-----">1.3.2 Matrix addition and substriction and &#xC2A4;&#xCE7C;&#xB77C;&#xACF1;</a></li>
+<li><a href="#133-matrix---vector-multiplication">1.3.3. Matrix * Vector Multiplication</a></li>
+<li><a href="#134-matrix---matrix-multiplication">1.3.4. Matrix * Matrix Multiplication</a></li>
+<li><a href="#135-matrix-multiplication-properties">1.3.5. Matrix Multiplication Properties</a></li>
+<li><a href="#136-inverse-and-transpose">1.3.6. Inverse and Transpose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-linear-regression-with-multiple-variables">2. Linear Regression with Multiple Variables</a><ul>
+<li><a href="#21-multivariate-linear-regression">2.1. Multivariate Linear Regression</a><ul>
+<li><a href="#211-multiple-features">2.1.1. Multiple Features</a></li>
+<li><a href="#212-gradient-descent-for-multiple-variables">2.1.2. Gradient Descent for Multiple Variables</a></li>
+<li><a href="#213-gradient-descent-in-practice-i---feature-scaling">2.1.3. Gradient Descent in Practice I - Feature Scaling</a></li>
+<li><a href="#214-gradient-descent-in-practice-ii---learning-rate">2.1.4. Gradient Descent in Practice II - Learning Rate</a></li>
+<li><a href="#215-features-and-polynomial-regression">2.1.5. Features and Polynomial Regression</a></li>
+</ul>
+</li>
+<li><a href="#22-computing-parameters-analytically">2.2. Computing Parameters Analytically</a><ul>
+<li><a href="#221-normal-equation">2.2.1. Normal Equation</a></li>
+<li><a href="#222-normal-equation-noninvertibility">2.2.2. Normal Equation Noninvertibility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-logistic-regression--regularization">3. Logistic Regression, Regularization</a><ul>
+<li><a href="#31-classfication">3.1. Classfication</a></li>
+<li><a href="#32-logistic-regression">3.2. Logistic Regression</a></li>
+<li><a href="#33-decision-boundary">3.3. Decision Boundary</a></li>
+<li><a href="#34-non-linear-decision-boundary">3.4. Non-linear Decision Boundary</a></li>
+<li><a href="#35-cost-function">3.5. Cost function</a></li>
+<li><a href="#36-simplified-cost-function-and-gradient-descent">3.6. Simplified Cost Function and Gradient Descent</a></li>
+<li><a href="#37-advanced-optimization">3.7. Advanced Optimization</a></li>
+<li><a href="#38-multi-class-classification">3.8. Multi-Class Classification</a></li>
+<li><a href="#39-overfitting-problem">3.9. Overfitting problem</a><ul>
+<li><a href="#391-overfitting----">3.9.1. Overfitting &#xC774;&#xB780;?</a></li>
+<li><a href="#392-cost-function">3.9.2. Cost function</a></li>
+<li><a href="#393-regularized-linear-regression">3.9.3. Regularized Linear Regression</a></li>
+<li><a href="#394-regularized-logistic-regression">3.9.4. Regularized Logistic Regression</a></li>
+</ul>
+</li>
+<li><a href="#ex2-1--logistic-regression">ex2-1: Logistic Regression</a><ul>
+<li><a href="#0-ex2m">0. ex2.m</a></li>
+<li><a href="#1-plotdatam">1. plotData.m</a></li>
+<li><a href="#2-sigmoidm">2. sigmoid.m</a></li>
+<li><a href="#3-costfuncionm">3. costFuncion.m</a></li>
+<li><a href="#4-predictm">4. predict.m</a></li>
+</ul>
+</li>
+<li><a href="#ex2-2--regularized-logistic-regression">ex2-2: Regularized Logistic Regression</a><ul>
+<li><a href="#1-mapfeaturem">1. mapFeature.m</a></li>
+<li><a href="#1-costfunctionregm">1. costFunctionReg.m</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-neural-networks">4. Neural Networks</a><ul>
+<li><a href="#41---">4.1. &#xBC30;&#xACBD;</a></li>
+<li><a href="#42-------remind">4.2. &#xC9C0;&#xB09C; &#xB0B4;&#xC6A9; remind</a></li>
+<li><a href="#43-neuron-model--logistic-unit">4.3. Neuron model: Logistic Unit</a></li>
+<li><a href="#44-neural-network">4.4. Neural Network</a></li>
+<li><a href="#45-forward-propagation--vectored-implementation">4.5. Forward propagation: Vectored Implementation</a></li>
+<li><a href="#46-neural-network-learning-its-own-features">4.6. Neural Network Learning its Own Features</a></li>
+<li><a href="#47-examples">4.7. Examples</a><ul>
+<li><a href="#or-function">OR function</a></li>
+<li><a href="#the-others">The others</a></li>
+<li><a href="#multiclass-classification">Multiclass Classification</a></li>
+</ul>
+</li>
+<li><a href="#ex3-1-multi-class-classification">ex3-1 Multi-class classification</a><ul>
+<li><a href="#lrcostfunctionm">lrCostFunction.m</a></li>
+<li><a href="#onevsallm">oneVsAll.m</a></li>
+<li><a href="#predictonevsallm">predictOneVsAll.m</a></li>
+</ul>
+</li>
+<li><a href="#ex3-2-neural-networks">ex3-2 Neural Networks</a><ul>
+<li><a href="#predictm">predict.m</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-neural-networks--learning">5. Neural Networks: Learning</a><ul>
+<li><a href="#51-cost-function">5.1 Cost function</a></li>
+<li><a href="#52-backpropagation-algorithm">5.2. Backpropagation Algorithm</a></li>
+<li><a href="#53-backpropagation-intuition">5.3. Backpropagation Intuition</a></li>
+<li><a href="#54-backpropagation-in-practice">5.4. Backpropagation in Practice</a><ul>
+<li><a href="#541-a-implementation-note--unrolling-parameters">5.4.1. A. Implementation Note: Unrolling Parameters</a></li>
+<li><a href="#542-gradient-checking">5.4.2. Gradient Checking</a></li>
+<li><a href="#543-random-initialization">5.4.3. Random Initialization</a></li>
+<li><a href="#544-putting-it-together">5.4.4. Putting it Together</a></li>
+</ul>
+</li>
+<li><a href="#ex4-1---neural-networks">ex4-1 : neural networks</a><ul>
+<li><a href="#1-feedforward-and-cost-function--without-regularization-">1. feedforward and cost function (without regularization)</a></li>
+<li><a href="#2-regularized-cost-function">2. regularized cost function</a></li>
+</ul>
+</li>
+<li><a href="#ex4-2-backpropagation">ex4-2 Backpropagation</a><ul>
+<li><a href="#1-sigmoid-gradient">1. sigmoid gradient</a></li>
+<li><a href="#2-random-initialization">2. Random initialization</a></li>
+<li><a href="#3-backpropagation">3. Backpropagation</a></li>
+<li><a href="#4-regularizaed-neural-networks">4. Regularizaed Neural networks</a></li>
+</ul>
+</li>
+<li><a href="#ex4m">ex4.m</a></li>
+</ul>
+</li>
+<li><a href="#6-advice-for-applying-machine-learning">6. Advice for Applying Machine Learning</a><ul>
+<li><a href="#61-evaluating-a-hypothesis">6.1. Evaluating a Hypothesis</a></li>
+<li><a href="#62-model-selection-and-train-validation-test-sets">6.2. Model Selection and Train/Validation/Test Sets</a></li>
+<li><a href="#63diagnosing-bias-vs-variance">6.3.Diagnosing Bias vs. Variance</a></li>
+<li><a href="#64-regularization-and-bias-variance">6.4. Regularization and Bias/Variance</a></li>
+<li><a href="#65-learning-curves">6.5. Learning Curves</a></li>
+<li><a href="#66-deciding-what-to-do-next-revisited">6.6. Deciding What to Do Next Revisited</a></li>
+<li><a href="#ex5">ex5</a><ul>
+<li><a href="#part-2--regularized-linear-regression-cost">Part 2: Regularized Linear Regression Cost</a></li>
+<li><a href="#part-3--regularized-linear-regression-gradient">Part 3: Regularized Linear Regression Gradient</a></li>
+<li><a href="#part-4--train-linear-regression">Part 4: Train Linear Regression</a></li>
+<li><a href="#part-5--learning-curve-for-linear-regression">Part 5: Learning Curve for Linear Regression</a></li>
+<li><a href="#part-6--feature-mapping-for-polynomial-regression">Part 6: Feature Mapping for Polynomial Regression</a></li>
+<li><a href="#part-7--learning-curve-for-polynomial-regression">Part 7: Learning Curve for Polynomial Regression</a></li>
+<li><a href="#part-8--validation-for-selecting-lambda">Part 8: Validation for Selecting Lambda</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7-machine-learning-system-design">7. Machine Learning System Design</a><ul>
+<li><a href="#71-building-a-spam-classifier">7.1 Building a Spam Classifier</a></li>
+<li><a href="#72-handling-skewed-data">7.2. Handling Skewed Data</a></li>
+<li><a href="#73-using-large-data-sets">7.3. Using Large Data Sets</a></li>
+</ul>
+</li>
+<li><a href="#8-support-vector-machines">8. Support Vector Machines</a><ul>
+<li><a href="#81-optimization-objective">8.1. Optimization Objective</a></li>
+<li><a href="#82-large-margin-classification">8.2. Large margin classification</a></li>
+<li><a href="#83-mathematics-behind-large-margin-classification">8.3. Mathematics Behind Large Margin Classification</a></li>
+<li><a href="#84-kernel">8.4. Kernel</a></li>
+<li><a href="#85-choosing-the-landmarks">8.5. Choosing the Landmarks</a></li>
+<li><a href="#86-svms-in-practice">8.6. SVMs in Practice</a></li>
+<li><a href="#ex6-1-support-vector-machines">ex6-1. support vector machines</a><ul>
+<li><a href="#1-try-different-value-of-c">1. Try different value of C</a></li>
+<li><a href="#2-gaussian-kernel">2. Gaussian Kernel</a></li>
+<li><a href="#3-gaussian-kernel-for-non-linear">3. Gaussian Kernel for non-linear</a></li>
+<li><a href="#4-find-best-c-and-sigma">4. Find best C and Sigma</a></li>
+</ul>
+</li>
+<li><a href="#ex6-2-spam-classification">ex6-2 Spam classification</a><ul>
+<li><a href="#part-1--email-preprocessing">Part 1: Email Preprocessing</a></li>
+<li><a href="#part-2--feature-extraction">Part 2: Feature Extraction</a></li>
+<li><a href="#part-3--train-linear-svm-for-spam-classification">Part 3: Train Linear SVM for Spam Classification</a></li>
+<li><a href="#part-4--test-spam-classification">Part 4: Test Spam Classification</a></li>
+<li><a href="#part-5--top-predictors-of-spam">Part 5: Top Predictors of Spam</a></li>
+<li><a href="#part-6--try-your-own-emails">Part 6: Try Your Own Emails</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#9-unsupervised-learning--dimensionality-reduction">9. Unsupervised Learning, Dimensionality Reduction</a><ul>
+<li><a href="#91-k-means-algorithm">9.1 K-Means Algorithm</a></li>
+<li><a href="#92-optimization-objective">9.2. Optimization Objective</a></li>
+<li><a href="#93-random-initialization">9.3. Random Initialization</a></li>
+<li><a href="#94-choosing-the-number-of-clusters">9.4. Choosing the Number of Clusters</a></li>
+</ul>
+</li>
+<li><a href="#10-dimensionality-reduction">10. Dimensionality Reduction</a><ul>
+<li><a href="#101-pca--principal-component-analysis-">10.1. PCA (Principal Component Analysis)</a></li>
+<li><a href="#102-pca--data-pre-processing">10.2. PCA, Data pre-processing</a></li>
+<li><a href="#103-pca-algorithm">10.3. PCA algorithm</a></li>
+<li><a href="#104-reconstruction-from-compressed-representation">10.4. Reconstruction from Compressed Representation</a></li>
+<li><a href="#105-choosing-the-number-of-principal-components">10.5. Choosing the Number of Principal Components</a></li>
+<li><a href="#106-supervised-learning-speedup">10.6. Supervised Learning Speedup</a></li>
+<li><a href="#ex7--k-means-clustering-and-pca">ex7: K-means clustering and PCA</a><ul>
+<li><a href="#part-1--find-closest-centroids">Part 1: Find Closest Centroids</a></li>
+<li><a href="#part-2--compute-means">Part 2: Compute Means</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#11-anormaly-detection">11. Anormaly Detection</a><ul>
+<li><a href="#111-gaussian-distribution">11.1. Gaussian Distribution</a></li>
+<li><a href="#112-anormaly-detection-algorithm">11.2. Anormaly detection algorithm</a></li>
+<li><a href="#113-developing-and-evaluating-an-anomaly-detection-system">11.3. Developing and Evaluating an Anomaly Detection System</a></li>
+<li><a href="#114-anomaly-detection-vs-supervised-learning">11.4. Anomaly Detection vs. Supervised Learning</a></li>
+<li><a href="#115-choosing-what-features-to-use">11.5. Choosing What Features to Use</a></li>
+<li><a href="#116-multivariate-gaussian-distribution">11.6. Multivariate Gaussian Distribution</a></li>
+</ul>
+</li>
+<li><a href="#12-recommander-systems">12. Recommander Systems</a><ul>
+<li><a href="#121-predicting-movie-ratings--problem-define">12.1. Predicting Movie Ratings: Problem define</a></li>
+<li><a href="#122-predicting-movie-ratings--practice">12.2. Predicting Movie Ratings: Practice</a></li>
+<li><a href="#123-collaborative-filtering">12.3. Collaborative Filtering</a></li>
+<li><a href="#124-in-practice-of-collaborative-filtering">12.4. In practice of Collaborative Filtering</a></li>
+<li><a href="#125-low-rank-matrix-factorization">12.5. Low Rank Matrix Factorization</a></li>
+<li><a href="#126-finding-related-movies">12.6. Finding related movies</a></li>
+<li><a href="#127-implementational-detail--mean-normalization">12.7. Implementational Detail: Mean Normalization</a></li>
+<li><a href="#ex8--recommander-system">ex8: Recommander System</a></li>
+</ul>
+</li>
+<li><a href="#13-large-scale-machine-learning">13. Large scale machine learning</a><ul>
+<li><a href="#131-learning-with-large-datasets">13.1 Learning With Large Datasets</a></li>
+<li><a href="#132-stochastic-gradient-descent">13.2. Stochastic Gradient Descent</a></li>
+<li><a href="#133-mini-batch-gradient-descent">13.3. Mini-Batch Gradient Descent</a></li>
+<li><a href="#134-stochastic-gradient-descent-convergence">13.4. Stochastic Gradient Descent Convergence</a></li>
+<li><a href="#135-advanced-topics--online-learning">13.5. Advanced Topics: Online Learning</a></li>
+<li><a href="#136-advanced-topics--map-reduce-and-data-parallelism">13.6. Advanced Topics: Map Reduce and Data Parallelism</a></li>
+</ul>
+</li>
+<li><a href="#14-application-example--photo-ocr">14. Application Example: Photo OCR</a><ul>
+<li><a href="#141-sliding-windows">14.1. Sliding Windows</a></li>
+<li><a href="#142-summary">14.2. Summary</a></li>
+</ul>
+</li>
+<li><a href="#15-vectorized-implementations--in-octave-">15. Vectorized implementations (in Octave)</a><ul>
+<li><a href="#151-vector-a--------sum-a-2----">15.1. Vector A&#xAC00; &#xC788;&#xC744;&#xB54C;, $sum(A.^2)$ ?</a></li>
+<li><a href="#152-loop-----">15.2. loop &#xC81C;&#xAC70;&#xBC29;&#xBC95;</a></li>
+<li><a href="#153-built-in-function--vectorize--fun-">15.3. Built-in Function: vectorize (fun)</a></li>
+<li><a href="#154-vectorization-built-in-------in-octave">15.4. Vectorization built-in &#xD568;&#xC218; &#xBAA9;&#xB85D; in Octave</a></li>
+</ul>
+</li>
+</ul>
+<p><small><i><a href="http://ecotrust-canada.github.io/markdown-toc/" target="_blank">Table of contents generated with markdown-toc</a></i></small></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="docs/1-introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 1. Introduction">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Machine Learning","level":"1.1","depth":1,"next":{"title":"1. Introduction","level":"2.1","depth":1,"path":"docs/1-introduction.md","ref":"docs/1-introduction.md","articles":[{"title":"1.1. Introduction","level":"2.1.1","depth":2,"path":"docs/1.1-introduction.md","ref":"docs/1.1-introduction.md","articles":[]},{"title":"1.2. Linear Regression with One Variable","level":"2.1.2","depth":2,"path":"docs/1.2-linear-regression-with-one-variable.md","ref":"docs/1.2-linear-regression-with-one-variable.md","articles":[]},{"title":"1.3. Linear Algebra Review","level":"2.1.3","depth":2,"path":"docs/1.3-linear-algebra-review.md","ref":"docs/1.3-linear-algebra-review.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-07-30T14:40:22.139Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T11:49:22.706Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
