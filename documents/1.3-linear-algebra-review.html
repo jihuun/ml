@@ -57,6 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="2-linear-regression-with-multiple-variables.html" />
+    
     
     <link rel="prev" href="1.2-linear-regression-with-one-variable.html" />
     
@@ -167,6 +169,117 @@
     
 
     
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="2-linear-regression-with-multiple-variables.html">
+            
+                <a href="2-linear-regression-with-multiple-variables.html">
+            
+                    
+                    2. Linear Regression with Multiple Variables
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="2.1-multivariate-linear-regression.html">
+            
+                <a href="2.1-multivariate-linear-regression.html">
+            
+                    
+                    2.1. Multivariate Linear Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="2.2-computing-parameters-analytically.html">
+            
+                <a href="2.2-computing-parameters-analytically.html">
+            
+                    
+                    2.2. Computing Parameters Analytically
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="3-logistic-regression-regularization.html">
+            
+                <a href="3-logistic-regression-regularization.html">
+            
+                    
+                    3. Logistic Regression, Regularization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="3.1-logistic-regression.html">
+            
+                <a href="3.1-logistic-regression.html">
+            
+                    
+                    3.1. Logistic Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="3.2-regularization-and-overfitting-problem.html">
+            
+                <a href="3.2-regularization-and-overfitting-problem.html">
+            
+                    
+                    3.2. Regularization and Overfitting problem
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">exercise</li>
+        
+        
+    
+
+    
 
     <li class="divider"></li>
 
@@ -239,14 +352,14 @@ z
 <h4 id="notations">notations</h4>
 <p>4 demensional Vector &#xC774;&#xB2E4;.    </p>
 <ul>
-<li>$A_{ij}$<br>refers to the element in the ith row and jth column of matrix A.    </li>
+<li><script type="math/tex; ">A_{ij}</script><br>refers to the element in the ith row and jth column of matrix A.    </li>
 <li>A vector with &apos;n&apos; rows is referred to as an &apos;n&apos;-dimensional vector.    </li>
-<li>$v_i$<br>refers to the element in the ith row of the vector.    </li>
+<li><script type="math/tex; ">v_i</script><br>refers to the element in the ith row of the vector.    </li>
 <li>In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the arrays are 0-indexed.    </li>
 <li>Matrices are usually denoted by uppercase names while vectors are lowercase.    </li>
 <li>&quot;Scalar&quot; means that an object is a single value, not a vector or matrix.    </li>
-<li>$\mathbb{R}$<br>refers to the set of scalar real numbers.    </li>
-<li>$\mathbb{R^n}$<br>refers to the set of n-dimensional vectors of real numbers.    </li>
+<li><script type="math/tex; ">\mathbb{R}</script><br>refers to the set of scalar real numbers.    </li>
+<li><script type="math/tex; ">\mathbb{R^n}</script><br>refers to the set of n-dimensional vectors of real numbers.    </li>
 </ul>
 <h4 id="octavematlab-commands">Octave/Matlab commands</h4>
 <pre><code class="lang-matlab"><span class="hljs-comment">% The ; denotes we are going back to a new row.    </span>
@@ -291,7 +404,7 @@ add_As = A + s
 <li>&#xC0AC;&#xB840;<br>&#xD589;&#xB82C;&#xACF1;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xBAA8;&#xB4E0; &#xC9D1;&#xAC12;&#xC744; &#xD3B8;&#xD558;&#xAC8C; &#xC608;&#xCE21;&#xD560;&#xC218; &#xC788;&#xB2E4;.  &#xAC01; x&#xBCC0;&#xC218;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; y&#xAC12;&#xC744; &#xD55C;&#xBC88;&#xC5D0; &#xACC4;&#xC0B0;&#xD560; &#xC218; &#xC788;&#xB2E4;.     </li>
 </ul>
 <p><img src="img/mat_mul_ex.png" alt="">    </p>
-<p>Hypothesis function $h_\theta(x) = -40 + 0.25x$ &#xAC00; &#xC788;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD558;&#xACE0; &#xB0B4;&#xAC00; &#xAC00;&#xC9C4; &#xC9D1;&#xD06C;&#xAE30;&#xAC00; &#xC67C;&#xCABD;&#xC758; 4&#xAC1C;&#xC758; &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC744;&#xB54C; &#xAC00;&#xACA9;&#xC744; &#xC608;&#xCE21;&#xD574;&#xBCF4;&#xC790;. &#xD589;&#xB82C;&#xACF1;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xD55C;&#xBC88;&#xC5D0; &#xACC4;&#xC0B0;&#xD560; &#xC218; &#xC788;&#xB2E4;.     </p>
+<p>Hypothesis function <script type="math/tex; ">h_\theta(x) = -40 + 0.25x</script> &#xAC00; &#xC788;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD558;&#xACE0; &#xB0B4;&#xAC00; &#xAC00;&#xC9C4; &#xC9D1;&#xD06C;&#xAE30;&#xAC00; &#xC67C;&#xCABD;&#xC758; 4&#xAC1C;&#xC758; &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC744;&#xB54C; &#xAC00;&#xACA9;&#xC744; &#xC608;&#xCE21;&#xD574;&#xBCF4;&#xC790;. &#xD589;&#xB82C;&#xACF1;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xD55C;&#xBC88;&#xC5D0; &#xACC4;&#xC0B0;&#xD560; &#xC218; &#xC788;&#xB2E4;.     </p>
 <p>&#xC6B0;&#xB9AC;&#xB294; &#xC774;&#xB7F0; &#xC5F0;&#xC0B0;&#xC744; &#xB2E4;&#xB978; &#xBAA8;&#xB378;&#xC5D0;&#xC11C; regression &#xC744; &#xAC1C;&#xBC1C;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xC5F0;&#xC0B0;&#xC790;&#xB85C; &#xC798; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.     </p>
 <h4 id="octavematlab-commands">Octave/Matlab commands</h4>
 <pre><code class="lang-matlab"><span class="hljs-comment">% Initialize matrix A     </span>
@@ -351,7 +464,7 @@ BA = B*A
 </code></pre>
 <h3 id="136-inverse-and-transpose">1.3.6. Inverse and Transpose</h3>
 <ul>
-<li><p>Inverse matrix &#xC5ED;&#xD589;&#xB82C;<br><img src="img/inverse_matrix.png" alt=""><br>The inverse of a matrix A is denoted $A^{-1}$. Multiplying by the inverse results in the identity matrix.    </p>
+<li><p>Inverse matrix &#xC5ED;&#xD589;&#xB82C;<br><img src="img/inverse_matrix.png" alt=""><br>The inverse of a matrix A is denoted <script type="math/tex; ">A^{-1}</script>. Multiplying by the inverse results in the identity matrix.    </p>
 </li>
 <li><p>Transpose matrix &#xC804;&#xCE58;&#xD589;&#xB82C;<br>90&#xB3C4; &#xD68C;&#xC804;&#xB41C; &#xD589;&#xB82C; The transposition of a matrix is like rotating the matrix 90&#xB0; in clockwise direction and then reversing it.<br><img src="img/transpose.png" alt="">    </p>
 </li>
@@ -395,10 +508,14 @@ A_invA = inv(A)*A
 
             
                 
-                <a href="1.2-linear-regression-with-one-variable.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 1.2. Linear Regression with One Variable">
+                <a href="1.2-linear-regression-with-one-variable.html" class="navigation navigation-prev " aria-label="Previous page: 1.2. Linear Regression with One Variable">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="2-linear-regression-with-multiple-variables.html" class="navigation navigation-next " aria-label="Next page: 2. Linear Regression with Multiple Variables">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -407,7 +524,7 @@ A_invA = inv(A)*A
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.3. Linear Algebra Review","level":"2.1.3","depth":2,"previous":{"title":"1.2. Linear Regression with One Variable","level":"2.1.2","depth":2,"path":"documents/1.2-linear-regression-with-one-variable.md","ref":"documents/1.2-linear-regression-with-one-variable.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/1.3-linear-algebra-review.md","mtime":"2019-07-31T12:17:30.044Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T12:26:19.088Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.3. Linear Algebra Review","level":"2.1.3","depth":2,"next":{"title":"2. Linear Regression with Multiple Variables","level":"3.1","depth":1,"path":"documents/2-linear-regression-with-multiple-variables.md","ref":"documents/2-linear-regression-with-multiple-variables.md","articles":[{"title":"2.1. Multivariate Linear Regression","level":"3.1.1","depth":2,"path":"documents/2.1-multivariate-linear-regression.md","ref":"documents/2.1-multivariate-linear-regression.md","articles":[]},{"title":"2.2. Computing Parameters Analytically","level":"3.1.2","depth":2,"path":"documents/2.2-computing-parameters-analytically.md","ref":"documents/2.2-computing-parameters-analytically.md","articles":[]}]},"previous":{"title":"1.2. Linear Regression with One Variable","level":"2.1.2","depth":2,"path":"documents/1.2-linear-regression-with-one-variable.md","ref":"documents/1.2-linear-regression-with-one-variable.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/1.3-linear-algebra-review.md","mtime":"2019-07-31T14:48:24.385Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T14:33:55.714Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
