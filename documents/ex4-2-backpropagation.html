@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.2. Computing Parameters Analytically · GitBook</title>
+        <title>ex4.2 Backpropagation · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="3-logistic-regression-regularization.html" />
+    <link rel="next" href="6-advice-for-applying-machine-learning.html" />
     
     
-    <link rel="prev" href="2.1-multivariate-linear-regression.html" />
+    <link rel="prev" href="ex4-1-neural-networks.html" />
     
 
     </head>
@@ -201,7 +201,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.1.2" data-path="2.2-computing-parameters-analytically.html">
+        <li class="chapter " data-level="3.1.2" data-path="2.2-computing-parameters-analytically.html">
             
                 <a href="2.2-computing-parameters-analytically.html">
             
@@ -376,7 +376,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2.2" data-path="ex4-2-backpropagation.html">
+        <li class="chapter active" data-level="5.2.2" data-path="ex4-2-backpropagation.html">
             
                 <a href="ex4-2-backpropagation.html">
             
@@ -456,7 +456,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.2. Computing Parameters Analytically</a>
+        <a href=".." >ex4.2 Backpropagation</a>
     </h1>
 </div>
 
@@ -484,36 +484,83 @@
 <script> MathJax.Hub.Queue(["Typeset",MathJax.Hub]); </script>
 
 
-<h2 id="22-computing-parameters-analytically">2.2. Computing Parameters Analytically</h2>
+
+<h2 id="ex4-2-backpropagation">ex4-2 Backpropagation</h2>
 <hr>
-<h3 id="221-normal-equation">2.2.1. Normal Equation</h3>
-<p>Normal Equation&#xC740; &#xCD5C;&#xC801;&#xC758; <script type="math/tex; ">\theta</script> &#xB97C; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB294; &#xB610;&#xB2E4;&#xB978; &#xBC29;&#xBC95;&#xC774;&#xB2E4;.  gradient descent &#xC640;&#xB294; &#xB2E4;&#xB978; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xAC01;&#xAC01; &#xC7A5;/&#xB2E8;&#xC810;&#xC774; &#xC788;&#xB2E4;.     </p>
-<p>Normal Equation&#xC740; <script type="math/tex; ">\theta</script> &#xB97C; &#xBC18;&#xBCF5;&#xACC4;&#xC0B0; &#xC5C6;&#xC774; &#xACF5;&#xC2DD;&#xD558;&#xB098;&#xB85C; &#xD55C;&#xBC88;&#xC5D0; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB2E4;.<br>&#xB2E4;&#xC74C;&#xC758; training set&#xC744; &#xBCF4;&#xC790;.     </p>
-<p><img src="img/ne.png" alt="">    </p>
-<blockquote>
-<p>4&#xAC1C;&#xC758; feature&#xAC00; &#xC788;&#xACE0; &#xACB0;&#xACFC;&#xAC00; &#xC788;&#xB2E4;. &#xC774;&#xAC83;&#xC744; &#xAC01;&#xAC01; X matrix&#xC640; y &#xBCA1;&#xD130;&#xB85C; &#xBCF5;&#xC0AC;&#xD55C;&#xB2E4;. &#xACC4;&#xC0B0;&#xC758; &#xD3B8;&#xC758;&#xB97C; &#xC704;&#xD574;  1&#xC744; &#xAC16;&#xB294; <script type="math/tex; ">x_0</script> &#xC5F4;&#xC774; &#xCD94;&#xAC00;&#xB418;&#xC5C8;&#xC74C;&#xC5D0; &#xC720;&#xC758;. &#xC774;&#xAC83;&#xC744;&#xAC00;&#xC9C0;&#xB3C4; &#xC544;&#xB798; Normal Equation &#xACF5;&#xC2DD;&#xC5D0; &#xB300;&#xC785;&#xD574; &#xACC4;&#xC0B0;&#xD558;&#xBA74; &#xBC14;&#xB85C; <script type="math/tex; ">\theta</script>&#xB97C; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB2E4;!    </p>
-</blockquote>
-<p><script type="math/tex; ">  
-\theta = (X^TX)^{-1}X^Ty    
-</script>  </p>
-<p>&#xC774;&#xB807;&#xAC8C; &#xACC4;&#xC0B0;&#xB41C; <script type="math/tex; ">\theta</script> &#xB294; cost function J&#xB97C; &#xCD5C;&#xC18C;&#xD654;&#xD558;&#xB294; &#xAC12;&#xC774;&#xB2E4;.     </p>
-<p><img src="img/ne2.png" alt="">    </p>
-<p>&#xB9CC;&#xC57D; <script type="math/tex; ">i</script>&#xBC88;&#xC9F8; &#xD558;&#xB098;&#xC758; training data&#xAC00; &#xC704;&#xC758; <script type="math/tex; ">x^{(i)}</script> &#xCC98;&#xB7FC; n + 1 &#xD06C;&#xAE30;&#xC758; &#xBCA1;&#xD130;&#xB85C; &#xC8FC;&#xC5B4;&#xC9C4;&#xB2E4;&#xBA74;, &#xC774;&#xAC83;&#xC73C;&#xB85C; &#xC6B0;&#xCE21;&#xACFC; &#xAC19;&#xC774; Design Matrix X&#xB97C; &#xB9CC;&#xB4E0;&#xB2E4;. (&#xACB0;&#xAD6D; &#xC774;&#xC804; &#xC608;&#xC2DC;&#xCC98;&#xB7FC; &#xD14C;&#xC774;&#xBE14;&#xC744; &#xADF8;&#xB300;&#xB85C; matrix&#xC5D0; &#xBCF5;&#xC0AC;&#xD55C;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD55C; &#xAD6C;&#xC131;&#xC784;)    </p>
-<p>&#xB354; &#xAC04;&#xB2E8;&#xD55C; &#xC608;&#xB97C;&#xB4E4;&#xBA74; &#xC544;&#xB798;&#xC640; &#xAC19;&#xB2E4;.<br><img src="img/ne3.png" alt="">    </p>
-<p><script type="math/tex; ">\theta</script> &#xB97C; &#xAD6C;&#xD558;&#xB294; Octave &#xBA85;&#xB839;&#xC5B4;    </p>
-<pre><code class="lang-matlab">pinv(X&apos;*X)*X&apos;*y
+<h3 id="1-sigmoid-gradient">1. sigmoid gradient</h3>
+<pre><code class="lang-matlab">gz = sigmoid(z);  
+g = gz .* (<span class="hljs-number">1</span> - gz);
 </code></pre>
-<p>&#xBC18;&#xBCF5; &#xACC4;&#xC0B0;&#xB3C4; &#xD544;&#xC694;&#xC5C6;&#xACE0; &#xC801;&#xC808;&#xD55C; <script type="math/tex; ">\alpha</script>&#xB97C; &#xCC3E;&#xC544;&#xC57C;&#xD558;&#xB294; &#xC218;&#xACE0;&#xAC00; &#xC5C6;&#xB2E4;. &#xB610;&#xD55C; Feature scaling&#xB3C4; &#xD544;&#xC694;&#xC5C6;&#xB2E4;. <del>&#xC774;&#xB807;&#xAC8C; &#xC88B;&#xC740; &#xBC29;&#xBC95;&#xC774; &#xC788;&#xB2E4;&#xB2C8;?</del><br>&#xADF8;&#xB7EC;&#xB098; &#xACB0;&#xB860;&#xC801;&#xC73C;&#xB85C;Normal Equation&#xC5D0; &#xB9E4;&#xC6B0; &#xCE58;&#xBA85;&#xC801;&#xC778; &#xB2E8;&#xC810;&#xC774; &#xC788;&#xB2E4;. n(feature&#xAC2F;&#xC218;)&#xAC00; &#xC5C4;&#xCCAD; &#xCEE4;&#xC9C0;&#xBA74; Normal Equation&#xC740; &#xBABB;&#xC4F4;&#xB2E4;. &#xBCF5;&#xC7A1;&#xB3C4;&#xAC00; <script type="math/tex; ">O(n^3)</script> &#xC73C;&#xB85C; &#xC5F0;&#xC0B0;&#xC18D;&#xB3C4;&#xAC00; &#xC5C4;&#xCCAD;&#xB098;&#xAC8C; &#xB290;&#xB824;&#xC9C0;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;.     </p>
-<p>Gradient descent &#xC640; Normal equation&#xC744; &#xBE44;&#xAD50;&#xD558;&#xBA74; &#xC544;&#xB798;&#xC640; &#xAC19;&#xB2E4;.<br><img src="img/ne34.png" alt="">    </p>
-<p>&#xBCF4;&#xD1B5; n=10000 &#xC815;&#xB3C4;&#xAE4C;&#xC9C0;&#xB294; Normal equations&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xB3C4; &#xAD1C;&#xCC2E;&#xB2E4;&#xACE0; &#xD55C;&#xB2E4;. &#xD604;&#xB300; &#xCEF4;&#xD4E8;&#xD305; &#xD30C;&#xC6CC;&#xB85C; &#xC774;&#xC815;&#xB3C4;&#xACC4;&#xC0B0; &#xAE4C;&#xC9C0;&#xB294; &#xC2E4;&#xC6A9;&#xC801;&#xC778; &#xC18D;&#xB3C4;&#xB97C; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xB2E4;.     </p>
-<h3 id="222-normal-equation-noninvertibility">2.2.2. Normal Equation Noninvertibility</h3>
-<p>&#xC5ED;&#xD589;&#xB82C;&#xC774; &#xC5C6;&#xB294; Normal Equation&#xC740; &#xC5B4;&#xB5BB;&#xAC8C; &#xAD6C;&#xD574;&#xC57C;&#xD560;&#xAE4C;?<br><script type="math/tex; ">  
-\theta = (X^TX)^{-1}X^Ty    
-</script><br><script type="math/tex; ">X^TX</script> &#xAC00; &#xC5ED;&#xD589;&#xB82C;&#xC774; &#xC5C6;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;.     </p>
-<p>&#xB2E4;&#xC74C;&#xC758; &#xB450;&#xAC00;&#xC9C0; &#xACBD;&#xC6B0;&#xC5D0; <script type="math/tex; ">X^TX</script> &#xC5D0; &#xC5ED;&#xD589;&#xB82C;&#xC774; &#xC5C6;&#xB2E4;.<br><img src="img/ne5.png" alt="">    </p>
-<blockquote>
-<p>1&#xBC88;&#xC740; &#xAC01; feature&#xAC00; <script type="math/tex; ">x_1 = (3.28)^2x_2</script> &#xCC98;&#xB7FC; &#xC120;&#xD615;&#xC801;&#xC73C;&#xB85C; &#xC885;&#xC18D;&#xC801;&#xC778; &#xAD00;&#xACC4;&#xC77C;&#xB54C;&#xC774;&#xB2E4;. &#xC774;&#xB7F4;&#xB550; &#xB458; &#xC911; &#xD55C;feature&#xB97C; &#xC81C;&#xAC70;&#xD574;&#xB3C4; &#xB41C;&#xB2E4;.<br>&#xB450;&#xBC88;&#xC9F8;&#xB294; &#xD53C;&#xCCD0;&#xAC2F;&#xC218;(n)&#xC774; training set&#xAC2F;&#xC218;(m)&#xBCF4;&#xB2E4; &#xB9CE;&#xC744;&#xB54C;&#xC774;&#xB2E4;. &#xC774;&#xB7F4;&#xB550; &#xC5B4;&#xB5A4; feature&#xB4E4;&#xC744; &#xC9C0;&#xC6B0;&#xAC70;&#xB098;, regularization&#xAE30;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;.      </p>
-</blockquote>
+<h3 id="2-random-initialization">2. Random initialization</h3>
+<pre><code class="lang-matlab">epsilon_init = <span class="hljs-number">0.12</span>;  
+W = <span class="hljs-built_in">rand</span>(L_out, <span class="hljs-number">1</span> + L_in) * <span class="hljs-number">2</span> * epsilon_init - epsilon_init;
+</code></pre>
+<h3 id="3-backpropagation">3. Backpropagation</h3>
+<pre><code class="lang-matlab">
+<span class="hljs-comment">% -------------------------------------------------------------  </span>
+<span class="hljs-comment">% Part 2: Implement the backpropagation algorithm to compute the gradients  </span>
+<span class="hljs-comment">%         Theta1_grad and Theta2_grad. You should return the partial derivatives of  </span>
+<span class="hljs-comment">%         the cost function with respect to Theta1 and Theta2 in Theta1_grad and  </span>
+<span class="hljs-comment">%         Theta2_grad, respectively. After implementing Part 2, you can check  </span>
+<span class="hljs-comment">%         that your implementation is correct by running checkNNGradients  </span>
+<span class="hljs-comment">%  </span>
+<span class="hljs-comment">%         Note: The vector y passed into the function is a vector of labels  </span>
+<span class="hljs-comment">%               containing values from 1..K. You need to map this vector into a   </span>
+<span class="hljs-comment">%               binary vector of 1&apos;s and 0&apos;s to be used with the neural network  </span>
+<span class="hljs-comment">%               cost function.  </span>
+<span class="hljs-comment">%  </span>
+<span class="hljs-comment">%         Hint: We recommend implementing backpropagation using a for-loop  </span>
+<span class="hljs-comment">%               over the training examples if you are implementing it for the   </span>
+<span class="hljs-comment">%               first time.  </span>
+
+<span class="hljs-keyword">for</span> t=<span class="hljs-number">1</span>:m  
+    <span class="hljs-comment">% 1. feedforward   </span>
+    a_1 = X(t,:)&apos;;        <span class="hljs-comment">% t-th training set x^t  </span>
+                <span class="hljs-comment">% a_1: (401)x1  </span>
+    z_2 = (Theta1 * a_1);    <span class="hljs-comment">% theta1: 25x401  </span>
+    a_2 = sigmoid(z_2);    <span class="hljs-comment">% z_2: 25x1   </span>
+
+    a_2 = [<span class="hljs-number">1</span> ; a_2];    <span class="hljs-comment">% a_2: (25+1)x1  </span>
+    z_3 = (Theta2 * a_2);    <span class="hljs-comment">% theta2: 10x26   </span>
+    a_3 = sigmoid(z_3);    <span class="hljs-comment">% a_3: 10x1  </span>
+
+    <span class="hljs-comment">% 2. delta of output unit  </span>
+    d_3 = a_3 - Y(t,:)&apos;;    <span class="hljs-comment">% d_3: 10x1  </span>
+    <span class="hljs-comment">% 3. delta of hidden layer l=2  </span>
+    z_2 = [<span class="hljs-number">1</span> ; z_2];                <span class="hljs-comment">% z_2: (25+1)x1  </span>
+    d_2 = (Theta2&apos; * d_3) .* sigmoidGradient(z_2);    <span class="hljs-comment">% d_2: 26x1  </span>
+    <span class="hljs-comment">% 4. accumulate gradient   </span>
+    d_2 = d_2(<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>);                <span class="hljs-comment">% d_2: (26-1)x1  </span>
+    Theta2_grad = Theta2_grad + d_3 * a_2&apos;;        <span class="hljs-comment">% 10x1 * 1x26  </span>
+    Theta1_grad = Theta1_grad + d_2 * a_1&apos;;        <span class="hljs-comment">% 25x1 * 1x401  </span>
+<span class="hljs-keyword">end</span>  
+
+<span class="hljs-comment">% 5. obtain final gredient  </span>
+Theta2_grad = Theta2_grad ./ m;  
+Theta1_grad = Theta1_grad ./ m;
+</code></pre>
+<h3 id="4-regularizaed-neural-networks">4. Regularizaed Neural networks</h3>
+<pre><code class="lang-matlab">
+<span class="hljs-comment">% -------------------------------------------------------------  </span>
+<span class="hljs-comment">% Part 3: Implement regularization with the cost function and gradients.  </span>
+<span class="hljs-comment">%  </span>
+<span class="hljs-comment">%         Hint: You can implement this around the code for  </span>
+<span class="hljs-comment">%               backpropagation. That is, you can compute the gradients for  </span>
+<span class="hljs-comment">%               the regularization separately and then add them to Theta1_grad  </span>
+<span class="hljs-comment">%               and Theta2_grad from Part 2.  </span>
+<span class="hljs-comment">%  </span>
+
+Theta2_grad(:,<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>) = Theta2_grad(:,<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>) + (lambda/m)*Theta2(:,<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>);  
+Theta1_grad(:,<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>) = Theta1_grad(:,<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>) + (lambda/m)*Theta1(:,<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>);  
+
+Theta2_grad(:,<span class="hljs-number">1</span>) = Theta2_grad(:,<span class="hljs-number">1</span>);  
+Theta1_grad(:,<span class="hljs-number">1</span>) = Theta1_grad(:,<span class="hljs-number">1</span>);
+</code></pre>
+<h2 id="ex4m">ex4.m</h2>
+<hr>
+<p>&#xC704;&#xC5D0;&#xC11C; &#xAD6C;&#xD604;&#xD55C; costFunction &#xC744; &#xAC00;&#xC9C0;&#xACE0; fmincg &#xB3CC;&#xB9AC;&#xBA74; <script type="math/tex; ">\Theta</script> &#xAD6C;&#xD574;&#xC9D0;.   </p>
+<pre><code class="lang-matlab">[nn_params, cost] = fmincg(costFunction, initial_nn_params, options);
+</code></pre>
 
                                 
                                 </section>
@@ -541,12 +588,12 @@
 
             
                 
-                <a href="2.1-multivariate-linear-regression.html" class="navigation navigation-prev " aria-label="Previous page: 2.1. Multivariate Linear Regression">
+                <a href="ex4-1-neural-networks.html" class="navigation navigation-prev " aria-label="Previous page: ex4.1 : neural networks">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="3-logistic-regression-regularization.html" class="navigation navigation-next " aria-label="Next page: 3. Logistic Regression, Regularization">
+                <a href="6-advice-for-applying-machine-learning.html" class="navigation navigation-next " aria-label="Next page: 6. Advice for Applying Machine Learning">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -557,7 +604,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.2. Computing Parameters Analytically","level":"3.1.2","depth":2,"next":{"title":"3. Logistic Regression, Regularization","level":"4.1","depth":1,"path":"documents/3-logistic-regression-regularization.md","ref":"documents/3-logistic-regression-regularization.md","articles":[{"title":"3.1. Logistic Regression","level":"4.1.1","depth":2,"path":"documents/3.1-logistic-regression.md","ref":"documents/3.1-logistic-regression.md","articles":[]},{"title":"3.2. Regularization and Overfitting problem","level":"4.1.2","depth":2,"path":"documents/3.2-regularization-and-overfitting-problem.md","ref":"documents/3.2-regularization-and-overfitting-problem.md","articles":[]},{"title":"ex2.1: Logistic Regression","level":"4.1.3","depth":2,"path":"documents/ex2.1-logistic-regression.md","ref":"documents/ex2.1-logistic-regression.md","articles":[]},{"title":"ex2.2: Regularized Logistic Regression","level":"4.1.4","depth":2,"path":"documents/ex2.2-regularized-logistic-regression.md","ref":"documents/ex2.2-regularized-logistic-regression.md","articles":[]}]},"previous":{"title":"2.1. Multivariate Linear Regression","level":"3.1.1","depth":2,"path":"documents/2.1-multivariate-linear-regression.md","ref":"documents/2.1-multivariate-linear-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/2.2-computing-parameters-analytically.md","mtime":"2019-07-31T14:43:28.023Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:16:55.327Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex4.2 Backpropagation","level":"5.2.2","depth":2,"next":{"title":"6. Advice for Applying Machine Learning","level":"5.3","depth":1,"path":"documents/6-advice-for-applying-machine-learning.md","ref":"documents/6-advice-for-applying-machine-learning.md","articles":[{"title":"ex5","level":"5.3.1","depth":2,"path":"documents/ex5.md","ref":"documents/ex5.md","articles":[]}]},"previous":{"title":"ex4.1 : neural networks","level":"5.2.1","depth":2,"path":"documents/ex4-1-neural-networks.md","ref":"documents/ex4-1-neural-networks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex4-2-backpropagation.md","mtime":"2019-08-01T11:13:35.849Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:16:55.327Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

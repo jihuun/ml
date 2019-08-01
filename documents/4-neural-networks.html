@@ -1,0 +1,700 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4. Neural Networks · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ex3-1-multi-class-classification.html" />
+    
+    
+    <link rel="prev" href="ex2.2-regularized-logistic-regression.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1-introduction.html">
+            
+                <a href="1-introduction.html">
+            
+                    
+                    1. Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="1.1-introduction.html">
+            
+                <a href="1.1-introduction.html">
+            
+                    
+                    1.1. Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="1.2-linear-regression-with-one-variable.html">
+            
+                <a href="1.2-linear-regression-with-one-variable.html">
+            
+                    
+                    1.2. Linear Regression with One Variable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="1.3-linear-algebra-review.html">
+            
+                <a href="1.3-linear-algebra-review.html">
+            
+                    
+                    1.3. Linear Algebra Review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="2-linear-regression-with-multiple-variables.html">
+            
+                <a href="2-linear-regression-with-multiple-variables.html">
+            
+                    
+                    2. Linear Regression with Multiple Variables
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="2.1-multivariate-linear-regression.html">
+            
+                <a href="2.1-multivariate-linear-regression.html">
+            
+                    
+                    2.1. Multivariate Linear Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="2.2-computing-parameters-analytically.html">
+            
+                <a href="2.2-computing-parameters-analytically.html">
+            
+                    
+                    2.2. Computing Parameters Analytically
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="3-logistic-regression-regularization.html">
+            
+                <a href="3-logistic-regression-regularization.html">
+            
+                    
+                    3. Logistic Regression, Regularization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="3.1-logistic-regression.html">
+            
+                <a href="3.1-logistic-regression.html">
+            
+                    
+                    3.1. Logistic Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="3.2-regularization-and-overfitting-problem.html">
+            
+                <a href="3.2-regularization-and-overfitting-problem.html">
+            
+                    
+                    3.2. Regularization and Overfitting problem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="ex2.1-logistic-regression.html">
+            
+                <a href="ex2.1-logistic-regression.html">
+            
+                    
+                    ex2.1: Logistic Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="ex2.2-regularized-logistic-regression.html">
+            
+                <a href="ex2.2-regularized-logistic-regression.html">
+            
+                    
+                    ex2.2: Regularized Logistic Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter active" data-level="5.1" data-path="4-neural-networks.html">
+            
+                <a href="4-neural-networks.html">
+            
+                    
+                    4. Neural Networks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="ex3-1-multi-class-classification.html">
+            
+                <a href="ex3-1-multi-class-classification.html">
+            
+                    
+                    ex3.1 Multi-class classification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="ex3-2-neural-networks.html">
+            
+                <a href="ex3-2-neural-networks.html">
+            
+                    
+                    ex3.2 Neural Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="5-neural-networks-learning.html">
+            
+                <a href="5-neural-networks-learning.html">
+            
+                    
+                    5. Neural Networks: Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="ex4-1-neural-networks.html">
+            
+                <a href="ex4-1-neural-networks.html">
+            
+                    
+                    ex4.1 : neural networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="ex4-2-backpropagation.html">
+            
+                <a href="ex4-2-backpropagation.html">
+            
+                    
+                    ex4.2 Backpropagation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="6-advice-for-applying-machine-learning.html">
+            
+                <a href="6-advice-for-applying-machine-learning.html">
+            
+                    
+                    6. Advice for Applying Machine Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.3.1" data-path="ex5.html">
+            
+                <a href="ex5.html">
+            
+                    
+                    ex5
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >4. Neural Networks</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ]
+    }
+    });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> 
+</script>
+
+<script> MathJax.Hub.Queue(["Typeset",MathJax.Hub]); </script>
+
+
+<h1 id="4-neural-networks">4. Neural Networks</h1>
+<hr>
+<h2 id="41-&#xBC30;&#xACBD;">4.1. &#xBC30;&#xACBD;</h2>
+<hr>
+<p>&#xC774;&#xBBF8; linear regression, logistic regression&#xC774; &#xAE30;&#xACC4;&#xD559;&#xC2B5;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xACE0; &#xC788;&#xB294;&#xB370;, &#xC2E0;&#xACBD;&#xB9DD; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC740; &#xC65C; &#xD544;&#xC694;&#xD560;&#xAE4C;?  </p>
+<p><img src="img/nn1.png" alt=""><br>feature&#xAC00; &#xB298;&#xC5B4;&#xB0A0;&#xC218;&#xB85D; Polynomial &#xD56D;&#xB4E4;&#xC740; &#xAE30;&#xD558;&#xAE09;&#xC218;&#xC801;&#xC73C;&#xB85C; &#xB298;&#xC5B4;&#xB09C;&#xB2E4;. &#xC5F0;&#xC0B0;&#xC18D;&#xB3C4;&#xB098; &#xBCF5;&#xC7A1;&#xB3C4;&#xB4F1;&#xC774; &#xB9E4;&#xC6B0; &#xB192;&#xC544;&#xC9C4;&#xB2E4;. feature&#xAC00; &#xB298;&#xC5B4;&#xB0A0;&#xB54C;, &#xBE44;&#xC120;&#xD615;&#xC801; &#xC694;&#xC18C;&#xB97C; &#xACC4;&#xC18D; &#xCD94;&#xAC00;&#xD558;&#xB294;&#xAC83;&#xC740; &#xC88B;&#xC9C0; &#xC54A;&#xB2E4;.   </p>
+<p>logistic regression&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xC790;&#xB3D9;&#xCC28;&#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0; &#xBD84;&#xB958;&#xD558;&#xB294; non-linear boundary classification &#xC608;&#xB97C; &#xC0B4;&#xD3B4;&#xBCF4;&#xC790;.  </p>
+<p><img src="img/nn2.png" alt=""><br>&#xC704;,&#xADF8;&#xB9BC;&#xACFC; &#xAC19;&#xC774; &#xCEF4;&#xD4E8;&#xD130; &#xBE44;&#xC804; &#xBB38;&#xC81C;&#xB294; &#xACB0;&#xAD6D; &#xD53D;&#xC140;&#xC758; &#xBC1D;&#xAE30;&#xB4F1;&#xC758; &#xC815;&#xBCF4;&#xC5D0; &#xB300;&#xD55C; matrix&#xB97C; &#xB2E4;&#xB8E8;&#xB294; &#xAC83;&#xC774;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0;&#xC774; &#xC774;&#xBBF8;&#xC9C0;&#xC5D0;&#xC11C; &#xC6B0;&#xB9AC;&#xAC00; &#xD574;&#xACB0;&#xD560;&#xAC83;&#xC740; &#xACB0;&#xAD6D; &#xC774; matrix&#xB97C; &#xBCF4;&#xACE0; &#xC774; &#xC22B;&#xC790;&#xB4E4;&#xC774; &#xC790;&#xB3D9;&#xCC28;&#xC758; &#xC190;&#xC7A1;&#xC774;&#xB97C; &#xB098;&#xD0C0;&#xB0B8;&#xB2E4;&#xACE0; &#xB9D0;&#xD574;&#xC918;&#xC57C;&#xD55C;&#xB2E4;.   </p>
+<p><img src="img/nn3.png" alt=""><br>&#xB2E4;&#xC2DC; &#xC790;&#xB3D9;&#xCC28;&#xB85C; &#xB3CC;&#xC544;&#xC640;&#xC11C;, &#xB450;&#xAC1C;&#xC758; &#xD53D;&#xC140; &#xC704;&#xCE58;&#xB97C; &#xC120;&#xC815;&#xD574;&#xC11C; &#xC0C9;&#xAE54;&#xC744; &#xAC12;&#xC744; plotting&#xD55C;&#xB2E4;&#xACE0; &#xD574;&#xBCF4;&#xC790;. &#xC989; feature&#xAC00; 2&#xAC1C;&#xB2E4;. &#xADF8;&#xB807;&#xAC8C; &#xC5EC;&#xB7EC;&#xC885;&#xB958;&#xC758; &#xC0AC;&#xC9C4;&#xC744; plot&#xD574;&#xBCF4;&#xBA74; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC740; &#xD615;&#xD0DC;&#xAC00; &#xB420; &#xAC83;&#xC774;&#xB2E4;.   </p>
+<p><img src="img/nn4.png" alt=""><br>&#xB9CC;&#xC57D; 50x50 &#xD53D;&#xC140; &#xC774;&#xBBF8;&#xC9C0;&#xAC00; &#xC788;&#xACE0; &#xBAA8;&#xB4E0; &#xD53D;&#xC140;&#xC744; feature&#xB85C; &#xC120;&#xD0DD;&#xD55C;&#xB2E4;&#xBA74; feature&#xAC2F;&#xC218;&#xAC00; &#xBB34;&#xB824; 2500&#xAC1C;&#xB2E4;. &#xB9CC;&#xC5D0;&#xD558;&#xB098; Quadratic feature(<script type="math/tex; ">x_i \times x_j</script>)&#xB77C;&#xB3C4; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;&#xBA74; 300&#xB9CC;&#xAC1C;&#xAC00; &#xB118;&#xC744; &#xAC83;&#xC774;&#xB2E4;. feature&#xAC2F;&#xC218;&#xAC00; &#xC99D;&#xAC00;&#xD558;&#xBA74; &#xC5F0;&#xC0B0;&#xB7C9;&#xBFD0;&#xB9CC; &#xC544;&#xB2C8;&#xB77C; overfitting&#xC758; &#xAC00;&#xB2A5;&#xC131;&#xB3C4; &#xB192;&#xC544;&#xC9C4;&#xB2E4;.   </p>
+<p>&#xACB0;&#xAD6D; n&#xC774; &#xC5C4;&#xCCAD; &#xD074;&#xB54C; &#xBCF5;&#xC7A1;&#xD55C; &#xBE44;&#xC120;&#xD615; &#xAC00;&#xC124;&#xC744; &#xD559;&#xC2B5;&#xD558;&#xB294;&#xB370; &#xB2E8;&#xC21C;&#xD788; logistic regression&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xAC83;&#xC740; &#xC801;&#xD569;&#xD558;&#xC9C0; &#xC54A;&#xB2E4;. &#xBCF5;&#xC7A1;&#xD55C; &#xAC00;&#xC124;&#xACFC; &#xBCF5;&#xC7A1;&#xD55C; &#xBE44;&#xC120;&#xD615; &#xAC00;&#xC124;&#xC5D0;&#xC11C;&#xB3C4;, n&#xC774; &#xD074;&#xB54C;&#xB3C4; Neural Networks&#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xD1B5;&#xD558;&#xBA74; &#xC774;&#xBB38;&#xC81C;&#xB97C; &#xC880;&#xB354; &#xC27D;&#xAC8C; &#xD574;&#xACB0;&#xD560; &#xC218;&#xC788;&#xB2E4;.   </p>
+<p>&#xACB0;&#xB860;: complex non-linear hypothesis&#xB97C; &#xAD6C;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;!  </p>
+<h2 id="42-&#xC9C0;&#xB09C;-&#xB0B4;&#xC6A9;-remind">4.2. &#xC9C0;&#xB09C; &#xB0B4;&#xC6A9; remind</h2>
+<hr>
+<ul>
+<li>Logistic regression&#xC5D0;&#xC11C; <script type="math/tex; ">\theta^Tx</script> &#xC758; &#xC758;&#xBBF8;&#xB294; &#xBB34;&#xC5C7;&#xC778;&#xAC00;?<br>&#xBAA8;&#xB4E0; input feature  <script type="math/tex; ">x_0</script>, <script type="math/tex; ">x_1</script>, ..., <script type="math/tex; ">x_n</script> &#xC5D0; &#xAC01;&#xAC01; &#xAC00;&#xC911;&#xCE58;  <script type="math/tex; ">\theta</script> (parameter &#xB610;&#xB294; weight) &#xB97C; &#xACE0;&#xB824;&#xD55C; &#xC218;&#xCE58;. &#xADF8;&#xB807;&#xAC8C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9C4; <script type="math/tex; ">\theta^Tx</script> &#xB294; &#xACB0;&#xAD6D; <strong>Decision boundary &#xACBD;&#xACC4;&#xC120;</strong>&#xC744; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;.   </li>
+</ul>
+<h2 id="43-neuron-model-logistic-unit">4.3. Neuron model: Logistic Unit</h2>
+<hr>
+<p><img src="img/nn5.png" alt="">  </p>
+<p>&#xB274;&#xB7F0; &#xC138;&#xD3EC;&#xB294; input(&#xC218;&#xC0C1;&#xB3CC;&#xAE30;, dendrites)&#xACFC; output(&#xCD95;&#xC0AD;&#xB3CC;&#xAE30;, axon)&#xC774; &#xC788;&#xC73C;&#xBA70; &#xC774;&#xAC83;&#xC744; &#xC704;&#xC640; &#xAC19;&#xC774; &#xC218;&#xD559;&#xC801; &#xBAA8;&#xB378;&#xB85C; &#xB098;&#xD0C0;&#xB0BC; &#xC218; &#xC788;&#xB2E4;.  <script type="math/tex; ">x_1</script>,<script type="math/tex; ">x_2</script>,<script type="math/tex; ">x_3</script>&#xB294; input wire&#xB85C; &#xC5F0;&#xACB0;&#xB418;&#xC5B4;&#xC788;&#xACE0; &#xAC00;&#xC6B4;&#xB370; &#xC6D0;&#xC740; &#xC138;&#xD3EC;&#xB77C;&#xACE0; &#xBCFC;&#xC218; &#xC788;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0;  <script type="math/tex; ">h_\theta(x)</script> &#xB85C; &#xD5A5;&#xD558;&#xB294;&#xAC83;&#xC774; output wire&#xC774;&#xB2E4;.  <script type="math/tex; ">h_\theta(x)</script> &#xB294; Logistic regression&#xC758; &#xAC00;&#xC124;&#xD568;&#xC218;&#xC640; &#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;&#xB85C;, Sigmoid &#xD568;&#xC218; <script type="math/tex; ">g(x)</script>&#xC758; &#xD615;&#xD0DC;&#xB97C; &#xB748;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; feature  <script type="math/tex; ">x</script>&#xC640;  <script type="math/tex; ">\theta</script> &#xBCA1;&#xD130;&#xAC00; &#xC788;&#xB2E4;.  <script type="math/tex; ">\theta</script>&#xB294; Weight(&#xAC00;&#xC911;&#xCE58;)&#xB77C;&#xACE0; &#xD45C;&#xD604;&#xD55C;&#xB2E4;. &#xC6B0;&#xB9AC;&#xAC00; &#xC9C0;&#xAE08;&#xAE4C;&#xC9C0; Parameter&#xB77C;&#xACE0; &#xBD88;&#xB800;&#xB358;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;.  <script type="math/tex; ">x_0</script>&#xB294; bias unit&#xC774;&#xB77C;&#xACE0; &#xD45C;&#xD604;&#xD558;&#xBA70; &#xD56D;&#xC0C1; 1&#xC758; &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xBBC0;&#xB85C; &#xAD73;&#xC774; &#xB098;&#xD0C0;&#xB0B4;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB41C;&#xB2E4;.<br>&#xC774;&#xAC83;&#xC774; &#xD558;&#xB098;&#xC758; &#xB274;&#xB7F0;&#xC744; &#xB098;&#xD0C0;&#xB0B8; &#xB2E4;&#xC774;&#xC5B4;&#xADF8;&#xB7A8;&#xC774;&#xB2E4;.   </p>
+<ul>
+<li>NN &#xC5D0;&#xC11C; <script type="math/tex; ">a_i^j</script> &#xC758; &#xC758;&#xBBF8;&#xB294; &#xBB34;&#xC5C7;&#xC778;&#xAC00;?<br>&#xB3D9;&#xC77C;&#xD55C; feature&#xC5D0; i&#xB9C8;&#xB2E4; &#xC11C;&#xB85C;&#xB2E4;&#xB978; &#xAC00;&#xC911;&#xCE58;&#xB97C; &#xACF1;&#xD574; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9C4; Decision boundary &#xAE30;&#xC900;&#xC73C;&#xB85C; &#xC5B4;&#xB5A4; side&#xC5D0; &#xC704;&#xCE58;&#xD574; &#xC788;&#xB294;&#xC9C0; 0, 1&#xB85C; (&#xD639;&#xC740; &#xD655;&#xB960;&#xAC12;)&#xC73C;&#xB85C; &#xACB0;&#xACFC;&#xB97C; &#xC8FC;&#xB294; &#xD568;&#xC218; <script type="math/tex; ">g(z)</script>. &#xC704; &#xADF8;&#xB9BC;&#xC5D0;&#xC11C; <script type="math/tex; ">a_1^{(2)}</script> &#xB294; &#xD558;&#xB098;&#xC758; &#xAE30;&#xC900; (<script type="math/tex; ">\theta_1^{(1)}</script>)&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC815;&#xD55C; &#xD558;&#xB098;&#xC758; &quot;&#xBD84;&#xB958;&quot;   <script type="math/tex; ">a_2^{(2)}</script> &#xB3C4; &#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;&#xB85C; &#xB610;&#xB2E4;&#xB978; &#xAE30;&#xC900;&#xC744; &#xC801;&#xC6A9;&#xD55C; &#xBD84;&#xB958;&#xC774;&#xB2E4;. &#xBAA8;&#xB450; &#xB3D9;&#xC77C;&#xD55C; feature&#xC5D0; &#xC11C;&#xB85C;&#xB2E4;&#xB978; &#xAE30;&#xC900;(&#xAC00;&#xC911;&#xCE58;)&#xB97C; &#xBC18;&#xC601;&#xD574; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9C4;&#xAC83;&#xC774;&#xB2E4;.<br>&#xD558;&#xB098;&#xC758; logistic regression&#xC740; &#xD558;&#xB098;&#xC758; decision boundary&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB2E4;. &#xD558;&#xB098;&#xC758; logistic regression &#xC758; hypothesis&#xC778; <script type="math/tex; ">a_i^j</script> &#xB294; &#xACE0;&#xC720;&#xC758; decision boundary&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294;&#xAC83;&#xC774;&#xACE0;, &#xACB0;&#xAD6D; NN&#xC5D0;&#xC11C;&#xB294; &#xCE35;(layer)&#xBCC4;&#xB85C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; desicion boundary&#xB4E4;&#xC744; &#xAE30;&#xC900;&#xC73C;&#xB85C; &#xCD94;&#xC0C1;&#xD654; &#xC2DC;&#xCF1C;&#xC11C; &#xB610;&#xB2E4;&#xB978; desicion boundary &#xB97C; &#xC0DD;&#xC131;&#xC2DC;&#xD0A4;&#xB294; &#xAC83;&#xC774;&#xB2E4;. &#xD55C;&#xB9C8;&#xB514;&#xB85C; &#xCE35;&#xBCC4;&#xB85C; &#xC0C8;&#xB85C;&#xC6B4; desicion boundary &#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xAC19;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xCD5C;&#xC885; desicion boundary&#xB294; &#xCD5C;&#xC885; class &#xAC2F;&#xC218;&#xB9CC;&#xD07C; &#xB098;&#xC62C;&#xAC83;.   </li>
+</ul>
+<h2 id="44-neural-network">4.4. Neural Network</h2>
+<hr>
+<p>&#xADF8;&#xB807;&#xB2E4;&#xBA74; &#xC5EC;&#xB7EC;&#xAC1C;&#xC758; &#xB274;&#xB7F0;&#xC740; &#xC5B4;&#xB5BB;&#xAC8C; &#xD45C;&#xD604;&#xD560;&#xAE4C;?  </p>
+<p><img src="img/nn6.png" alt="">  </p>
+<p>Layer 1&#xC740; input layer, Layer3&#xC740; output layer&#xB77C;&#xACE0; &#xBD80;&#xB978;&#xB2E4;. input&#xACFC; output&#xC774; &#xC544;&#xB2CC; layer&#xB294; Hidden Layer&#xB77C;&#xACE0; &#xBD80;&#xB978;&#xB2E4;. &#xC704; &#xC608;&#xC81C;&#xC5D0;&#xC11C;&#xB294; &#xD788;&#xB4E0; &#xB808;&#xC774;&#xC5B4;&#xB294; 1&#xAC1C;&#xC774;&#xB098; &#xB450;&#xAC1C;&#xAC00; &#xB420; &#xC218;&#xB3C4; &#xC788;&#xB2E4;.    </p>
+<p>&#xC774;&#xAC83;&#xC744; &#xC218;&#xD559;&#xC801; &#xC815;&#xC758;&#xB85C; &#xB098;&#xD0C0;&#xB0B4;&#xBCF4;&#xC790;.   </p>
+<p><img src="img/nn7.png" alt="">  </p>
+<p>Hidden Layer&#xC758; node&#xB97C; <script type="math/tex; ">a_i^{(j)}</script> &#xB77C;&#xACE0; &#xD45C;&#xD604;&#xD558;&#xACE0; Activation unit&#xC774;&#xB77C;&#xACE0; &#xBD80;&#xB978;&#xB2E4;. <strong>&#xC717;&#xCCA8;&#xC790; <script type="math/tex; ">(j)</script>&#xB294; layer &#xBC88;&#xD638;</strong>&#xC774;&#xACE0;, &#xC544;&#xB798;&#xCCA8;&#xC790; <strong>i&#xB294; feature&#xBC88;&#xD638;</strong>&#xB77C;&#xACE0; &#xBCFC;&#xC218;&#xC788;&#xB2E4;. <script type="math/tex; ">a_i^{(2)}</script> &#xC740; &#xB450;&#xBC88;&#xC9F8; layer&#xC758; activation node&#xC774;&#xACE0;, <script type="math/tex; ">a_i^{(3)}</script> &#xC740; &#xC138;&#xBC88;&#xC9F8; layer&#xC758; activation node&#xC774;&#xB2E4;. &#xAC01; <script type="math/tex; ">a_i^{(j)}</script> node&#xAC00; &#xAC16;&#xB294; <script type="math/tex; ">\Theta_{ab}^{(j)}</script>(weight)&#xB294; feature &#xBCC4;&#xB85C;(&#xD589; &#xBCC4;&#xB85C;) &#xB2E4;&#xB97C; &#xC218; &#xC788;&#xB2E4;. &#xCC38;&#xACE0;&#xB85C; &#xAC01; activation node&#xC758; &#xAC12;&#xC740; sigmoid&#xD568;&#xC218;&#xB85C; &#xACC4;&#xC0B0;&#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; 0&#xC5D0;&#xC11C; 1&#xC758; range&#xB97C; &#xAC16;&#xB294;&#xB2E4;.<br><script type="math/tex; ">\Theta_{ab}^{(j)}</script> &#xC5D0;&#xC11C; &#xC544;&#xB798;&#xCCA8;&#xC790; a,b&#xB294; <script type="math/tex; ">\Theta^{(j)}</script> matrix&#xC758; &#xD589;&#xACFC; &#xC5F4;&#xC744; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;. &#xD06C;&#xAE30;&#xAC00; <script type="math/tex; ">a \times b</script> &#xC778; matrix. &#xADF8;&#xB9AC;&#xACE0; j&#xBC88;&#xC9F8; layer&#xC758; b&#xBC88;&#xC9F8; &#xC720;&#xB2DB;&#xC5D0;&#xC11C; j+1&#xBC88;&#xC9F8; layer&#xC758; a&#xBC88;&#xC9F8; &#xC720;&#xB2DB;&#xC73C;&#xB85C; &#xD5A5;&#xD558;&#xB294; &#xAC00;&#xC911;&#xCE58;&#xB97C; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;.  (&#xCC38;&#xACE0;&#xB85C; &#xC717;&#xCCA8;&#xC790; &#xC544;&#xB798;&#xCCA8;&#xC790; &#xAE30;&#xC900;&#xC740; &#xD45C;&#xAE30; &#xD558;&#xB294; &#xC0AC;&#xB78C; &#xB9C8;&#xB2E4; &#xAE30;&#xC900;&#xC774; &#xB2E4;&#xB978;&#xAC83;&#xAC19;&#xB2E4;.)  </p>
+<p><script type="math/tex; ">\Theta^{(j)}</script>&#xB294; &#xAC01; feature&#xC5D0; &#xB530;&#xB978; weight&#xAC00; &#xAE30;&#xB85D;&#xB41C; matrix&#xC774;&#xB2E4;. &#xD06C;&#xAE30;&#xB97C; &#xAD6C;&#xD558;&#xB294;&#xBC29;&#xBC95;&#xC740; &#xC544;&#xB798;&#xC5D0;&#xC11C; &#xB2E4;&#xC2DC; &#xC124;&#xBA85;&#xD55C;&#xB2E4;. &#xC218;&#xD559;&#xC73C;&#xB85C; &#xD45C;&#xD604;&#xD558;&#xBA74; <script type="math/tex; ">\Theta^{(i)} \in \mathbb{R^{3\times4}}</script><br>&#xCC38;&#xACE0;: <script type="math/tex; ">\mathbb{R^n}</script> : refers to the set of n-dimensional vectors of real numbers.    </p>
+<p>Layer1&#xC758; <script type="math/tex; ">x</script> &#xC640;  <script type="math/tex; ">\Theta^{(1)}</script>&#xB97C; &#xAC00;&#xC9C0;&#xACE0; layer2&#xC758; <script type="math/tex; ">a_i^{(2)}</script>&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xACE0;<br>Layer2&#xC758; <script type="math/tex; ">a_i^{(2)}</script> &#xC640;  <script type="math/tex; ">\Theta^{(2)}</script>&#xB97C; &#xAC00;&#xC9C0;&#xACE0; layer3&#xC758; <script type="math/tex; ">a_i^{(3)}</script>&#xB97C; &#xC0DD;&#xC131;&#xD55C;&#xB2E4;.<br>...  </p>
+<p>&#xACB0;&#xAD6D; &#xCD5C;&#xC885;&#xC801;&#xC73C;&#xB85C;  <script type="math/tex; ">h_\Theta(x)</script> &#xB294; <script type="math/tex; ">a_1^{(3)}</script>&#xC774; &#xB418;&#xACE0; <script type="math/tex; "> g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)}) </script> &#xC73C;&#xB85C; &#xACC4;&#xC0B0;&#xB41C;&#xB2E4;.  <script type="math/tex; ">h_\Theta(x)</script> &#xC758; <script type="math/tex; ">\Theta</script>&#xB294; &#xB300;&#xBB38;&#xC790;&#xC784;&#xC5D0; &#xC720;&#xC758; regression&#xC5D0;&#xC11C;&#xC758; &#xAC00;&#xC124;&#xD568;&#xC218;&#xC640; &#xB2E4;&#xB974;&#xB2E4;.  </p>
+<p>&#xC774; &#xACFC;&#xC815;&#xC744; &#xAC04;&#xB7B5;&#xD558;&#xAC8C; &#xBCA1;&#xD130;&#xB85C; &#xD45C;&#xAE30;&#xD558;&#xBA74;<br><script type="math/tex; ">  
+\begin{bmatrix}x_0 \newline x_1 \newline x_2 \newline x_3\end{bmatrix}\rightarrow\begin{bmatrix}a_1^{(2)} \newline a_2^{(2)} \newline a_3^{(2)} \newline \end{bmatrix}\rightarrow h_\theta(x)  
+</script>  </p>
+<p>&#xC544;&#xB798;&#xC5D0;&#xC11C;  <script type="math/tex; ">\theta</script> matrix&#xC758; &#xD06C;&#xAE30;&#xB294; &#xBA87;<script type="math/tex; ">\times</script>&#xBA87; &#xC77C;&#xAE4C;?<br><img src="img/nn8.png" alt=""><br>&#xB9CC;&#xC57D; &#xD558;&#xB098;&#xC758; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC5D0;&#xC11C; layer<script type="math/tex; ">j</script> &#xC758; &#xC720;&#xB2DB; &#xAC2F;&#xC218;&#xAC00; <script type="math/tex; ">s_j</script> , layer<script type="math/tex; ">j+1</script>&#xC758; &#xC720;&#xB2DB; &#xAC2F;&#xC218;&#xAC00; <script type="math/tex; ">s_{j+1}</script>&#xAC1C;&#xB77C;&#xBA74; matrix <script type="math/tex; ">\Theta^{(j)}</script>&#xC758; &#xD06C;&#xAE30;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB2E4;.<br><script type="math/tex; ">  
+s_{j+1} \times (s_j + 1)  
+</script><br>&#xB530;&#xB77C;&#xC11C;, &#xC704;&#xC758; &#xB3C4;&#xC2DD;&#xC5D0;&#xC11C; <script type="math/tex; ">\Theta^{(1)}</script> &#xC758; &#xD06C;&#xAE30;&#xB294; 4 <script type="math/tex; ">\times</script> 3 &#xC774;&#xB2E4;.  </p>
+<h2 id="45-forward-propagation-vectored-implementation">4.5. Forward propagation: Vectored Implementation</h2>
+<hr>
+<p>&#xC774;&#xAC83;&#xC744; Forward propagation &#xC774;&#xB77C;&#xACE0; &#xD55C;&#xB2E4;.   </p>
+<p><script type="math/tex; ">  
+\begin{align*} a_1^{(2)} = g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_1 + \Theta_{12}^{(1)}x_2 + \Theta_{13}^{(1)}x_3) \newline a_2^{(2)} = g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_1 + \Theta_{22}^{(1)}x_2 + \Theta_{23}^{(1)}x_3) \newline a_3^{(2)} = g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_1 + \Theta_{32}^{(1)}x_2 + \Theta_{33}^{(1)}x_3) \newline h_\Theta(x) = a_1^{(3)} = g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)}) \newline \end{align*}  
+</script>  </p>
+<p>&#xC774;&#xAC83;&#xC744; &#xC218;&#xD559;&#xC801;&#xC73C;&#xB85C; &#xB354; &#xAC04;&#xB2E8;&#xD788; &#xD45C;&#xD604;&#xD574;&#xBCF4;&#xC790;.<br>g()&#xAC00; &#xACC4;&#xC0B0;&#xD558;&#xB294; &#xD56D;&#xC744; &#xAC04;&#xB2E8;&#xD788; <script type="math/tex; ">z_i^{(j)}</script>&#xB77C;&#xACE0; &#xD45C;&#xD604;&#xD574;&#xBCF4;&#xC790;.   </p>
+<p><script type="math/tex; ">  
+\begin{align*}a_1^{(2)} = g(z_1^{(2)}) \newline a_2^{(2)} = g(z_2^{(2)}) \newline a_3^{(2)} = g(z_3^{(2)}) \newline \end{align*}  
+</script>  </p>
+<p>&#xC989; z&#xB97C; &#xC77C;&#xBC18;&#xD654;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xB2E4;.   </p>
+<p><script type="math/tex; ">  
+z_k^{\color{red}(2)} =   
+\Theta_{k,0}^{\color{red}(1)}x_0 +  
+\Theta_{k,1}^{\color{red}(1)}x_1 + ... +  
+\Theta_{k,n}^{\color{red}(1)}x_n   
+</script>  </p>
+<p>&#xADF8;&#xB9AC;&#xACE0; &#xC774;&#xAC83;&#xC740; &#xB9CE;&#xC774; &#xBCF4;&#xC558;&#xB358; &#xD615;&#xD0DC;&#xB85C;, &#xB2E4;&#xC74C; &#xBCA1;&#xD130;&#xC758; &#xACF1;&#xC73C;&#xB85C; &#xD45C;&#xD604;&#xB420; &#xC218; &#xC788;&#xB2E4;!<br><script type="math/tex; ">  
+\begin{align*}x = \begin{bmatrix}x_0 \newline x_1 \newline\cdots \newline x_n\end{bmatrix} &z^{(j)} = \begin{bmatrix}z_1^{(j)} \newline z_2^{(j)} \newline\cdots \newline z_n^{(j)}\end{bmatrix}\end{align*}  
+</script>  </p>
+<h2 id="46-neural-network-learning-its-own-features">4.6. Neural Network Learning its Own Features</h2>
+<hr>
+<p><img src="img/nn9.png" alt="">  </p>
+<blockquote>
+<p>&#xB9CC;&#xC57D; Layer1&#xC744; &#xAC00;&#xB9B0;&#xB2E4;&#xBA74; &#xACC4;&#xC0B0;&#xC740; Logistic regression&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;.   </p>
+</blockquote>
+<p>&#xADF8;&#xB9AC;&#xACE0; &#xD765;&#xBBF8;&#xB85C;&#xC6B4; &#xC810;&#xC740; node a1, a2, a3&#xC740; &#xADF8;&#xB4E4; &#xC2A4;&#xC2A4;&#xB85C; input node&#xB4E4;&#xB85C;&#xBD80;&#xD130; &#xD559;&#xC2B5;&#xD55C; &#xACB0;&#xACFC;&#xB77C;&#xB294; &#xC810;&#xC774;&#xB2E4;.  (And the cool thing about this, is that the features a1, a2, a3, they themselves are learned as functions of the input. )  </p>
+<p>&#xBC18;&#xBA74; NN&#xC774; Logistic regression&#xBCF4;&#xB2E4; &#xB6F0;&#xC5B4;&#xB09C;&#xC810;&#xC740; Logistic regression&#xC5D0;&#xC11C; &#xCC98;&#xB7FC; Layer 1&#xC758; <script type="math/tex; ">x_1, x_2, x_3</script> feature&#xC5D0; &#xC81C;&#xC57D;&#xC870;&#xAC74;&#xC744; &#xAC78;&#xC9C0; &#xC54A;&#xB354;&#xB77C;&#xB3C4;, &#xC0C8;&#xB85C;&#xC6B4; &#xADF8;&#xAC83;&#xB9CC;&#xC758; feature <script type="math/tex; ">a_1, a_2, a_3</script>&#xB97C; &#xB9CC;&#xB4E4;(&#xD559;&#xC2B5;&#xC2DC;&#xD0AC;)&#xC218; &#xC788;&#xB2E4;. <script type="math/tex; ">x_1x_2</script> &#xAC19;&#xC740; polynomial feature&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xC9C0; &#xC54A;&#xACE0;&#xB3C4; &#xB9D0;&#xC774;&#xB2E4;. &#xADF8;&#xB798;&#xC11C; &#xACB0;&#xAD6D; &#xB354; &#xB098;&#xC740; hypothesis &#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB41C;&#xB2E4;.   </p>
+<p>Logistic regression&#xC5D0;&#xC11C;&#xB294; &#xAC01; feature <script type="math/tex; ">x_i</script>&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xAC00;&#xC911;&#xCE58;  <script type="math/tex; ">\theta</script>&#xB97C; &#xC5B4;&#xB5BB;&#xAC8C; &#xC815;&#xD558;&#xB290;&#xB0D0;&#xC5D0; &#xB530;&#xB77C;&#xC11C;, &#xADF8;&#xB9AC;&#xACE0; training data&#xB4E4;&#xC744; &#xB354; &#xC798; &#xBAA8;&#xC0AC;&#xD558;&#xB294; &#xAC00;&#xC124;&#xD568;&#xC218;&#xB97C; &#xB9CC;&#xB4E4;&#xAE30; &#xC704;&#xD574; &#xC5B4;&#xB5A4; polynomial feature&#xB97C; &#xCD94;&#xAC00;&#xD558;&#xB290;&#xB0D0;&#xC5D0; &#xB530;&#xB77C;&#xC11C;, &#xC608;&#xCE21;&#xACB0;&#xACFC;&#xC758; &#xC815;&#xD655;&#xB3C4;&#xAC00; &#xB192;&#xC544;&#xC9C0;&#xB294;&#xB370;, &#xADF8;&#xAC83;&#xC740; &#xC5B4;&#xB835;&#xACE0; &#xC5F0;&#xC0B0;&#xB7C9;&#xB9CC; &#xB9CE;&#xC544;&#xC9C4;&#xB2E4;.<br>Neural network&#xB294; &#xC774;&#xB7F0; &#xAE4C;&#xB2E4;&#xB85C;&#xC6B4; &#xC791;&#xC5C5; &#xD544;&#xC694;&#xC5C6;&#xC774; &#xAC01; layer&#xB2E8;&#xACC4;&#xC5D0;&#xC11C; &#xC801;&#xC808;&#xD55C;  <script type="math/tex; ">\Theta</script> matrix(&#xAC00;&#xC911;&#xCE58;)&#xB97C; &#xC120;&#xD0DD;&#xD558;&#xC5EC; layer &#xB2E8;&#xACC4;&#xBCC4;&#xB85C; &#xB354; &#xC720;&#xC6A9;&#xD558;&#xAC8C; &#xCD94;&#xC0C1;&#xD654;&#xD558;&#xC5EC; &#xACB0;&#xAD6D; &#xCD5C;&#xC885; &#xC608;&#xCE21;&#xC744; &#xB354; &#xC815;&#xD655;&#xD558;&#xAC8C; &#xD55C;&#xB2E4;&#xB294; &#xC758;&#xBBF8;&#xC778;&#xB4EF;&#xD558;&#xB2E4;.   </p>
+<h2 id="47-examples">4.7. Examples</h2>
+<hr>
+<h3 id="or-function">OR function</h3>
+<p>Sigmoid &#xD568;&#xC218;&#xC758; &#xACB0;&#xACFC;&#xB294; 0&#xACFC; 1&#xC774; &#xB420; &#xC218; &#xC788;&#xB2E4;.  NN&#xC744; &#xD1B5;&#xD574; 0&#xACFC; 1&#xC744; &#xB2E4;&#xB8E8;&#xB294; &#xB514;&#xC9C0;&#xD138; &#xB17C;&#xB9AC;&#xAC8C;&#xC774;&#xD2B8;&#xB97C; &#xBAA8;&#xB378;&#xB9C1; &#xD560; &#xC218; &#xC788;&#xB2E4;.   </p>
+<p><img src="img/nn_ex2.png" alt="">  </p>
+<blockquote>
+<p><script type="math/tex; ">z = 4.6</script> &#xC774;&#xC0C1;&#xC774;&#xBA74; 1&#xC5D0; &#xAC00;&#xAE5D;&#xACE0;,<br><script type="math/tex; ">z = -4.6</script> &#xC774;&#xD558;&#xBA74; 0&#xC5D0; &#xAC00;&#xAE5D;&#xB2E4;.   </p>
+</blockquote>
+<p><img src="img/nn_ex.png" alt="">  </p>
+<blockquote>
+<p>&#xAC00;&#xC911;&#xCE58;(weight)&#xB294; &#xD654;&#xC0B4;&#xD45C;&#xC5D0; &#xB098;&#xD0C0;&#xB0B4;&#xBA74; &#xC880; &#xB354; &#xC9C1;&#xAD00;&#xC801;&#xC774;&#xB2E4;.   </p>
+</blockquote>
+<p>&#xC774;&#xAC83;&#xC744; &#xC218;&#xD559;&#xC801;&#xC73C;&#xB85C; &#xD45C;&#xD604;&#xD558;&#xBA74;<br><script type="math/tex; ">  
+\begin{align*}\begin{bmatrix}x_0 \newline x_1 \newline x_2\end{bmatrix} \rightarrow\begin{bmatrix}g(z^{(2)})\end{bmatrix} \rightarrow h_\Theta(x)\end{align*}  
+</script>  </p>
+<p>&#xADF8;&#xB9AC;&#xACE0; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC740; &#xACB0;&#xACFC;&#xAC00; &#xB3C4;&#xCD9C;&#xB418;&#xC5B4; OR&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xC9C4;&#xB9AC;&#xD45C;&#xC640; &#xACB0;&#xACFC;&#xAC00; &#xAC19;&#xB2E4;.<br><script type="math/tex; ">  
+\begin{align*}& h_\Theta(x) = g(-30 + 20x_1 + 20x_2) \newline \newline & x_1 = 0 \ \ and \ \ x_2 = 0 \ \ then \ \ g(-30) \approx 0 \newline & x_1 = 0 \ \ and \ \ x_2 = 1 \ \ then \ \ g(-10) \approx 0 \newline & x_1 = 1 \ \ and \ \ x_2 = 0 \ \ then \ \ g(-10) \approx 0 \newline & x_1 = 1 \ \ and \ \ x_2 = 1 \ \ then \ \ g(10) \approx 1\end{align*}  
+</script>  </p>
+<h3 id="the-others">The others</h3>
+<p>&#xC544;&#xB798;&#xC640; &#xAC19;&#xC740; parameter&#xB85C; OR &#xBFD0;&#xB9CC;&#xC544;&#xB2C8;&#xB77C;, AND, NOR&#xB3C4; &#xAC00;&#xB2A5;.  </p>
+<p><script type="math/tex; ">  
+\begin{align*}AND:\newline\Theta^{(1)} &=\begin{bmatrix}-30 & 20 & 20\end{bmatrix} \newline NOR:\newline\Theta^{(1)} &= \begin{bmatrix}10 & -20 & -20\end{bmatrix} \newline OR:\newline\Theta^{(1)} &= \begin{bmatrix}-10 & 20 & 20\end{bmatrix} \newline\end{align*}  
+</script>  </p>
+<p>&#xC544;&#xB798;&#xC758; &#xBAA8;&#xB378;&#xB85C; <script type="math/tex; ">(NOT x_1) AND (NOT x_2)</script>&#xC758; &#xD615;&#xD0DC;&#xB3C4; &#xAD6C;&#xD604;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xB2E4;.<br><img src="img/nn_ex4.png" alt="">  </p>
+<ul>
+<li>XNOR  </li>
+</ul>
+<p>&#xB450;&#xAC1C;&#xC758; Layer&#xB97C; &#xB450;&#xBA74; &#xB354; &#xBCF5;&#xC7A1;&#xD55C; &#xB17C;&#xB9AC;&#xAC8C;&#xC774;&#xD2B8; &#xC5F0;&#xC0B0;&#xB3C4; &#xAC00;&#xB2A5;&#xD558;&#xB2E4;.   </p>
+<p><script type="math/tex; ">  
+\begin{align*}\begin{bmatrix}x_0 \newline x_1 \newline x_2\end{bmatrix} \rightarrow\begin{bmatrix}a_1^{(2)} \newline a_2^{(2)} \end{bmatrix} \rightarrow\begin{bmatrix}a^{(3)}\end{bmatrix} \rightarrow h_\Theta(x)\end{align*}  
+</script>  </p>
+<p><script type="math/tex; ">\Theta^{(1)}</script> matrix&#xC5D0;&#xC11C;(&#xC989;, layer1&#xC5D0;&#xC11C;) AND&#xC640; OR&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0;   </p>
+<p><script type="math/tex; ">  
+\Theta^{(1)} =\begin{bmatrix}-30 & 20 & 20 \newline 10 & -20 & -20\end{bmatrix}  
+</script>  </p>
+<p><script type="math/tex; ">\Theta^{(2)}</script> matrix&#xC5D0;&#xC11C;(layer2&#xC5D0;&#xC11C;)OR&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74;   </p>
+<p><script type="math/tex; ">  
+\Theta^{(2)} =\begin{bmatrix}10 & -20 & -20\end{bmatrix}  
+</script>  </p>
+<p>&#xC544;&#xB798;&#xC640; &#xAC19;&#xC740; &#xC9C4;&#xB9AC;&#xD45C;&#xB97C; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xB2E4;!  </p>
+<p><img src="img/nn_ex3.png" alt="">  </p>
+<h3 id="multiclass-classification">Multiclass Classification</h3>
+<p>NN&#xC744; &#xD1B5;&#xD574; &#xD558;&#xB098; &#xC774;&#xC0C1;&#xC758; Category&#xB85C; &#xAD6C;&#xBD84;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xB2E4;.    </p>
+<p>&#xB2E4;&#xC74C;&#xC740; NN&#xC744; &#xC774;&#xC6A9;&#xD574; &#xC218;&#xAE30;&#xB85C; &#xC4F4; &#xBC88;&#xD638;&#xB97C; &#xC778;&#xC2DD;&#xD55C; &#xAC83;&#xC774;&#xB2E4;. &#xC774;&#xAC83;&#xB3C4; 0&#xBD80;&#xD130; 9&#xAE4C;&#xC9C0; 10&#xAC1C;&#xC758; &#xAE30;&#xD638;&#xB97C; &#xBD84;&#xB958;&#xD558;&#xB294; Multiclass Classification &#xC774;&#xB2E4;.    </p>
+<p><img src="img/nn_ex5.png" alt="">  </p>
+<blockquote>
+<p>by Yann LeCun  </p>
+</blockquote>
+<p>&#xAC00;&#xC6B4;&#xB370; &#xBCF4;&#xC774;&#xB294; 9&#xB294; input layer&#xC774;&#xB2E4;. &#xC67C;&#xCABD;&#xC5D0; &#xBCF4;&#xC774;&#xB294; &#xAC83;&#xC774; &#xBCF4;&#xB2E4; &#xCD94;&#xC0C1;&#xD654; &#xC2DC;&#xD0A8; Hidden layer 1 &#xADF8;&#xB9AC;&#xACE0; &#xADF8; &#xB2E4;&#xC74C;&#xB2E8;&#xACC4; Hidden layer2, &#xADF8; &#xB2E4;&#xC74C;&#xB2E8;&#xACC4; Hidden layer3 &#xC774;&#xB41C;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xCD5C;&#xC885; output&#xC740; answer: 9 &#xC774;&#xB2E4;. (&#xC774;&#xAC83;&#xC740; &#xB9C8;&#xCE58; &#xB300;&#xC0C1;&#xC5D0;&#xC11C; &#xC810;&#xCC28; &#xC758;&#xBBF8;&#xB97C; &#xC81C;&#xAC70;&#xD558;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;. &#xB2E8;&#xACC4;&#xBCC4; &#xCD94;&#xC0C1;&#xD654;&#xC758; &#xCD5C;&#xC885; &#xACB0;&#xACFC;&#xBB3C;&#xC5D0;&#xB294; &#xBAA8;&#xB4E0; &#xC758;&#xBBF8;&#xAC00; &#xC0AC;&#xB77C;&#xC9C0;&#xACE0; &#xAE30;&#xD638;&#xB9CC;&#xC774; &#xB0A8;&#xB294;&#xB2E4;. &#xC774;&#xAC83;&#xC774; &#xB1CC;&#xC758; &#xADFC;&#xBCF8; &#xB3D9;&#xC791;&#xC6D0;&#xB9AC;&#xB77C;&#xBA74;, &#xC778;&#xAC04;&#xC758; &#xACB0;&#xAD6D; &#xB1CC;&#xB294; &#xC758;&#xBBF8; &#xC81C;&#xAC70;&#xC7A5;&#xCE58;&#xC778; &#xAC83;&#xC774;&#xB2E4;. &#xCC38;&#xACE0;: &#xC778;&#xD3EC;&#xBA54;&#xC774;&#xC158;, &#xC81C;&#xC784;&#xC2A4; &#xAE00;&#xB9AD;)  </p>
+<p><img src="img/nn_ex6.png" alt="">  </p>
+<p>&#xB9CC;&#xC57D; 4&#xAC1C;&#xC758; &#xC0AC;&#xC9C4;&#xC744; &#xBD84;&#xB958;&#xD55C;&#xB2E4;&#xACE0; &#xD558;&#xBA74;, &#xC5EC;&#xB7EC; layer&#xB97C; &#xAC70;&#xCCD0; &#xB098;&#xC628; &#xCD5C;&#xC885; &#xACB0;&#xACFC;&#xBB3C;&#xC740; 4&#xAC1C;&#xC758; <script type="math/tex; ">4 \times 1</script> &#xBCA1;&#xD130; &#xC774;&#xB2E4;.<br><img src="img/nn_ex8.png" alt="">  </p>
+<p><img src="img/nn_ex7.png" alt=""><br>&#xCD5C;&#xC885; &#xACB0;&#xACFC;&#xB294; y &#xBCA1;&#xD130;&#xB85C; &#xD45C;&#xD604;&#xAC00;&#xB2A5;&#xD558;&#xB2E4;.   </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ex2.2-regularized-logistic-regression.html" class="navigation navigation-prev " aria-label="Previous page: ex2.2: Regularized Logistic Regression">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ex3-1-multi-class-classification.html" class="navigation navigation-next " aria-label="Next page: ex3.1 Multi-class classification">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4. Neural Networks","level":"5.1","depth":1,"next":{"title":"ex3.1 Multi-class classification","level":"5.1.1","depth":2,"path":"documents/ex3-1-multi-class-classification.md","ref":"documents/ex3-1-multi-class-classification.md","articles":[]},"previous":{"title":"ex2.2: Regularized Logistic Regression","level":"4.1.4","depth":2,"path":"documents/ex2.2-regularized-logistic-regression.md","ref":"documents/ex2.2-regularized-logistic-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/4-neural-networks.md","mtime":"2019-08-01T11:10:42.505Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:16:55.327Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

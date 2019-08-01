@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.2. Computing Parameters Analytically · GitBook</title>
+        <title>ex2.2: Regularized Logistic Regression · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="3-logistic-regression-regularization.html" />
+    <link rel="next" href="4-neural-networks.html" />
     
     
-    <link rel="prev" href="2.1-multivariate-linear-regression.html" />
+    <link rel="prev" href="ex2.1-logistic-regression.html" />
     
 
     </head>
@@ -201,7 +201,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.1.2" data-path="2.2-computing-parameters-analytically.html">
+        <li class="chapter " data-level="3.1.2" data-path="2.2-computing-parameters-analytically.html">
             
                 <a href="2.2-computing-parameters-analytically.html">
             
@@ -279,7 +279,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.4" data-path="ex2.2-regularized-logistic-regression.html">
+        <li class="chapter active" data-level="4.1.4" data-path="ex2.2-regularized-logistic-regression.html">
             
                 <a href="ex2.2-regularized-logistic-regression.html">
             
@@ -456,7 +456,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.2. Computing Parameters Analytically</a>
+        <a href=".." >ex2.2: Regularized Logistic Regression</a>
     </h1>
 </div>
 
@@ -484,36 +484,66 @@
 <script> MathJax.Hub.Queue(["Typeset",MathJax.Hub]); </script>
 
 
-<h2 id="22-computing-parameters-analytically">2.2. Computing Parameters Analytically</h2>
+
+
+<h2 id="ex2-2-regularized-logistic-regression">ex2-2: Regularized Logistic Regression</h2>
 <hr>
-<h3 id="221-normal-equation">2.2.1. Normal Equation</h3>
-<p>Normal Equation&#xC740; &#xCD5C;&#xC801;&#xC758; <script type="math/tex; ">\theta</script> &#xB97C; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB294; &#xB610;&#xB2E4;&#xB978; &#xBC29;&#xBC95;&#xC774;&#xB2E4;.  gradient descent &#xC640;&#xB294; &#xB2E4;&#xB978; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xAC01;&#xAC01; &#xC7A5;/&#xB2E8;&#xC810;&#xC774; &#xC788;&#xB2E4;.     </p>
-<p>Normal Equation&#xC740; <script type="math/tex; ">\theta</script> &#xB97C; &#xBC18;&#xBCF5;&#xACC4;&#xC0B0; &#xC5C6;&#xC774; &#xACF5;&#xC2DD;&#xD558;&#xB098;&#xB85C; &#xD55C;&#xBC88;&#xC5D0; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB2E4;.<br>&#xB2E4;&#xC74C;&#xC758; training set&#xC744; &#xBCF4;&#xC790;.     </p>
-<p><img src="img/ne.png" alt="">    </p>
-<blockquote>
-<p>4&#xAC1C;&#xC758; feature&#xAC00; &#xC788;&#xACE0; &#xACB0;&#xACFC;&#xAC00; &#xC788;&#xB2E4;. &#xC774;&#xAC83;&#xC744; &#xAC01;&#xAC01; X matrix&#xC640; y &#xBCA1;&#xD130;&#xB85C; &#xBCF5;&#xC0AC;&#xD55C;&#xB2E4;. &#xACC4;&#xC0B0;&#xC758; &#xD3B8;&#xC758;&#xB97C; &#xC704;&#xD574;  1&#xC744; &#xAC16;&#xB294; <script type="math/tex; ">x_0</script> &#xC5F4;&#xC774; &#xCD94;&#xAC00;&#xB418;&#xC5C8;&#xC74C;&#xC5D0; &#xC720;&#xC758;. &#xC774;&#xAC83;&#xC744;&#xAC00;&#xC9C0;&#xB3C4; &#xC544;&#xB798; Normal Equation &#xACF5;&#xC2DD;&#xC5D0; &#xB300;&#xC785;&#xD574; &#xACC4;&#xC0B0;&#xD558;&#xBA74; &#xBC14;&#xB85C; <script type="math/tex; ">\theta</script>&#xB97C; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB2E4;!    </p>
-</blockquote>
-<p><script type="math/tex; ">  
-\theta = (X^TX)^{-1}X^Ty    
-</script>  </p>
-<p>&#xC774;&#xB807;&#xAC8C; &#xACC4;&#xC0B0;&#xB41C; <script type="math/tex; ">\theta</script> &#xB294; cost function J&#xB97C; &#xCD5C;&#xC18C;&#xD654;&#xD558;&#xB294; &#xAC12;&#xC774;&#xB2E4;.     </p>
-<p><img src="img/ne2.png" alt="">    </p>
-<p>&#xB9CC;&#xC57D; <script type="math/tex; ">i</script>&#xBC88;&#xC9F8; &#xD558;&#xB098;&#xC758; training data&#xAC00; &#xC704;&#xC758; <script type="math/tex; ">x^{(i)}</script> &#xCC98;&#xB7FC; n + 1 &#xD06C;&#xAE30;&#xC758; &#xBCA1;&#xD130;&#xB85C; &#xC8FC;&#xC5B4;&#xC9C4;&#xB2E4;&#xBA74;, &#xC774;&#xAC83;&#xC73C;&#xB85C; &#xC6B0;&#xCE21;&#xACFC; &#xAC19;&#xC774; Design Matrix X&#xB97C; &#xB9CC;&#xB4E0;&#xB2E4;. (&#xACB0;&#xAD6D; &#xC774;&#xC804; &#xC608;&#xC2DC;&#xCC98;&#xB7FC; &#xD14C;&#xC774;&#xBE14;&#xC744; &#xADF8;&#xB300;&#xB85C; matrix&#xC5D0; &#xBCF5;&#xC0AC;&#xD55C;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD55C; &#xAD6C;&#xC131;&#xC784;)    </p>
-<p>&#xB354; &#xAC04;&#xB2E8;&#xD55C; &#xC608;&#xB97C;&#xB4E4;&#xBA74; &#xC544;&#xB798;&#xC640; &#xAC19;&#xB2E4;.<br><img src="img/ne3.png" alt="">    </p>
-<p><script type="math/tex; ">\theta</script> &#xB97C; &#xAD6C;&#xD558;&#xB294; Octave &#xBA85;&#xB839;&#xC5B4;    </p>
-<pre><code class="lang-matlab">pinv(X&apos;*X)*X&apos;*y
+<p>Training data set&#xC774; Non-linear&#xD55C; decision boundary&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC744;&#xB54C;.  </p>
+<h3 id="1-mapfeaturem">1. mapFeature.m</h3>
+<p><code>&#xC911;&#xC694;</code> &#xAE30;&#xC874; &#xB370;&#xC774;&#xD130; X&#xB97C; &#xAC00;&#xC9C0;&#xACE0; polynomial feature&#xB97C; &#xC0DD;&#xC131;&#xD55C;&#xB2E4;. &#xC774;&#xD6C4;&#xC5D0; X&#xB294; &#xC5F4;&#xC740; 28&#xAC1C;&#xAC00; &#xB41C;&#xB2E4;. <script type="math/tex; ">m \times 28</script><br>training set&#xC744; &#xB354; &#xC798; &#xD45C;&#xD604;&#xD560;&#xC218; &#xC788;&#xAC8C; &#xB418;&#xC5C8;&#xC9C0;&#xB9CC; Overfitting &#xC704;&#xD5D8;&#xC131;&#xC774; &#xC0DD;&#xACBC;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; Regularized&#xD574;&#xC57C;&#xD55C;&#xB2E4;.   </p>
+<pre><code class="lang-matlab">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">out</span> = <span class="hljs-title">mapFeature</span><span class="hljs-params">(X1, X2)</span>  </span>
+<span class="hljs-comment">% MAPFEATURE Feature mapping function to polynomial features  </span>
+<span class="hljs-comment">%  </span>
+<span class="hljs-comment">%   MAPFEATURE(X1, X2) maps the two input features  </span>
+<span class="hljs-comment">%   to quadratic features used in the regularization exercise.  </span>
+<span class="hljs-comment">%  </span>
+<span class="hljs-comment">%   Returns a new feature array with more features, comprising of   </span>
+<span class="hljs-comment">%   X1, X2, X1.^2, X2.^2, X1*X2, X1*X2.^2, etc..  </span>
+<span class="hljs-comment">%  </span>
+<span class="hljs-comment">%   Inputs X1, X2 must be the same size  </span>
+<span class="hljs-comment">%  </span>
+
+degree = <span class="hljs-number">6</span>;  
+out = <span class="hljs-built_in">ones</span>(<span class="hljs-built_in">size</span>(X1(:,<span class="hljs-number">1</span>)));  
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:degree  
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">0</span>:<span class="hljs-built_in">i</span>  
+        out(:, <span class="hljs-keyword">end</span>+<span class="hljs-number">1</span>) = (X1.^(<span class="hljs-built_in">i</span>-<span class="hljs-built_in">j</span>)).*(X2.^<span class="hljs-built_in">j</span>);  
+    <span class="hljs-keyword">end</span>  
+<span class="hljs-keyword">end</span>  
+
+<span class="hljs-keyword">end</span>
 </code></pre>
-<p>&#xBC18;&#xBCF5; &#xACC4;&#xC0B0;&#xB3C4; &#xD544;&#xC694;&#xC5C6;&#xACE0; &#xC801;&#xC808;&#xD55C; <script type="math/tex; ">\alpha</script>&#xB97C; &#xCC3E;&#xC544;&#xC57C;&#xD558;&#xB294; &#xC218;&#xACE0;&#xAC00; &#xC5C6;&#xB2E4;. &#xB610;&#xD55C; Feature scaling&#xB3C4; &#xD544;&#xC694;&#xC5C6;&#xB2E4;. <del>&#xC774;&#xB807;&#xAC8C; &#xC88B;&#xC740; &#xBC29;&#xBC95;&#xC774; &#xC788;&#xB2E4;&#xB2C8;?</del><br>&#xADF8;&#xB7EC;&#xB098; &#xACB0;&#xB860;&#xC801;&#xC73C;&#xB85C;Normal Equation&#xC5D0; &#xB9E4;&#xC6B0; &#xCE58;&#xBA85;&#xC801;&#xC778; &#xB2E8;&#xC810;&#xC774; &#xC788;&#xB2E4;. n(feature&#xAC2F;&#xC218;)&#xAC00; &#xC5C4;&#xCCAD; &#xCEE4;&#xC9C0;&#xBA74; Normal Equation&#xC740; &#xBABB;&#xC4F4;&#xB2E4;. &#xBCF5;&#xC7A1;&#xB3C4;&#xAC00; <script type="math/tex; ">O(n^3)</script> &#xC73C;&#xB85C; &#xC5F0;&#xC0B0;&#xC18D;&#xB3C4;&#xAC00; &#xC5C4;&#xCCAD;&#xB098;&#xAC8C; &#xB290;&#xB824;&#xC9C0;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;.     </p>
-<p>Gradient descent &#xC640; Normal equation&#xC744; &#xBE44;&#xAD50;&#xD558;&#xBA74; &#xC544;&#xB798;&#xC640; &#xAC19;&#xB2E4;.<br><img src="img/ne34.png" alt="">    </p>
-<p>&#xBCF4;&#xD1B5; n=10000 &#xC815;&#xB3C4;&#xAE4C;&#xC9C0;&#xB294; Normal equations&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xB3C4; &#xAD1C;&#xCC2E;&#xB2E4;&#xACE0; &#xD55C;&#xB2E4;. &#xD604;&#xB300; &#xCEF4;&#xD4E8;&#xD305; &#xD30C;&#xC6CC;&#xB85C; &#xC774;&#xC815;&#xB3C4;&#xACC4;&#xC0B0; &#xAE4C;&#xC9C0;&#xB294; &#xC2E4;&#xC6A9;&#xC801;&#xC778; &#xC18D;&#xB3C4;&#xB97C; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xB2E4;.     </p>
-<h3 id="222-normal-equation-noninvertibility">2.2.2. Normal Equation Noninvertibility</h3>
-<p>&#xC5ED;&#xD589;&#xB82C;&#xC774; &#xC5C6;&#xB294; Normal Equation&#xC740; &#xC5B4;&#xB5BB;&#xAC8C; &#xAD6C;&#xD574;&#xC57C;&#xD560;&#xAE4C;?<br><script type="math/tex; ">  
-\theta = (X^TX)^{-1}X^Ty    
-</script><br><script type="math/tex; ">X^TX</script> &#xAC00; &#xC5ED;&#xD589;&#xB82C;&#xC774; &#xC5C6;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;.     </p>
-<p>&#xB2E4;&#xC74C;&#xC758; &#xB450;&#xAC00;&#xC9C0; &#xACBD;&#xC6B0;&#xC5D0; <script type="math/tex; ">X^TX</script> &#xC5D0; &#xC5ED;&#xD589;&#xB82C;&#xC774; &#xC5C6;&#xB2E4;.<br><img src="img/ne5.png" alt="">    </p>
-<blockquote>
-<p>1&#xBC88;&#xC740; &#xAC01; feature&#xAC00; <script type="math/tex; ">x_1 = (3.28)^2x_2</script> &#xCC98;&#xB7FC; &#xC120;&#xD615;&#xC801;&#xC73C;&#xB85C; &#xC885;&#xC18D;&#xC801;&#xC778; &#xAD00;&#xACC4;&#xC77C;&#xB54C;&#xC774;&#xB2E4;. &#xC774;&#xB7F4;&#xB550; &#xB458; &#xC911; &#xD55C;feature&#xB97C; &#xC81C;&#xAC70;&#xD574;&#xB3C4; &#xB41C;&#xB2E4;.<br>&#xB450;&#xBC88;&#xC9F8;&#xB294; &#xD53C;&#xCCD0;&#xAC2F;&#xC218;(n)&#xC774; training set&#xAC2F;&#xC218;(m)&#xBCF4;&#xB2E4; &#xB9CE;&#xC744;&#xB54C;&#xC774;&#xB2E4;. &#xC774;&#xB7F4;&#xB550; &#xC5B4;&#xB5A4; feature&#xB4E4;&#xC744; &#xC9C0;&#xC6B0;&#xAC70;&#xB098;, regularization&#xAE30;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;.      </p>
-</blockquote>
+<h3 id="1-costfunctionregm">1. costFunctionReg.m</h3>
+<p>gradient descent&#xB97C; &#xD560;&#xB54C; for &#xBB38;&#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xBC18;&#xBCF5; &#xACC4;&#xC0B0;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xB2E4;. &#xB098;&#xC911;&#xC5D0; fminunc&#xB97C; &#xC0AC;&#xC6A9;&#xD560;&#xB54C; &#xC54C;&#xC544;&#xC11C;&#xD55C;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C;&#xB294; &#xD55C;&#xBC88;&#xC758;&#xACF5;&#xC2DD;&#xB9CC; &#xAD6C;&#xD558;&#xBA74;&#xB41C;&#xB2E4;.<br><del>Regularziation logistic regression &#xC758; gradient descent &#xACF5;&#xC2DD;&#xC774; &#xB0B4;&#xAC00; &#xC54C;&#xB358;&#xAC70;&#xB791; &#xB2E4;&#xB978;&#xAC83; &#xAC19;&#xC74C;, &#xC54C;&#xC544;&#xBCF4;&#xAE30;.</del>&#xD655;&#xC778; &#xBC0F; &#xC218;&#xC815;&#xC644;&#xB8CC;.  </p>
+<pre><code class="lang-matlab">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[J, grad]</span> = <span class="hljs-title">costFunctionReg</span><span class="hljs-params">(theta, X, y, lambda)</span>  </span>
+m = <span class="hljs-built_in">length</span>(y); <span class="hljs-comment">% number of training examples  </span>
+
+J = <span class="hljs-number">0</span>;  
+grad = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">size</span>(theta));  
+
+<span class="hljs-comment">% ====================== YOUR CODE HERE ======================  </span>
+
+hx = X * theta;  
+gx = sigmoid(hx);  
+
+<span class="hljs-comment">% Cost function J  </span>
+pos = -y&apos; * <span class="hljs-built_in">log</span>(gx);  
+neg = (<span class="hljs-number">1</span> - y)&apos; * <span class="hljs-built_in">log</span>(<span class="hljs-number">1</span> - gx);  
+regular = lambda / (<span class="hljs-number">2</span> * m) * sum(theta(<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>) .^ <span class="hljs-number">2</span>);  
+
+J = (<span class="hljs-number">1</span> / m) * (pos - neg) + regular;  
+
+<span class="hljs-comment">% Gradient descent  </span>
+
+grad = (<span class="hljs-number">1</span>/m) * X&apos; * (gx - y) + (lambda/m) .* theta;  
+grad(<span class="hljs-number">1</span>) = (<span class="hljs-number">1</span>/m) * X(:,<span class="hljs-number">1</span>)&apos; * (gx - y);  
+
+<span class="hljs-comment">% =============================================================  </span>
+
+<span class="hljs-keyword">end</span>
+</code></pre>
 
                                 
                                 </section>
@@ -541,12 +571,12 @@
 
             
                 
-                <a href="2.1-multivariate-linear-regression.html" class="navigation navigation-prev " aria-label="Previous page: 2.1. Multivariate Linear Regression">
+                <a href="ex2.1-logistic-regression.html" class="navigation navigation-prev " aria-label="Previous page: ex2.1: Logistic Regression">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="3-logistic-regression-regularization.html" class="navigation navigation-next " aria-label="Next page: 3. Logistic Regression, Regularization">
+                <a href="4-neural-networks.html" class="navigation navigation-next " aria-label="Next page: 4. Neural Networks">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -557,7 +587,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.2. Computing Parameters Analytically","level":"3.1.2","depth":2,"next":{"title":"3. Logistic Regression, Regularization","level":"4.1","depth":1,"path":"documents/3-logistic-regression-regularization.md","ref":"documents/3-logistic-regression-regularization.md","articles":[{"title":"3.1. Logistic Regression","level":"4.1.1","depth":2,"path":"documents/3.1-logistic-regression.md","ref":"documents/3.1-logistic-regression.md","articles":[]},{"title":"3.2. Regularization and Overfitting problem","level":"4.1.2","depth":2,"path":"documents/3.2-regularization-and-overfitting-problem.md","ref":"documents/3.2-regularization-and-overfitting-problem.md","articles":[]},{"title":"ex2.1: Logistic Regression","level":"4.1.3","depth":2,"path":"documents/ex2.1-logistic-regression.md","ref":"documents/ex2.1-logistic-regression.md","articles":[]},{"title":"ex2.2: Regularized Logistic Regression","level":"4.1.4","depth":2,"path":"documents/ex2.2-regularized-logistic-regression.md","ref":"documents/ex2.2-regularized-logistic-regression.md","articles":[]}]},"previous":{"title":"2.1. Multivariate Linear Regression","level":"3.1.1","depth":2,"path":"documents/2.1-multivariate-linear-regression.md","ref":"documents/2.1-multivariate-linear-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/2.2-computing-parameters-analytically.md","mtime":"2019-07-31T14:43:28.023Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:16:55.327Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex2.2: Regularized Logistic Regression","level":"4.1.4","depth":2,"next":{"title":"4. Neural Networks","level":"5.1","depth":1,"path":"documents/4-neural-networks.md","ref":"documents/4-neural-networks.md","articles":[{"title":"ex3.1 Multi-class classification","level":"5.1.1","depth":2,"path":"documents/ex3-1-multi-class-classification.md","ref":"documents/ex3-1-multi-class-classification.md","articles":[]},{"title":"ex3.2 Neural Networks","level":"5.1.2","depth":2,"path":"documents/ex3-2-neural-networks.md","ref":"documents/ex3-2-neural-networks.md","articles":[]}]},"previous":{"title":"ex2.1: Logistic Regression","level":"4.1.3","depth":2,"path":"documents/ex2.1-logistic-regression.md","ref":"documents/ex2.1-logistic-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex2.2-regularized-logistic-regression.md","mtime":"2019-08-01T11:08:20.432Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:16:55.327Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
