@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ex3.2: Neural Networks · GitBook</title>
+        <title>ex6.1: support vector machines · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="5-neural-networks-learning.html" />
+    <link rel="next" href="ex6-2-spam-classification.html" />
     
     
-    <link rel="prev" href="ex3-1-multi-class-classification.html" />
+    <link rel="prev" href="8-support-vector-machines.html" />
     
 
     </head>
@@ -303,7 +303,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.2" data-path="ex3-2-neural-networks.html">
+        <li class="chapter " data-level="1.5.2" data-path="ex3-2-neural-networks.html">
             
                 <a href="ex3-2-neural-networks.html">
             
@@ -425,7 +425,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="ex6-1-support-vector-machines.html">
+        <li class="chapter active" data-level="1.9.1" data-path="ex6-1-support-vector-machines.html">
             
                 <a href="ex6-1-support-vector-machines.html">
             
@@ -622,7 +622,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ex3.2: Neural Networks</a>
+        <a href=".." >ex6.1: support vector machines</a>
     </h1>
 </div>
 
@@ -651,22 +651,87 @@
 
 
 
-<h2 id="ex3-2-neural-networks">ex3-2 Neural Networks</h2>
+<h2 id="ex6-1-support-vector-machines">ex6-1. support vector machines</h2>
 <hr>
-<h3 id="predictm">predict.m</h3>
-<pre><code class="lang-matlab">
-<span class="hljs-comment">% Add ones to the X data matrix  </span>
-X = [ones(m, <span class="hljs-number">1</span>) X];  
-a2 = sigmoid(X * Theta1&apos;);  
-
-<span class="hljs-comment">% Add ones to the a2 data matrix  </span>
-a2 = [ones(m, <span class="hljs-number">1</span>) a2];  
-a3 = sigmoid(a2 * Theta2&apos;);  
-
-[max_pobability_one_example, class_in_one_example] = max(a3, [], <span class="hljs-number">2</span>);  
-p = class_in_one_example;
+<h3 id="1-try-different-value-of-c">1. Try different value of C</h3>
+<hr>
+<pre><code class="lang-matlab"><span class="hljs-comment">% You should try to change the C value below and see how the decision  </span>
+<span class="hljs-comment">% boundary varies (e.g., try C = 1000)  </span>
+C = <span class="hljs-number">1</span>;  
+model = svmTrain(X, y, C, @linearKernel, <span class="hljs-number">1e-3</span>, <span class="hljs-number">20</span>);  
+visualizeBoundaryLinear(X, y, model);
 </code></pre>
-<p>Layer&#xAC00; 3&#xAC1C;&#xC778; NN&#xC740; Logistic regression&#xC744; &#xB2E8;&#xACC4;&#xBCC4;&#xB85C; &#xB450;&#xBC88; &#xD558;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;.<br>&#xADF8;&#xB807;&#xAC8C; &#xD574;&#xC11C; &#xAD6C;&#xD574;&#xC9C4; a3 &#xBCA1;&#xD130;&#xB294;  <script type="math/tex; ">h_\Theta(x)</script> &#xBCA1;&#xD130;&#xC774;&#xB2E4;.<br>X : 5000 x (400+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta1 : 25 x 401<br>a2 : 5000 x (25+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta2 : 10 x 26<br>a3 : 5000 x 10<br>&#xC989; predictOneVsAll.m &#xACBD;&#xC6B0;&#xCC98;&#xB7FC; &#xD55C; row&#xC758; &#xD06C;&#xAE30;&#xAC00; 10&#xC774;&#xACE0; &#xAC01;&#xAC01;&#xC5D0;&#xB294; 0~9 &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xD655;&#xB960;&#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xB2E4;.     </p>
+<blockquote>
+<p>model = svmTrain(X, y, C, @linearKernel, 1e-3, 20);<br>SVM &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; &#xC0AC;&#xC6A9;&#xC73C;&#xB85C; &#xCF54;&#xB4DC; &#xAD6C;&#xD604;&#xD560; &#xD544;&#xC694;&#xC5C6;&#xC74C;.    </p>
+</blockquote>
+<h3 id="2-gaussian-kernel">2. Gaussian Kernel</h3>
+<hr>
+<pre><code class="lang-matlab">x1 = [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span>]; x2 = [<span class="hljs-number">0</span> <span class="hljs-number">4</span> <span class="hljs-number">-1</span>]; sigma = <span class="hljs-number">2</span>;  
+sim = gaussianKernel(x1, x2, sigma);
+</code></pre>
+<blockquote>
+<p>caller  </p>
+</blockquote>
+<pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sim</span> = <span class="hljs-title">gaussianKernel</span><span class="hljs-params">(x1, x2, sigma)</span>  </span>
+<span class="hljs-comment">% ====================== YOUR CODE HERE ======================  </span>
+sim = <span class="hljs-built_in">exp</span>(-( (sum((x1 - x2) .^ <span class="hljs-number">2</span>)) / (<span class="hljs-number">2</span>*(sigma^<span class="hljs-number">2</span>)) ));
+</code></pre>
+<blockquote>
+<p>&#xACF5;&#xC2DD;&#xC5D0; &#xB9DE;&#xAC8C; &#xACC4;&#xC0B0;&#xB9CC;&#xD568;.  </p>
+</blockquote>
+<h3 id="3-gaussian-kernel-for-non-linear">3. Gaussian Kernel for non-linear</h3>
+<hr>
+<p>gaussianKernel()&#xC744; &#xAD6C;&#xD604;&#xD574;&#xC11C; &#xB2E4;&#xC74C; library &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; decision boundary&#xAC00; &#xB098;&#xC634;.  </p>
+<pre><code class="lang-matlab">model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));   
+visualizeBoundary(X, y, model);
+</code></pre>
+<h3 id="4-find-best-c-and-sigma">4. Find best C and Sigma</h3>
+<hr>
+<pre><code class="lang-matlab">
+<span class="hljs-comment">% Try different SVM Parameters here  </span>
+[C, sigma] = dataset3Params(X, y, Xval, yval);  
+
+<span class="hljs-comment">% Train the SVM  </span>
+model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));  
+visualizeBoundary(X, y, model);
+</code></pre>
+<blockquote>
+<p>caller  </p>
+</blockquote>
+<pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[C, sigma]</span> = <span class="hljs-title">dataset3Params</span><span class="hljs-params">(X, y, Xval, yval)</span>  </span>
+
+<span class="hljs-comment">% ====================== YOUR CODE HERE ======================  </span>
+<span class="hljs-comment">% Instructions: Fill in this function to return the optimal C and sigma  </span>
+<span class="hljs-comment">%               learning parameters found using the cross validation set.  </span>
+<span class="hljs-comment">%               You can use svmPredict to predict the labels on the cross  </span>
+<span class="hljs-comment">%               validation set. For example,   </span>
+<span class="hljs-comment">%                   predictions = svmPredict(model, Xval);  </span>
+<span class="hljs-comment">%               will return the predictions on the cross validation set.  </span>
+<span class="hljs-comment">%  </span>
+<span class="hljs-comment">%  Note: You can compute the prediction error using   </span>
+<span class="hljs-comment">%        mean(double(predictions ~= yval))  </span>
+<span class="hljs-comment">%  </span>
+
+x1 = [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span>]; x2 = [<span class="hljs-number">0</span> <span class="hljs-number">4</span> <span class="hljs-number">-1</span>];   
+max_min = <span class="hljs-number">99999999</span>;  
+
+<span class="hljs-keyword">for</span> tmp_c =[<span class="hljs-number">0.01</span>, <span class="hljs-number">0.03</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">10</span>, <span class="hljs-number">30</span>]  
+    <span class="hljs-keyword">for</span> tmp_sigma =    [<span class="hljs-number">0.01</span>, <span class="hljs-number">0.03</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">10</span>, <span class="hljs-number">30</span>]  
+        model= svmTrain(X, y, tmp_c, @(x1, x2) gaussianKernel(x1, x2, tmp_sigma));   
+        predictions = svmPredict(model, Xval);  
+        minimun = mean(double(predictions ~= yval));  
+        <span class="hljs-comment">%fprintf(&apos;C = %f, sigma = %f minimun=%f\n&apos;, tmp_c, tmp_sigma, minimun);  </span>
+        <span class="hljs-keyword">if</span> (minimun &lt; max_min)  
+            max_min = minimun;  
+            res_c = tmp_c;  
+            res_sigma = tmp_sigma;  
+        <span class="hljs-keyword">end</span>  
+    <span class="hljs-keyword">end</span>  
+<span class="hljs-keyword">end</span>  
+
+C = res_c;  
+sigma = res_sigma;
+</code></pre>
 
                                 
                                 </section>
@@ -694,12 +759,12 @@ p = class_in_one_example;
 
             
                 
-                <a href="ex3-1-multi-class-classification.html" class="navigation navigation-prev " aria-label="Previous page: ex3.1: Multi-class classification">
+                <a href="8-support-vector-machines.html" class="navigation navigation-prev " aria-label="Previous page: 8. Support Vector Machines">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="5-neural-networks-learning.html" class="navigation navigation-next " aria-label="Next page: 5. Neural Networks: Learning">
+                <a href="ex6-2-spam-classification.html" class="navigation navigation-next " aria-label="Next page: ex6.2: Spam classification">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -710,7 +775,7 @@ p = class_in_one_example;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex3.2: Neural Networks","level":"1.5.2","depth":2,"next":{"title":"5. Neural Networks: Learning","level":"1.6","depth":1,"path":"documents/5-neural-networks-learning.md","ref":"documents/5-neural-networks-learning.md","articles":[{"title":"ex4.1: neural networks","level":"1.6.1","depth":2,"path":"documents/ex4-1-neural-networks.md","ref":"documents/ex4-1-neural-networks.md","articles":[]},{"title":"ex4.2: Backpropagation","level":"1.6.2","depth":2,"path":"documents/ex4-2-backpropagation.md","ref":"documents/ex4-2-backpropagation.md","articles":[]}]},"previous":{"title":"ex3.1: Multi-class classification","level":"1.5.1","depth":2,"path":"documents/ex3-1-multi-class-classification.md","ref":"documents/ex3-1-multi-class-classification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex3-2-neural-networks.md","mtime":"2019-08-01T11:11:20.945Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex6.1: support vector machines","level":"1.9.1","depth":2,"next":{"title":"ex6.2: Spam classification","level":"1.9.2","depth":2,"path":"documents/ex6-2-spam-classification.md","ref":"documents/ex6-2-spam-classification.md","articles":[]},"previous":{"title":"8. Support Vector Machines","level":"1.9","depth":1,"path":"documents/8-support-vector-machines.md","ref":"documents/8-support-vector-machines.md","articles":[{"title":"ex6.1: support vector machines","level":"1.9.1","depth":2,"path":"documents/ex6-1-support-vector-machines.md","ref":"documents/ex6-1-support-vector-machines.md","articles":[]},{"title":"ex6.2: Spam classification","level":"1.9.2","depth":2,"path":"documents/ex6-2-spam-classification.md","ref":"documents/ex6-2-spam-classification.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex6-1-support-vector-machines.md","mtime":"2019-08-01T11:29:52.258Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

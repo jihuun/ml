@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ex3.2: Neural Networks · GitBook</title>
+        <title>7. Machine Learning System Design · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="5-neural-networks-learning.html" />
+    <link rel="next" href="8-support-vector-machines.html" />
     
     
-    <link rel="prev" href="ex3-1-multi-class-classification.html" />
+    <link rel="prev" href="ex5.html" />
     
 
     </head>
@@ -303,7 +303,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.2" data-path="ex3-2-neural-networks.html">
+        <li class="chapter " data-level="1.5.2" data-path="ex3-2-neural-networks.html">
             
                 <a href="ex3-2-neural-networks.html">
             
@@ -398,7 +398,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="7-machine-learning-system-design.html">
+        <li class="chapter active" data-level="1.8" data-path="7-machine-learning-system-design.html">
             
                 <a href="7-machine-learning-system-design.html">
             
@@ -622,7 +622,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ex3.2: Neural Networks</a>
+        <a href=".." >7. Machine Learning System Design</a>
     </h1>
 </div>
 
@@ -651,22 +651,45 @@
 
 
 
-<h2 id="ex3-2-neural-networks">ex3-2 Neural Networks</h2>
+<h1 id="7-machine-learning-system-design">7. Machine Learning System Design</h1>
+<h2 id="71-building-a-spam-classifier">7.1 Building a Spam Classifier</h2>
 <hr>
-<h3 id="predictm">predict.m</h3>
-<pre><code class="lang-matlab">
-<span class="hljs-comment">% Add ones to the X data matrix  </span>
-X = [ones(m, <span class="hljs-number">1</span>) X];  
-a2 = sigmoid(X * Theta1&apos;);  
-
-<span class="hljs-comment">% Add ones to the a2 data matrix  </span>
-a2 = [ones(m, <span class="hljs-number">1</span>) a2];  
-a3 = sigmoid(a2 * Theta2&apos;);  
-
-[max_pobability_one_example, class_in_one_example] = max(a3, [], <span class="hljs-number">2</span>);  
-p = class_in_one_example;
-</code></pre>
-<p>Layer&#xAC00; 3&#xAC1C;&#xC778; NN&#xC740; Logistic regression&#xC744; &#xB2E8;&#xACC4;&#xBCC4;&#xB85C; &#xB450;&#xBC88; &#xD558;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;.<br>&#xADF8;&#xB807;&#xAC8C; &#xD574;&#xC11C; &#xAD6C;&#xD574;&#xC9C4; a3 &#xBCA1;&#xD130;&#xB294;  <script type="math/tex; ">h_\Theta(x)</script> &#xBCA1;&#xD130;&#xC774;&#xB2E4;.<br>X : 5000 x (400+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta1 : 25 x 401<br>a2 : 5000 x (25+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta2 : 10 x 26<br>a3 : 5000 x 10<br>&#xC989; predictOneVsAll.m &#xACBD;&#xC6B0;&#xCC98;&#xB7FC; &#xD55C; row&#xC758; &#xD06C;&#xAE30;&#xAC00; 10&#xC774;&#xACE0; &#xAC01;&#xAC01;&#xC5D0;&#xB294; 0~9 &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xD655;&#xB960;&#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xB2E4;.     </p>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC774;&#xBA54;&#xC77C;&#xC5D0;&#xC11C; spam &#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0; classify &#xD558;&#xB294; &#xB7EC;&#xB2DD; &#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xBCF4;&#xC790;.   </p>
+<p><img src="img/w6_18.png" alt="">  </p>
+<p>training example&#xC744; &#xB514;&#xC790;&#xC778; &#xD574;&#xBCF4;&#xC790;.<br>feature&#xB294; &#xC2A4;&#xD338;&#xC77C; &#xAC00;&#xB2A5;&#xC131;&#xC774; &#xB192;&#xC740; &#xB2E8;&#xC5B4;&#xB77C;&#xACE0; &#xD560;&#xC218; &#xC788;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xACB0;&#xACFC;  y&#xB294; &#xC2E4;&#xC81C; mail&#xC774; &#xC2A4;&#xD338;&#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0; &#xC774;&#xB2E4;. 100&#xAC1C;&#xC758; &#xB2E8;&#xC5B4;&#xB97C; feature x&#xB85C; &#xB450;&#xC5C8;&#xC744;&#xB54C; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xB098;&#xD0C0;&#xB0B4;&#xBCF4;&#xC790;.<br>&#xADF8;&#xB7AC;&#xC744;&#xB54C; &#xC2E4;&#xC81C; &#xBA54;&#xC77C;&#xC5D0;&#xB294; deal, buy, now &#xAC00; &#xC788;&#xC73C;&#xB2C8; feature &#xBCA1;&#xD130; x&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xB098;&#xD0C0;&#xB0BC; &#xC218; &#xC788;&#xB2E4;. &#xD06C;&#xAE30;&#xB294; 100x1 &#xC774;&#xB2E4;.   </p>
+<p>Insight: &#xACB0;&#xAD6D; &#xAC01; feature <script type="math/tex; ">x_j</script> &#xC5D0; &#xAC00;&#xC911;&#xCE58;(<script type="math/tex; ">\theta_j</script>)&#xAC00; &#xBD80;&#xC5EC;&#xB420; &#xAC83;&#xC774;&#xACE0;, &#xD559;&#xC2B5;&#xC744; &#xD558;&#xB294;&#xAC83;&#xC740; &#xADF8;  <script type="math/tex; ">\theta</script>&#xB97C; &#xAD6C;&#xD558;&#xB294;&#xAC83;&#xACFC; &#xAC19;&#xB2E4;. &#xADF8;&#xB807;&#xAC8C; &#xAD6C;&#xD574;&#xC9C4; hypothesis &#xB85C; &#xC774;&#xBA54;&#xC77C;&#xC744; &#xC608;&#xCE21;&#xD558;&#xB294;&#xAC83;&#xC774;&#xB2E4;.   </p>
+<p><img src="img/w6_19.png" alt="">  </p>
+<blockquote>
+<p>&#xC2E4;&#xC81C;&#xB85C;&#xB294; 10000~50000 &#xC5EC;&#xAC1C;&#xC758; &#xB2E8;&#xC5B4;&#xB97C; feature&#xB85C; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;. (100&#xAC1C;&#xB97C; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xC120;&#xD0DD;&#xD558;&#xB294;&#xAC83;&#xC774; &#xC544;&#xB2D8;)  </p>
+</blockquote>
+<p>&#xC5D0;&#xB7EC;&#xB97C; &#xC904;&#xC774;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC791;&#xC5C5;&#xB4E4;&#xC744; &#xCD94;&#xAC00;&#xB85C; &#xD560; &#xC218; &#xC788;&#xB2E4;.   </p>
+<ul>
+<li>&#xB370;&#xC774;&#xD130; &#xCD94;&#xAC00; &#xC218;&#xC9D1;  </li>
+<li>&#xC880; &#xB354; &#xBCF5;&#xC7A1;&#xD55C; feature &#xAC1C;&#xBC1C; (email header&#xC5D0;&#xC11C; &#xCD94;&#xCD9C;)  </li>
+<li>&#xC880; &#xB354; &#xBCF5;&#xC7A1;&#xD55C; feature &#xAC1C;&#xBC1C;2 (message body)  </li>
+<li>&#xC2A4;&#xD3A0;&#xB9C1; &#xCCB4;&#xD06C; &#xC54C;&#xACE0;&#xB9AC;&#xC998; &#xC801;&#xC6A9;  </li>
+</ul>
+<ul>
+<li><p>&#xCD94;&#xCC9C;&#xD558;&#xB294; &#xBC29;&#xBC95;  </p>
+<blockquote>
+<p>&#xCD9C;&#xCC98;: <a href="https://wikidocs.net/4661" target="_blank">https://wikidocs.net/4661</a>  </p>
+</blockquote>
+</li>
+<li><p>&#xBE60;&#xB974;&#xAC8C; &#xAD6C;&#xD604;&#xD560; &#xC218; &#xC788;&#xB294; &#xAC04;&#xB2E8;&#xD55C; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC73C;&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xC790;. &#xAD6C;&#xD604;&#xD55C; &#xD6C4; cross-validation data&#xB85C; &#xD14C;&#xC2A4;&#xD2B8; &#xD55C;&#xB2E4;.  </p>
+</li>
+<li>Learning curve&#xB97C; &#xADF8;&#xB824;&#xC11C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB298;&#xB9AC;&#xAC70;&#xB098;, feature&#xB97C; &#xB298;&#xB9AC;&#xAC70;&#xB098;, &#xD639;&#xC740; &#xB2E4;&#xB978; &#xC5B4;&#xB5A4; &#xBC29;&#xBC95;&#xC774; &#xB3C4;&#xC6C0;&#xC774; &#xB420;&#xC9C0; &#xACB0;&#xC815;&#xD55C;&#xB2E4;.  </li>
+<li>Error analysis: &#xC5D0;&#xB7EC;&#xB97C; &#xC77C;&#xC73C;&#xD0A4;&#xB294; &#xB370;&#xC774;&#xD130;(in cross-validation set)&#xB97C; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xBD84;&#xC11D;&#xD55C;&#xB2E4;. &#xC5B4;&#xB5A4; &#xC885;&#xB958;&#xC758; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC77C;&#xC815;&#xD55C; &#xACBD;&#xD5A5;&#xC758; &#xC5D0;&#xB7EC;&#xB97C; &#xBC1C;&#xC0DD;&#xC2DC;&#xD0A4;&#xB294;&#xC9C0; &#xAD00;&#xCC30;&#xD55C;&#xB2E4;.  </li>
+</ul>
+<p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4;, 500&#xAC1C; cross-validation data &#xC911; 100&#xAC1C; email&#xC774; &#xC798;&#xBABB; &#xBD84;&#xB958;&#xB418;&#xC5C8;&#xB2E4;&#xACE0; &#xD558;&#xC790;. &#xC774; 100&#xAC00;&#xC9C0; &#xC5D0;&#xB7EC;&#xB97C; &#xD655;&#xC778;&#xD558;&#xC5EC; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAE30;&#xC900;&#xC5D0; &#xC758;&#xD574; &#xBD84;&#xB958;&#xD55C;&#xB2E4;.  </p>
+<p>(i) What type of email it is (ii) What cues (features) you think would helped the algorithm classify them correctly  </p>
+<p>(i) &#xC758; &#xACBD;&#xC6B0;,  </p>
+<p>&#xC57D;&#xD314;&#xC774;: 12&#xAC1C;<br>&#xC9DD;&#xD241;: 4&#xAC1C;<br>&#xD53C;&#xC2F1;: 53&#xAC1C;<br>&#xAE30;&#xD0C0;: 31&#xAC1C;<br>&#xC600;&#xB2E4;&#xBA74;, &apos;&#xD53C;&#xC2F1;&apos;&#xC73C;&#xB85C; &#xBD84;&#xB958;&#xB41C; &#xBA54;&#xC77C;&#xC5D0; &#xB300;&#xD55C; &#xC131;&#xB2A5;&#xC744; &#xB192;&#xC774;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xCC3E;&#xB3C4;&#xB85D; &#xD558;&#xB294; &#xAC83;&#xC774; &#xAC00;&#xC7A5; &#xD6A8;&#xACFC;&#xC801;&#xC77C; &#xAC83;&#xC774;&#xB2E4;.  </p>
+<p>(ii) &#xC758; &#xACBD;&#xC6B0;,  </p>
+<p>&#xC758;&#xB3C4;&#xC801;&#xC778; &#xCCA0;&#xC790;&#xBC95; &#xC624;&#xB958;: 5&#xAC74;<br>unusual email routing: 16&#xAC74;<br>unusual punctuation: 32&#xAC74;<br>&#xC774;&#xC5C8;&#xB2E4;&#xBA74; unusual punctuation &#xC744; &#xAC80;&#xCD9C;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xCC3E;&#xB294; &#xAC83;&#xC774; &#xD6A8;&#xACFC;&#xC801;&#xC77C; &#xAC83;&#xC774;&#xB2E4;.  </p>
+<h2 id="72-handling-skewed-data">7.2. Handling Skewed Data</h2>
+<hr>
+<h2 id="73-using-large-data-sets">7.3. Using Large Data Sets</h2>
+<hr>
 
                                 
                                 </section>
@@ -694,12 +717,12 @@ p = class_in_one_example;
 
             
                 
-                <a href="ex3-1-multi-class-classification.html" class="navigation navigation-prev " aria-label="Previous page: ex3.1: Multi-class classification">
+                <a href="ex5.html" class="navigation navigation-prev " aria-label="Previous page: ex5: ">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="5-neural-networks-learning.html" class="navigation navigation-next " aria-label="Next page: 5. Neural Networks: Learning">
+                <a href="8-support-vector-machines.html" class="navigation navigation-next " aria-label="Next page: 8. Support Vector Machines">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -710,7 +733,7 @@ p = class_in_one_example;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex3.2: Neural Networks","level":"1.5.2","depth":2,"next":{"title":"5. Neural Networks: Learning","level":"1.6","depth":1,"path":"documents/5-neural-networks-learning.md","ref":"documents/5-neural-networks-learning.md","articles":[{"title":"ex4.1: neural networks","level":"1.6.1","depth":2,"path":"documents/ex4-1-neural-networks.md","ref":"documents/ex4-1-neural-networks.md","articles":[]},{"title":"ex4.2: Backpropagation","level":"1.6.2","depth":2,"path":"documents/ex4-2-backpropagation.md","ref":"documents/ex4-2-backpropagation.md","articles":[]}]},"previous":{"title":"ex3.1: Multi-class classification","level":"1.5.1","depth":2,"path":"documents/ex3-1-multi-class-classification.md","ref":"documents/ex3-1-multi-class-classification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex3-2-neural-networks.md","mtime":"2019-08-01T11:11:20.945Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7. Machine Learning System Design","level":"1.8","depth":1,"next":{"title":"8. Support Vector Machines","level":"1.9","depth":1,"path":"documents/8-support-vector-machines.md","ref":"documents/8-support-vector-machines.md","articles":[{"title":"ex6.1: support vector machines","level":"1.9.1","depth":2,"path":"documents/ex6-1-support-vector-machines.md","ref":"documents/ex6-1-support-vector-machines.md","articles":[]},{"title":"ex6.2: Spam classification","level":"1.9.2","depth":2,"path":"documents/ex6-2-spam-classification.md","ref":"documents/ex6-2-spam-classification.md","articles":[]}]},"previous":{"title":"ex5: ","level":"1.7.1","depth":2,"path":"documents/ex5.md","ref":"documents/ex5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/7-machine-learning-system-design.md","mtime":"2019-08-01T11:31:13.290Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

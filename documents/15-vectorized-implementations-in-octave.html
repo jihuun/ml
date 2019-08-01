@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ex3.2: Neural Networks · GitBook</title>
+        <title>15. Vectorized implementations (in Octave.md) · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="5-neural-networks-learning.html" />
     
-    
-    <link rel="prev" href="ex3-1-multi-class-classification.html" />
+    <link rel="prev" href="14-application-example-photo-ocr.html" />
     
 
     </head>
@@ -303,7 +301,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.2" data-path="ex3-2-neural-networks.html">
+        <li class="chapter " data-level="1.5.2" data-path="ex3-2-neural-networks.html">
             
                 <a href="ex3-2-neural-networks.html">
             
@@ -579,7 +577,7 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="15-vectorized-implementations-in-octave.html">
+        <li class="chapter active" data-level="2.1" data-path="15-vectorized-implementations-in-octave.html">
             
                 <a href="15-vectorized-implementations-in-octave.html">
             
@@ -622,7 +620,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ex3.2: Neural Networks</a>
+        <a href=".." >15. Vectorized implementations (in Octave.md)</a>
     </h1>
 </div>
 
@@ -651,22 +649,94 @@
 
 
 
-<h2 id="ex3-2-neural-networks">ex3-2 Neural Networks</h2>
+<h1 id="15-vectorized-implementations-in-octave">15. Vectorized implementations (in Octave)</h1>
 <hr>
-<h3 id="predictm">predict.m</h3>
-<pre><code class="lang-matlab">
-<span class="hljs-comment">% Add ones to the X data matrix  </span>
-X = [ones(m, <span class="hljs-number">1</span>) X];  
-a2 = sigmoid(X * Theta1&apos;);  
-
-<span class="hljs-comment">% Add ones to the a2 data matrix  </span>
-a2 = [ones(m, <span class="hljs-number">1</span>) a2];  
-a3 = sigmoid(a2 * Theta2&apos;);  
-
-[max_pobability_one_example, class_in_one_example] = max(a3, [], <span class="hljs-number">2</span>);  
-p = class_in_one_example;
+<p>&#xCD5C;&#xB300;&#xD55C; loop&#xC0AC;&#xC6A9;&#xC744; &#xC904;&#xC774;&#xACE0;, array&#xC694;&#xC18C;&#xC758; &#xAC1C;&#xBCC4;&#xC801; &#xC5F0;&#xC0B0;&#xC744; &#xC904;&#xC774;&#xB294; &#xD589;&#xB82C;&#xC5F0;&#xC0B0;&#xC5D0; &#xC775;&#xC219;&#xD574;&#xC9C8;(&#xD6C8;&#xB828;&#xD560;) &#xD544;&#xC694;&#xAC00; &#xC788;&#xB2E4;.<br>The goal in vectorization is to write code that avoids loops and uses whole-array operations.  </p>
+<h2 id="151-vector-a&#xAC00;-&#xC788;&#xC744;&#xB54C;-suma2-">15.1. Vector A&#xAC00; &#xC788;&#xC744;&#xB54C;, <script type="math/tex; ">sum(A.^2)</script> ?</h2>
+<hr>
+<p><script type="math/tex; ">  
+A * A^T  
+</script>  </p>
+<h2 id="152-loop-&#xC81C;&#xAC70;&#xBC29;&#xBC95;">15.2. loop &#xC81C;&#xAC70;&#xBC29;&#xBC95;</h2>
+<hr>
+<blockquote>
+<p>&#xCD9C;&#xCC98;: <a href="https://octave.org/doc/v4.0.1/Basic-Vectorization.html#Basic-Vectorization" target="_blank">https://octave.org/doc/v4.0.1/Basic-Vectorization.html#Basic-Vectorization</a>  </p>
+</blockquote>
+<p>Loop &#xC0AC;&#xC6A9;   </p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:n  
+  <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:m  
+    c(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>) = a(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>) + b(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>);  
+  endfor  
+endfor
 </code></pre>
-<p>Layer&#xAC00; 3&#xAC1C;&#xC778; NN&#xC740; Logistic regression&#xC744; &#xB2E8;&#xACC4;&#xBCC4;&#xB85C; &#xB450;&#xBC88; &#xD558;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;.<br>&#xADF8;&#xB807;&#xAC8C; &#xD574;&#xC11C; &#xAD6C;&#xD574;&#xC9C4; a3 &#xBCA1;&#xD130;&#xB294;  <script type="math/tex; ">h_\Theta(x)</script> &#xBCA1;&#xD130;&#xC774;&#xB2E4;.<br>X : 5000 x (400+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta1 : 25 x 401<br>a2 : 5000 x (25+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta2 : 10 x 26<br>a3 : 5000 x 10<br>&#xC989; predictOneVsAll.m &#xACBD;&#xC6B0;&#xCC98;&#xB7FC; &#xD55C; row&#xC758; &#xD06C;&#xAE30;&#xAC00; 10&#xC774;&#xACE0; &#xAC01;&#xAC01;&#xC5D0;&#xB294; 0~9 &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xD655;&#xB960;&#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xB2E4;.     </p>
+<p>Vectorization  </p>
+<pre><code class="lang-matlab">c = a + b;
+</code></pre>
+<p>Loop &#xC0AC;&#xC6A9;   </p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:n<span class="hljs-number">-1</span>  
+  a(<span class="hljs-built_in">i</span>) = b(<span class="hljs-built_in">i</span>+<span class="hljs-number">1</span>) - b(<span class="hljs-built_in">i</span>);  
+endfor
+</code></pre>
+<p>Vectorization  </p>
+<pre><code class="lang-matlab">a = b(<span class="hljs-number">2</span>:n) - b(<span class="hljs-number">1</span>:n<span class="hljs-number">-1</span>);
+</code></pre>
+<p>Loop &#xC0AC;&#xC6A9;   </p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:n  
+  <span class="hljs-keyword">if</span> (a(<span class="hljs-built_in">i</span>) &gt; <span class="hljs-number">5</span>)  
+    a(<span class="hljs-built_in">i</span>) -= <span class="hljs-number">20</span>  
+  endif  
+endfor
+</code></pre>
+<p>Vectorization  </p>
+<pre><code class="lang-matlab">a(a&gt;<span class="hljs-number">5</span>) -= <span class="hljs-number">20</span>;
+</code></pre>
+<h2 id="153-built-in-function-vectorize-fun">15.3. Built-in Function: vectorize (fun)</h2>
+<hr>
+<p>Create a vectorized version of the inline function fun by replacing all occurrences of <em>, /, etc., with .</em>, ./, etc.  </p>
+<p>This may be useful, for example, when using inline functions with numerical integration or optimization where a vector-valued function is expected.  </p>
+<pre><code class="lang-matlab">fcn = vectorize (inline (&quot;x^2 - 1&quot;))  
+   &#x21D2; fcn = f(x) = x.^2 - 1  
+quadv (fcn, 0, 3)  
+   &#x21D2; 6
+</code></pre>
+<h2 id="154-vectorization-built-in-&#xD568;&#xC218;-&#xBAA9;&#xB85D;-in-octave">15.4. Vectorization built-in &#xD568;&#xC218; &#xBAA9;&#xB85D; in Octave</h2>
+<ul>
+<li>Index manipulation  <ul>
+<li>find  </li>
+<li>sub2ind  </li>
+<li>ind2sub  </li>
+<li>sort  </li>
+<li>unique  </li>
+<li>lookup  </li>
+<li>ifelse / merge  </li>
+</ul>
+</li>
+<li>Repetition  <ul>
+<li>repmat  </li>
+<li>repelems  </li>
+</ul>
+</li>
+<li>Vectorized arithmetic  <ul>
+<li>sum  </li>
+<li>prod  </li>
+<li>cumsum  </li>
+<li>cumprod  </li>
+<li>sumsq  </li>
+<li>diff  </li>
+<li>dot  </li>
+<li>cummax  </li>
+<li>cummin  </li>
+</ul>
+</li>
+<li>Shape of higher dimensional arrays  <ul>
+<li>reshape  </li>
+<li>resize  </li>
+<li>permute  </li>
+<li>squeeze  </li>
+<li>deal  </li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -694,14 +764,10 @@ p = class_in_one_example;
 
             
                 
-                <a href="ex3-1-multi-class-classification.html" class="navigation navigation-prev " aria-label="Previous page: ex3.1: Multi-class classification">
+                <a href="14-application-example-photo-ocr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 14. Application Example: Photo OCR">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="5-neural-networks-learning.html" class="navigation navigation-next " aria-label="Next page: 5. Neural Networks: Learning">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -710,7 +776,7 @@ p = class_in_one_example;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex3.2: Neural Networks","level":"1.5.2","depth":2,"next":{"title":"5. Neural Networks: Learning","level":"1.6","depth":1,"path":"documents/5-neural-networks-learning.md","ref":"documents/5-neural-networks-learning.md","articles":[{"title":"ex4.1: neural networks","level":"1.6.1","depth":2,"path":"documents/ex4-1-neural-networks.md","ref":"documents/ex4-1-neural-networks.md","articles":[]},{"title":"ex4.2: Backpropagation","level":"1.6.2","depth":2,"path":"documents/ex4-2-backpropagation.md","ref":"documents/ex4-2-backpropagation.md","articles":[]}]},"previous":{"title":"ex3.1: Multi-class classification","level":"1.5.1","depth":2,"path":"documents/ex3-1-multi-class-classification.md","ref":"documents/ex3-1-multi-class-classification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex3-2-neural-networks.md","mtime":"2019-08-01T11:11:20.945Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"15. Vectorized implementations (in Octave.md)","level":"2.1","depth":1,"previous":{"title":"14. Application Example: Photo OCR","level":"1.15","depth":1,"path":"documents/14-application-example-photo-ocr.md","ref":"documents/14-application-example-photo-ocr.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/15-vectorized-implementations-in-octave.md","mtime":"2019-08-01T11:50:05.442Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

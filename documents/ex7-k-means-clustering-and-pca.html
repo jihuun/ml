@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ex3.2: Neural Networks · GitBook</title>
+        <title>ex7: K-means clustering and PCA · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="5-neural-networks-learning.html" />
+    <link rel="next" href="11-anormaly-detection.html" />
     
     
-    <link rel="prev" href="ex3-1-multi-class-classification.html" />
+    <link rel="prev" href="10-dimensionality-reduction.html" />
     
 
     </head>
@@ -303,7 +303,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.2" data-path="ex3-2-neural-networks.html">
+        <li class="chapter " data-level="1.5.2" data-path="ex3-2-neural-networks.html">
             
                 <a href="ex3-2-neural-networks.html">
             
@@ -483,7 +483,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.11.1" data-path="ex7-k-means-clustering-and-pca.html">
+        <li class="chapter active" data-level="1.11.1" data-path="ex7-k-means-clustering-and-pca.html">
             
                 <a href="ex7-k-means-clustering-and-pca.html">
             
@@ -622,7 +622,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ex3.2: Neural Networks</a>
+        <a href=".." >ex7: K-means clustering and PCA</a>
     </h1>
 </div>
 
@@ -651,22 +651,59 @@
 
 
 
-<h2 id="ex3-2-neural-networks">ex3-2 Neural Networks</h2>
+
+<h2 id="ex7-k-means-clustering-and-pca">ex7: K-means clustering and PCA</h2>
 <hr>
-<h3 id="predictm">predict.m</h3>
-<pre><code class="lang-matlab">
-<span class="hljs-comment">% Add ones to the X data matrix  </span>
-X = [ones(m, <span class="hljs-number">1</span>) X];  
-a2 = sigmoid(X * Theta1&apos;);  
-
-<span class="hljs-comment">% Add ones to the a2 data matrix  </span>
-a2 = [ones(m, <span class="hljs-number">1</span>) a2];  
-a3 = sigmoid(a2 * Theta2&apos;);  
-
-[max_pobability_one_example, class_in_one_example] = max(a3, [], <span class="hljs-number">2</span>);  
-p = class_in_one_example;
+<h3 id="part-1-find-closest-centroids">Part 1: Find Closest Centroids</h3>
+<hr>
+<p>&#xAC01; X(i) &#xB97C; &#xC21C;&#xD68C;&#xD558;&#xBA74;&#xC11C;<br>&#xC8FC;&#xC5B4;&#xC9C4; &#xCD08;&#xAE30; centroids &#xC5D0; &#xAC00;&#xAE4C;&#xC6B4; index k &#xB97C; idx(i) &#xC5D0; &#xC800;&#xC7A5;  </p>
+<p>Caller    </p>
+<pre><code class="lang-matlab">idx = findClosestCentroids(X, initial_centroids);
 </code></pre>
-<p>Layer&#xAC00; 3&#xAC1C;&#xC778; NN&#xC740; Logistic regression&#xC744; &#xB2E8;&#xACC4;&#xBCC4;&#xB85C; &#xB450;&#xBC88; &#xD558;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;.<br>&#xADF8;&#xB807;&#xAC8C; &#xD574;&#xC11C; &#xAD6C;&#xD574;&#xC9C4; a3 &#xBCA1;&#xD130;&#xB294;  <script type="math/tex; ">h_\Theta(x)</script> &#xBCA1;&#xD130;&#xC774;&#xB2E4;.<br>X : 5000 x (400+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta1 : 25 x 401<br>a2 : 5000 x (25+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta2 : 10 x 26<br>a3 : 5000 x 10<br>&#xC989; predictOneVsAll.m &#xACBD;&#xC6B0;&#xCC98;&#xB7FC; &#xD55C; row&#xC758; &#xD06C;&#xAE30;&#xAC00; 10&#xC774;&#xACE0; &#xAC01;&#xAC01;&#xC5D0;&#xB294; 0~9 &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xD655;&#xB960;&#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xB2E4;.     </p>
+<pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">idx</span> = <span class="hljs-title">findClosestCentroids</span><span class="hljs-params">(X, centroids)</span>  </span>
+<span class="hljs-comment">% Set K  </span>
+K = <span class="hljs-built_in">size</span>(centroids, <span class="hljs-number">1</span>);  
+
+<span class="hljs-comment">% You need to return the following variables correctly.  </span>
+idx = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">size</span>(X,<span class="hljs-number">1</span>), <span class="hljs-number">1</span>);  
+
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:<span class="hljs-built_in">size</span>(X,<span class="hljs-number">1</span>)  
+
+        max_dis = <span class="hljs-number">9999999</span>;  
+        <span class="hljs-keyword">for</span> k = <span class="hljs-number">1</span>:K  
+        dis = sum((centroids(k,:) - X(<span class="hljs-built_in">i</span>,:)).^<span class="hljs-number">2</span>);  
+                <span class="hljs-keyword">if</span> (dis &lt; max_dis)  
+                        idx(<span class="hljs-built_in">i</span>,<span class="hljs-number">1</span>) = k;  
+                        max_dis = dis;  
+                <span class="hljs-keyword">end</span>  
+        <span class="hljs-keyword">end</span>  
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="part-2-compute-means">Part 2: Compute Means</h3>
+<hr>
+<p>&#xAC01; data&#xC758; &#xD3C9;&#xADE0; &#xC88C;&#xD45C; &#xAD6C;&#xD558;&#xAE30;  </p>
+<pre><code class="lang-matlab"><span class="hljs-comment">%  Compute means based on the closest centroids found in the previous part.  </span>
+centroids = computeCentroids(X, idx, K);
+</code></pre>
+<pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">centroids</span> = <span class="hljs-title">computeCentroids</span><span class="hljs-params">(X, idx, K)</span>  </span>
+
+<span class="hljs-comment">% Useful variables  </span>
+[m n] = <span class="hljs-built_in">size</span>(X);  
+
+<span class="hljs-comment">% You need to return the following variables correctly.  </span>
+centroids = <span class="hljs-built_in">zeros</span>(K, n);  
+
+cnt = <span class="hljs-built_in">zeros</span>(<span class="hljs-number">3</span>,<span class="hljs-number">1</span>);  
+
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:m  
+        <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:n  
+                centroids(idx(<span class="hljs-built_in">i</span>), <span class="hljs-built_in">j</span>) = centroids(idx(<span class="hljs-built_in">i</span>), <span class="hljs-built_in">j</span>) + X(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>);  
+        <span class="hljs-keyword">end</span>  
+        cnt(idx(<span class="hljs-built_in">i</span>),<span class="hljs-number">1</span>)++;  
+<span class="hljs-keyword">end</span>  
+
+centroids = centroids ./ cnt;
+</code></pre>
 
                                 
                                 </section>
@@ -694,12 +731,12 @@ p = class_in_one_example;
 
             
                 
-                <a href="ex3-1-multi-class-classification.html" class="navigation navigation-prev " aria-label="Previous page: ex3.1: Multi-class classification">
+                <a href="10-dimensionality-reduction.html" class="navigation navigation-prev " aria-label="Previous page: 10. Dimensionality Reduction">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="5-neural-networks-learning.html" class="navigation navigation-next " aria-label="Next page: 5. Neural Networks: Learning">
+                <a href="11-anormaly-detection.html" class="navigation navigation-next " aria-label="Next page: 11. Anormaly Detection">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -710,7 +747,7 @@ p = class_in_one_example;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex3.2: Neural Networks","level":"1.5.2","depth":2,"next":{"title":"5. Neural Networks: Learning","level":"1.6","depth":1,"path":"documents/5-neural-networks-learning.md","ref":"documents/5-neural-networks-learning.md","articles":[{"title":"ex4.1: neural networks","level":"1.6.1","depth":2,"path":"documents/ex4-1-neural-networks.md","ref":"documents/ex4-1-neural-networks.md","articles":[]},{"title":"ex4.2: Backpropagation","level":"1.6.2","depth":2,"path":"documents/ex4-2-backpropagation.md","ref":"documents/ex4-2-backpropagation.md","articles":[]}]},"previous":{"title":"ex3.1: Multi-class classification","level":"1.5.1","depth":2,"path":"documents/ex3-1-multi-class-classification.md","ref":"documents/ex3-1-multi-class-classification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex3-2-neural-networks.md","mtime":"2019-08-01T11:11:20.945Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex7: K-means clustering and PCA","level":"1.11.1","depth":2,"next":{"title":"11. Anormaly Detection","level":"1.12","depth":1,"path":"documents/11-anormaly-detection.md","ref":"documents/11-anormaly-detection.md","articles":[]},"previous":{"title":"10. Dimensionality Reduction","level":"1.11","depth":1,"path":"documents/10-dimensionality-reduction.md","ref":"documents/10-dimensionality-reduction.md","articles":[{"title":"ex7: K-means clustering and PCA","level":"1.11.1","depth":2,"path":"documents/ex7-k-means-clustering-and-pca.md","ref":"documents/ex7-k-means-clustering-and-pca.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex7-k-means-clustering-and-pca.md","mtime":"2019-08-01T11:44:59.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

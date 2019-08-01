@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ex3.2: Neural Networks · GitBook</title>
+        <title>14. Application Example: Photo OCR · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="5-neural-networks-learning.html" />
+    <link rel="next" href="15-vectorized-implementations-in-octave.html" />
     
     
-    <link rel="prev" href="ex3-1-multi-class-classification.html" />
+    <link rel="prev" href="13-large-scale-machine-learning.html" />
     
 
     </head>
@@ -303,7 +303,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.2" data-path="ex3-2-neural-networks.html">
+        <li class="chapter " data-level="1.5.2" data-path="ex3-2-neural-networks.html">
             
                 <a href="ex3-2-neural-networks.html">
             
@@ -559,7 +559,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.15" data-path="14-application-example-photo-ocr.html">
+        <li class="chapter active" data-level="1.15" data-path="14-application-example-photo-ocr.html">
             
                 <a href="14-application-example-photo-ocr.html">
             
@@ -622,7 +622,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ex3.2: Neural Networks</a>
+        <a href=".." >14. Application Example: Photo OCR</a>
     </h1>
 </div>
 
@@ -651,22 +651,21 @@
 
 
 
-<h2 id="ex3-2-neural-networks">ex3-2 Neural Networks</h2>
+
+<h1 id="14-application-example-photo-ocr">14. Application Example: Photo OCR</h1>
 <hr>
-<h3 id="predictm">predict.m</h3>
-<pre><code class="lang-matlab">
-<span class="hljs-comment">% Add ones to the X data matrix  </span>
-X = [ones(m, <span class="hljs-number">1</span>) X];  
-a2 = sigmoid(X * Theta1&apos;);  
-
-<span class="hljs-comment">% Add ones to the a2 data matrix  </span>
-a2 = [ones(m, <span class="hljs-number">1</span>) a2];  
-a3 = sigmoid(a2 * Theta2&apos;);  
-
-[max_pobability_one_example, class_in_one_example] = max(a3, [], <span class="hljs-number">2</span>);  
-p = class_in_one_example;
-</code></pre>
-<p>Layer&#xAC00; 3&#xAC1C;&#xC778; NN&#xC740; Logistic regression&#xC744; &#xB2E8;&#xACC4;&#xBCC4;&#xB85C; &#xB450;&#xBC88; &#xD558;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;.<br>&#xADF8;&#xB807;&#xAC8C; &#xD574;&#xC11C; &#xAD6C;&#xD574;&#xC9C4; a3 &#xBCA1;&#xD130;&#xB294;  <script type="math/tex; ">h_\Theta(x)</script> &#xBCA1;&#xD130;&#xC774;&#xB2E4;.<br>X : 5000 x (400+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta1 : 25 x 401<br>a2 : 5000 x (25+1) (1 &#xC5F4; &#xCD94;&#xAC00;&#xD568;)<br>Theta2 : 10 x 26<br>a3 : 5000 x 10<br>&#xC989; predictOneVsAll.m &#xACBD;&#xC6B0;&#xCC98;&#xB7FC; &#xD55C; row&#xC758; &#xD06C;&#xAE30;&#xAC00; 10&#xC774;&#xACE0; &#xAC01;&#xAC01;&#xC5D0;&#xB294; 0~9 &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xD655;&#xB960;&#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xB2E4;.     </p>
+<p>Photo OCR &#xC740; &#xC0AC;&#xC9C4;&#xC5D0;&#xC11C; &#xBB38;&#xC790;&#xB97C; &#xCD94;&#xCD9C;&#xD558;&#xB294;&#xAC83;&#xC774;&#xB2E4;.    </p>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC808;&#xCC28;&#xB97C; &#xBC1F;&#xB294;&#xB2E4;.   </p>
+<p><img src="img/ocr1.png" alt="">  </p>
+<h2 id="141-sliding-windows">14.1. Sliding Windows</h2>
+<hr>
+<p><img src="img/ocr2.png" alt="">  </p>
+<p>step size &#xB2E8;&#xC704;&#xB85C; window&#xB97C; &#xC62E;&#xACA8;&#xC11C; &#xBCF4;&#xD589;&#xC790;&#xB97C; &#xCC3E;&#xB294;&#xB2E4;.<br>window&#xD06C;&#xAE30;&#xB3C4; &#xBCC0;&#xACBD;&#xD574;&#xC11C; &#xD0D0;&#xC0C9;&#xD55C;&#xB2E4;.   </p>
+<p><img src="img/ocr3.png" alt="">  </p>
+<p><img src="img/ocr4.png" alt="">  </p>
+<h2 id="142-summary">14.2. Summary</h2>
+<hr>
+<p><img src="img/summary.png" alt="">  </p>
 
                                 
                                 </section>
@@ -694,12 +693,12 @@ p = class_in_one_example;
 
             
                 
-                <a href="ex3-1-multi-class-classification.html" class="navigation navigation-prev " aria-label="Previous page: ex3.1: Multi-class classification">
+                <a href="13-large-scale-machine-learning.html" class="navigation navigation-prev " aria-label="Previous page: 13. Large scale machine learning">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="5-neural-networks-learning.html" class="navigation navigation-next " aria-label="Next page: 5. Neural Networks: Learning">
+                <a href="15-vectorized-implementations-in-octave.html" class="navigation navigation-next " aria-label="Next page: 15. Vectorized implementations (in Octave.md)">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -710,7 +709,7 @@ p = class_in_one_example;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex3.2: Neural Networks","level":"1.5.2","depth":2,"next":{"title":"5. Neural Networks: Learning","level":"1.6","depth":1,"path":"documents/5-neural-networks-learning.md","ref":"documents/5-neural-networks-learning.md","articles":[{"title":"ex4.1: neural networks","level":"1.6.1","depth":2,"path":"documents/ex4-1-neural-networks.md","ref":"documents/ex4-1-neural-networks.md","articles":[]},{"title":"ex4.2: Backpropagation","level":"1.6.2","depth":2,"path":"documents/ex4-2-backpropagation.md","ref":"documents/ex4-2-backpropagation.md","articles":[]}]},"previous":{"title":"ex3.1: Multi-class classification","level":"1.5.1","depth":2,"path":"documents/ex3-1-multi-class-classification.md","ref":"documents/ex3-1-multi-class-classification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex3-2-neural-networks.md","mtime":"2019-08-01T11:11:20.945Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"14. Application Example: Photo OCR","level":"1.15","depth":1,"next":{"title":"15. Vectorized implementations (in Octave.md)","level":"2.1","depth":1,"path":"documents/15-vectorized-implementations-in-octave.md","ref":"documents/15-vectorized-implementations-in-octave.md","articles":[]},"previous":{"title":"13. Large scale machine learning","level":"1.14","depth":1,"path":"documents/13-large-scale-machine-learning.md","ref":"documents/13-large-scale-machine-learning.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/14-application-example-photo-ocr.md","mtime":"2019-08-01T11:46:49.061Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:50:38.699Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
