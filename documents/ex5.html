@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -698,7 +702,7 @@ options = optimset(<span class="hljs-string">&apos;MaxIter&apos;</span>, <span c
 theta = fmincg(costFunction, initial_theta, options);
 </code></pre>
 <h3 id="part-5-learning-curve-for-linear-regression">Part 5: Learning Curve for Linear Regression</h3>
-<p>Learning algorithm&#xC744; &#xB514;&#xBC84;&#xAE45;(&#xAC80;&#xC99D;) &#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; Learning Curve &#xB97C; &#xADF8;&#xB9B0;&#xB2E4;.  Learning Curve &#xB294; training set &#xAC2F;&#xC218;&#xC5D0; &#xB530;&#xB77C;&#xC11C; training example&#xACFC; cross validation set&#xC758; cost&#xB97C; &#xAC01;&#xAC01; &#xAD6C;&#xD574;&#xC11C; &#xADF8;&#xB824;&#xBD04; &#xC73C;&#xB85C;&#xC368;, high bias vs variaence &#xC778;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xB860;&#xC774;&#xB2E4;.<br>&#xAE30;&#xC874;&#xC758; training example&#xC5D0;&#xC11C; &#xD06C;&#xAE30;m&#xC744; 1&#xBD80;&#xD130; &#xB298;&#xB824;&#xAC00;&#xBA70; <script type="math/tex; ">\theta</script>&#xB97C; &#xD559;&#xC2B5;&#xD558;&#xC5EC; &#xBAA8;&#xB378;&#xC744; &#xB9CC;&#xB4E0;&#xB2E4; -&gt; &#xADF8;&#xB4A4; training example&#xACFC;  C.V &#xC5D0;&#xC11C; &#xAC01;&#xAC01; cost&#xB97C; &#xAD6C;&#xD574;&#xBCF8;&#xB2E4;.   </p>
+<p>Learning algorithm&#xC744; &#xB514;&#xBC84;&#xAE45;(&#xAC80;&#xC99D;) &#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; Learning Curve &#xB97C; &#xADF8;&#xB9B0;&#xB2E4;.  Learning Curve &#xB294; training set &#xAC2F;&#xC218;&#xC5D0; &#xB530;&#xB77C;&#xC11C; training example&#xACFC; cross validation set&#xC758; cost&#xB97C; &#xAC01;&#xAC01; &#xAD6C;&#xD574;&#xC11C; &#xADF8;&#xB824;&#xBD04; &#xC73C;&#xB85C;&#xC368;, high bias vs variaence &#xC778;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xB860;&#xC774;&#xB2E4;.<br>&#xAE30;&#xC874;&#xC758; training example&#xC5D0;&#xC11C; &#xD06C;&#xAE30;m&#xC744; 1&#xBD80;&#xD130; &#xB298;&#xB824;&#xAC00;&#xBA70; $$\theta$$&#xB97C; &#xD559;&#xC2B5;&#xD558;&#xC5EC; &#xBAA8;&#xB378;&#xC744; &#xB9CC;&#xB4E0;&#xB2E4; -&gt; &#xADF8;&#xB4A4; training example&#xACFC;  C.V &#xC5D0;&#xC11C; &#xAC01;&#xAC01; cost&#xB97C; &#xAD6C;&#xD574;&#xBCF8;&#xB2E4;.   </p>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[error_train, error_val]</span> = ...  </span>
     learningCurve(X, y, Xval, yval, lambda)  
 
@@ -794,7 +798,7 @@ X_poly = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">nu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex5: ","level":"1.7.1","depth":2,"next":{"title":"7. Machine Learning System Design","level":"1.8","depth":1,"path":"documents/7-machine-learning-system-design.md","ref":"documents/7-machine-learning-system-design.md","articles":[]},"previous":{"title":"6. Advice for Applying Machine Learning","level":"1.7","depth":1,"path":"documents/6-advice-for-applying-machine-learning.md","ref":"documents/6-advice-for-applying-machine-learning.md","articles":[{"title":"ex5: ","level":"1.7.1","depth":2,"path":"documents/ex5.md","ref":"documents/ex5.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex5.md","mtime":"2019-08-04T02:09:32.360Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-08T14:50:40.729Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex5: ","level":"1.7.1","depth":2,"next":{"title":"7. Machine Learning System Design","level":"1.8","depth":1,"path":"documents/7-machine-learning-system-design.md","ref":"documents/7-machine-learning-system-design.md","articles":[]},"previous":{"title":"6. Advice for Applying Machine Learning","level":"1.7","depth":1,"path":"documents/6-advice-for-applying-machine-learning.md","ref":"documents/6-advice-for-applying-machine-learning.md","articles":[{"title":"ex5: ","level":"1.7.1","depth":2,"path":"documents/ex5.md","ref":"documents/ex5.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"page-toc":{"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","position":"top","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex5.md","mtime":"2019-08-04T02:09:32.360Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T03:24:45.668Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -804,11 +808,11 @@ X_poly = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">nu
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
         
     
         

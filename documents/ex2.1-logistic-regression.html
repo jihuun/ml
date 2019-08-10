@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -762,9 +766,9 @@ J = (<span class="hljs-number">1</span> / m) * sum(pos - neg);
 <blockquote>
 <p>&#xC774;&#xAC74; &#xD2C0;&#xB9B0;&#xB2F5;&#xC774;&#xB2E4;. fminunc() &#xB97C; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;&#xBA74; itteration&#xACFC; alpha &#xACC4;&#xC0B0;&#xC774; &#xC804;&#xD600; &#xD544;&#xC694;&#xC5C6;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; vectorized&#xB41C; J()&#xC640; J()&#xC758; &#xBBF8;&#xBD84;&#xACC4;&#xC218;&#xB9CC; &#xAD6C;&#xD558;&#xBA74; &#xB41C;&#xB2E4;. &#xB2F5;&#xC740; &#xC544;&#xB798;&#xC640; &#xAC19;&#xB2E4;.   </p>
 </blockquote>
-<p>&#xB2E4;&#xC74C; &#xB450;&#xAC1C;&#xC758; vectorized &#xACF5;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD55C;&#xB2E4;.<br><script type="math/tex; ">  
-\begin{align*} & h = g(X\theta)\newline & J(\theta) = \frac{1}{m} \cdot \left(-y^{T}\log(h)-(1-y)^{T}\log(1-h)\right) \end{align*}  
-</script>  </p>
+<p>&#xB2E4;&#xC74C; &#xB450;&#xAC1C;&#xC758; vectorized &#xACF5;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD55C;&#xB2E4;.   </p>
+<p>$$<br>\begin{align<em>} &amp; h = g(X\theta)\newline &amp; J(\theta) = \frac{1}{m} \cdot \left(-y^{T}\log(h)-(1-y)^{T}\log(1-h)\right) \end{align</em>}  </p>
+<p>$$  </p>
 <p><img src="img/theta.png" alt="">  </p>
 <p>-&gt; sum() &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xB9D0;&#xACE0; traspose &#xD574;&#xC11C; &#xACF1;&#xD558;&#xBA74; &#xB41C;&#xB2E4;. &#xB458;&#xB2E4; &#xACB0;&#xACFC;&#xBB3C;&#xC758; &#xD06C;&#xAE30;&#xB294; 1X1&#xC774; &#xB428;.   </p>
 <pre><code class="lang-matlab"><span class="hljs-comment">% Cost function J  </span>
@@ -843,7 +847,7 @@ gx = sigmoid(X * theta);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex2.1: Logistic Regression","level":"1.4.3","depth":2,"next":{"title":"ex2.2: Regularized Logistic Regression","level":"1.4.4","depth":2,"path":"documents/ex2.2-regularized-logistic-regression.md","ref":"documents/ex2.2-regularized-logistic-regression.md","articles":[]},"previous":{"title":"3.2. Regularization and Overfitting problem","level":"1.4.2","depth":2,"path":"documents/3.2-regularization-and-overfitting-problem.md","ref":"documents/3.2-regularization-and-overfitting-problem.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex2.1-logistic-regression.md","mtime":"2019-08-04T02:09:33.289Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-08T14:50:40.729Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex2.1: Logistic Regression","level":"1.4.3","depth":2,"next":{"title":"ex2.2: Regularized Logistic Regression","level":"1.4.4","depth":2,"path":"documents/ex2.2-regularized-logistic-regression.md","ref":"documents/ex2.2-regularized-logistic-regression.md","articles":[]},"previous":{"title":"3.2. Regularization and Overfitting problem","level":"1.4.2","depth":2,"path":"documents/3.2-regularization-and-overfitting-problem.md","ref":"documents/3.2-regularization-and-overfitting-problem.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/ml"},"plugins":["page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"page-toc":{"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","position":"top","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/ex2.1-logistic-regression.md","mtime":"2019-08-04T02:09:33.289Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T03:24:45.668Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -853,11 +857,11 @@ gx = sigmoid(X * theta);
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
         
     
         
