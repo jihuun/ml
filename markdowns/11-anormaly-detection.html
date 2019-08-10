@@ -1,0 +1,789 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>11 Anormaly detection.md · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="12-recommander-systems.html" />
+    
+    
+    <link rel="prev" href="10-dimensionality-reduction.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1-introduction.html">
+            
+                <a href="1-introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="1.1-introduction.html">
+            
+                <a href="1.1-introduction.html">
+            
+                    
+                    1.1 Introduction.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="1.2-linear-regression-with-one-variable.html">
+            
+                <a href="1.2-linear-regression-with-one-variable.html">
+            
+                    
+                    1.2 Linear regression with one variable.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="1.3-linear-algebra-review.html">
+            
+                <a href="1.3-linear-algebra-review.html">
+            
+                    
+                    1.3 Linear algebra review.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2-linear-regression-with-multiple-variables.html">
+            
+                <a href="2-linear-regression-with-multiple-variables.html">
+            
+                    
+                    2 Linear regression with multiple variables.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="2.1-multivariate-linear-regression.html">
+            
+                <a href="2.1-multivariate-linear-regression.html">
+            
+                    
+                    2.1 Multivariate linear regression.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="2.2-computing-parameters-analytically.html">
+            
+                <a href="2.2-computing-parameters-analytically.html">
+            
+                    
+                    2.2 Computing parameters analytically.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="3-logistic-regression-regularization.html">
+            
+                <a href="3-logistic-regression-regularization.html">
+            
+                    
+                    3 Logistic regression regularization.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="3.1-logistic-regression.html">
+            
+                <a href="3.1-logistic-regression.html">
+            
+                    
+                    3.1 Logistic regression.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="3.2-regularization-and-overfitting-problem.html">
+            
+                <a href="3.2-regularization-and-overfitting-problem.html">
+            
+                    
+                    3.2 Regularization and overfitting problem.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="4-neural-networks.html">
+            
+                <a href="4-neural-networks.html">
+            
+                    
+                    4 Neural networks.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="5-neural-networks-learning.html">
+            
+                <a href="5-neural-networks-learning.html">
+            
+                    
+                    5 Neural networks learning.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="6-advice-for-applying-machine-learning.html">
+            
+                <a href="6-advice-for-applying-machine-learning.html">
+            
+                    
+                    6 Advice for applying machine learning.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="7-machine-learning-system-design.html">
+            
+                <a href="7-machine-learning-system-design.html">
+            
+                    
+                    7 Machine learning system design.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="8-support-vector-machines.html">
+            
+                <a href="8-support-vector-machines.html">
+            
+                    
+                    8 Support vector machines.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="9-unsupervised-learning--dimensionality-reduction.html">
+            
+                <a href="9-unsupervised-learning--dimensionality-reduction.html">
+            
+                    
+                    9 Unsupervised learning  dimensionality reduction.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="10-dimensionality-reduction.html">
+            
+                <a href="10-dimensionality-reduction.html">
+            
+                    
+                    10 Dimensionality reduction.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.11" data-path="11-anormaly-detection.html">
+            
+                <a href="11-anormaly-detection.html">
+            
+                    
+                    11 Anormaly detection.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="12-recommander-systems.html">
+            
+                <a href="12-recommander-systems.html">
+            
+                    
+                    12 Recommander systems.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="13-large-scale-machine-learning.html">
+            
+                <a href="13-large-scale-machine-learning.html">
+            
+                    
+                    13 Large scale machine learning.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="14-application-example-photo-ocr.html">
+            
+                <a href="14-application-example-photo-ocr.html">
+            
+                    
+                    14 Application example photo ocr.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="15-vectorized-implementations-in-octave.html">
+            
+                <a href="15-vectorized-implementations-in-octave.html">
+            
+                    
+                    15 Vectorized implementations in octave.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="ex2.1-logistic-regression.html">
+            
+                <a href="ex2.1-logistic-regression.html">
+            
+                    
+                    ex2.1 Logistic regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="ex2.2-regularized-logistic-regression.html">
+            
+                <a href="ex2.2-regularized-logistic-regression.html">
+            
+                    
+                    ex2.2 Regularized logistic regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="ex3-1-multi-class-classification.html">
+            
+                <a href="ex3-1-multi-class-classification.html">
+            
+                    
+                    ex3 1 Multi class classification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="ex3-2-neural-networks.html">
+            
+                <a href="ex3-2-neural-networks.html">
+            
+                    
+                    ex3 2 Neural networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="ex4-1-neural-networks.html">
+            
+                <a href="ex4-1-neural-networks.html">
+            
+                    
+                    ex4 1 Neural networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="ex4-2-backpropagation.html">
+            
+                <a href="ex4-2-backpropagation.html">
+            
+                    
+                    ex4 2 Backpropagation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="ex5.html">
+            
+                <a href="ex5.html">
+            
+                    
+                    ex5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="ex6-1-support-vector-machines.html">
+            
+                <a href="ex6-1-support-vector-machines.html">
+            
+                    
+                    ex6 1 Support vector machines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="ex6-2-spam-classification.html">
+            
+                <a href="ex6-2-spam-classification.html">
+            
+                    
+                    ex6 2 Spam classification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="ex7-k-means-clustering-and-pca.html">
+            
+                <a href="ex7-k-means-clustering-and-pca.html">
+            
+                    
+                    ex7 K-means clustering and pca
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="ex8-recommander-system.html">
+            
+                <a href="ex8-recommander-system.html">
+            
+                    
+                    ex8 Recommander system
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >11 Anormaly detection.md</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ]
+    }
+    });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script> MathJax.Hub.Queue(["Typeset",MathJax.Hub]); </script>
+
+
+
+
+<h1 id="11-anormaly-detection">11. Anormaly Detection</h1>
+<hr>
+<p>Anormaly Detection &#xC740; Unsupervised learning  &#xC758; &#xD55C; &#xBC29;&#xBC95;&#xC774;&#xB2E4;.  &#xADF8;&#xB7EC;&#xB098; supervised learning &#xC758; &#xCE21;&#xBA74;&#xB3C4; &#xB3D9;&#xC2DC;&#xC5D0; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB2E4;.   Anormaly Detection&#xC740; &#xC5B8;&#xC81C; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xAC00;? &#xB4A4;&#xC5D0;&#xB3C4; &#xB098;&#xC624;&#xACA0;&#xC9C0;&#xB9CC;, &#xC218;&#xC9D1;&#xD55C; training data&#xAC00; &#xC815;&#xC0C1;&#xB370;&#xC774;&#xD130;&#xB294; &#xB9CE;&#xC740;&#xB370; &#xBE44;&#xC815;&#xC0C1;&#xB370;&#xC774;&#xD130;&#xAC00; &#xADF8;&#xC5D0; &#xBE44;&#xD574; &#xC6D4;&#xB4F1;&#xD788; &#xC801;&#xC744;&#xB54C;, &#xC774; &#xBAA8;&#xB378;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xC88B;&#xB2E4;.    </p>
+<p><code>(Insight)</code>:<br>&#xD55C;&#xB9C8;&#xB514;&#xB85C; Anormaly Detection&#xC740; feature <script type="math/tex; ">x</script>&#xC758; &#xAC01; data set &#xAC12;&#xC774; &#xD3C9;&#xADE0;&#xC5D0;&#xC11C; &#xB9CE;&#xC774; &#xB5A8;&#xC5B4;&#xC9C8;&#xC218;&#xB85D; &#xBE44;&#xC815;&#xC0C1;&#xC73C;&#xB85C; &#xC608;&#xCE21;&#xD55C;&#xB2E4;&#xB294; &#xBC29;&#xBC95;&#xB860;&#xC774;&#xB2E4;. &#xD3C9;&#xADE0;&#xC5D0; &#xAC00;&#xAE4C;&#xC6B8;&#xC218;&#xB85D; &#xC815;&#xC0C1;&#xC774;&#xB2E4;. &#xC77C;&#xBC18;&#xC801;&#xC778; &#xD1B5;&#xACC4; &#xBC29;&#xBC95;&#xACFC; &#xB2E4;&#xB978;&#xC810;&#xC774;&#xB77C;&#xACE0; &#xD55C;&#xB2E4;&#xBA74;, feature <script type="math/tex; ">x</script>&#xAC00; &#xC5EC;&#xB7EC;&#xAC1C;&#xAC00; &#xB420; &#xC218;&#xC788;&#xB2E4;&#xB294; &#xC810;?&#xC774;&#xB2E4;. &#xC815;&#xC0C1;&#xC778;&#xC9C0; &#xBE44;&#xC815;&#xC0C1;&#xC778;&#xC9C0; &#xAE30;&#xC900;&#xC740; &#xBAA8;&#xB378;&#xC744; &#xCD5C;&#xC885; &#xACC4;&#xC0B0;&#xD55C; &#xACB0;&#xACFC;&#xAC12;&#xC744; <script type="math/tex; ">\epsilon</script> &#xC774;&#xB77C;&#xB294; threshhold &#xAE30;&#xC900;&#xC73C;&#xB85C; &#xD310;&#xB2E8;&#xD55C;&#xB2E4;. &#xC774; &#xAC12;&#xC740; &#xC218;&#xB3D9;&#xC73C;&#xB85C;? &#xC120;&#xC815;&#xD55C;&#xB2E4;.    </p>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xBE44;&#xD589;&#xAE30; &#xC5D4;&#xC9C4;&#xC744; &#xC81C;&#xC791;&#xD560;&#xB54C;, &#xACFC;&#xC5F4;&#xACFC; &#xC9C4;&#xB3D9;&#xD06C;&#xAE30; &#xB450;&#xAC1C;&#xC758; feature&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC2DC;&#xC7A5;&#xC5D0; &#xCD9C;&#xD558;&#xD560;&#xC218; &#xC5C6;&#xB294; &#xBD80;&#xC801;&#xACA9;&#xD55C; &#xC81C;&#xD488; &#xC778;&#xC9C0; &#xD310;&#xB2E8;&#xC744; &#xB0B4;&#xB824;&#xBCF4;&#xC790;.   </p>
+<p><img src="img/anomal2.png" alt="">  </p>
+<p>&#xD655;&#xB960; p(x)&#xB97C; &#xAD6C;&#xD588;&#xC744;&#xB54C;, &#xB192;&#xC73C;&#xBA74; &#xADF8;&#xB798;&#xD504;&#xC5D0;&#xC11C; &#xC13C;&#xD130;&#xC5D0; &#xC704;&#xCE58;&#xD560;&#xAC83;&#xC774;&#xACE0; &#xD569;&#xACA9;&#xC774;&#xB2E4;. &#xBC18;&#xB300;&#xB294; &#xBD80;&#xC801;&#xD569;.   </p>
+<p><img src="img/anomal.png" alt=""><br>&#x200B;        </p>
+<p>&#xB9CC;&#xC57D; data center&#xC5D0;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; feature&#xB85C; &#xAC01; &#xCEF4;&#xD4E8;&#xD130;&#xB97C; &#xBAA8;&#xB2C8;&#xD130;&#xB9C1; &#xD560;&#xB54C;, &#xC5B4;&#xB290; &#xD558;&#xB098;&#xC758; &#xCEF4;&#xD4E8;&#xD130;&#xAC00; &#xBAA8;&#xB378; <script type="math/tex; ">P(x) < \epsilon</script> &#xC5D0; &#xD574;&#xB2F9;&#xD55C;&#xB2E4;&#xBA74; &#xADF8; &#xCEF4;&#xD4E8;&#xD130;&#xB294; &#xBE44;&#xC815;&#xC0C1; &#xB3D9;&#xC791;&#xC744; &#xD55C;&#xB2E4;&#xACE0; &#xD310;&#xB2E8;&#xD560; &#xC218; &#xC788;&#xC744;&#xAC83;&#xC774;&#xB2E4;.   </p>
+<p><img src="img/anomal3.png" alt="">  </p>
+<h2 id="111-gaussian-distribution">11.1. Gaussian Distribution</h2>
+<hr>
+<p>&#xAC00;&#xC6B0;&#xC2DC;&#xC548; &#xBD84;&#xD3EC;&#xB294; &#xC815;&#xADDC;&#xBD84;&#xD3EC;(Normal Distribution)&#xB77C;&#xACE0;&#xB3C4; &#xBD88;&#xB9B0;&#xB2E4;. Anormaly detection &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xAC1C;&#xBC1C;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xBA3C;&#xC800; &#xAE30;&#xBCF8;&#xC801;&#xC778; &#xC815;&#xADDC;&#xBD84;&#xD3EC;&#xC5D0; &#xB300;&#xD574; &#xC54C;&#xC544;&#xBCF4;&#xC790;.   </p>
+<p><script type="math/tex; "> X ~ N(\mu, \sigma^2)</script> &#xB294; x&#xB294; <script type="math/tex; ">\mu, \sigma^2</script> &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xC815;&#xADDC;&#xBD84;&#xD3EC;&#xB97C; &#xB530;&#xB978;&#xB2E4;&#xB294; &#xC758;&#xBBF8;&#xB2E4;.    &#xADF8;&#xB9AC;&#xACE0; <script type="math/tex; ">p(x;,\mu, \sigma^2)</script> &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xACF5;&#xC2DD;&#xC73C;&#xB85C; &#xACC4;&#xC0B0;&#xD560; &#xC218; &#xC788;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xADF8; &#xADF8;&#xB798;&#xD504;&#xB294; &#xB2E4;&#xC74C;&#xACFC;&#xAC19;&#xC774; &#xC815;&#xADDC;&#xBD84;&#xD3EC; &#xACE1;&#xC120; &#xBAA8;&#xC591;&#xC774; &#xB41C;&#xB2E4;.   <script type="math/tex; ">\sigma^2</script> &#xC740; standard variance &#xBD84;&#xC0B0; &#xC774;&#xB77C;&#xACE0; &#xBD80;&#xB974;&#xACE0;, <script type="math/tex; ">\sigma</script>&#xB294; standard deviation &#xD45C;&#xC900; &#xD3B8;&#xCC28; &#xB77C;&#xACE0; &#xBD80;&#xB978;&#xB2E4;.    </p>
+<p><img src="img/anomal4.png" alt="">  </p>
+<p><script type="math/tex; ">\mu 와 \sigma</script> &#xC5D0; &#xB530;&#xB978; &#xADF8;&#xB798;&#xD504;&#xC758; &#xBAA8;&#xC591;&#xC740; &#xB2E4;&#xC74C;&#xACFC;&#xAC19;&#xB2E4;. &#xACE1;&#xC120;&#xC758; &#xBA74;&#xC801;&#xC740; 1&#xC774;&#xB2E4;.   </p>
+<p><img src="img/anomal5.png" alt="">  </p>
+<p>&#xADF8;&#xB9AC;&#xACE0; <script type="math/tex; ">\mu 와 \sigma</script> &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xACC4;&#xC0B0;&#xD560; &#xC218; &#xC788;&#xB2E4;.   </p>
+<p><img src="img/anomal6.png" alt="">  </p>
+<h2 id="112-anormaly-detection-algorithm">11.2. Anormaly detection algorithm</h2>
+<hr>
+<p>&#xBAA8;&#xB378; p(x)&#xB294; &#xB2E4;&#xC74C;&#xACFC;&#xAC19;&#xC774; &#xAC01; feature&#xBCC4; &#xD655;&#xB960; p() &#xC758; &#xACF1;&#xC73C;&#xB85C; &#xAD6C;&#xD55C;&#xB2E4;.<br><img src="img/anomal7.png" alt="">  </p>
+<p>&#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xB2E4;. &#xB2E4;&#xC74C;&#xC758; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xACC4;&#xC0B0;&#xD55C;&#xB4A4; p(x)&#xAC00; <script type="math/tex; ">\epsilon</script> &#xBCF4;&#xB2E4; &#xD070;&#xC9C0; &#xC791;&#xC740;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xBA74; &#xB41C;&#xB2E4;.   </p>
+<p><img src="img/anomal8.png" alt=""><br>j &#xB294; feature &#xBC88;&#xD638;&#xB2E4;.   </p>
+<p>&#xAD6C;&#xD55C; &#xBAA8;&#xB378;&#xC744; &#xAC00;&#xC9C0;&#xACE0; <script type="math/tex; ">x_{test}^{(1)}</script> <script type="math/tex; ">x_{test}^{(2)}</script> &#xC758; p(x)&#xB97C; &#xAD6C;&#xD574;&#xBCF4;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xACE0;  <script type="math/tex; ">x_{test}^{(2)}</script> &#xAC00; <script type="math/tex; ">\epsilon</script> &#xBCF4;&#xB2E4; &#xC791;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xBB38;&#xC81C;&#xAC00; &#xC788;&#xB294; test set&#xC774;&#xB77C;&#xB294;&#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xB2E4;.   </p>
+<p><img src="img/anomal9.png" alt="">  </p>
+<h2 id="113-developing-and-evaluating-an-anomaly-detection-system">11.3. Developing and Evaluating an Anomaly Detection System</h2>
+<hr>
+<p><img src="img/anomal10.png" alt="">  </p>
+<p>training set&#xACFC; test/ cross validation set&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xAD6C;&#xBD84;&#xD55C;&#xB2E4;.   </p>
+<p><img src="img/anomal11.png" alt="">  </p>
+<p>&#xD3C9;&#xAC00; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xB2E4;.   </p>
+<p><img src="img/anomal12.png" alt="">  </p>
+<p>training set&#xC73C;&#xB85C;&#xBD80;&#xD130; &#xBAA8;&#xB378; p(x) &#xB97C; &#xAD6C;&#xD55C; &#xB4A4;&#xC5D0; &#xADF8; &#xBAA8;&#xB378;&#xC744; &#xAC00;&#xC9C0;&#xACE0; test set&#xC5D0;&#xC11C;&#xB3C4; &#xC815;&#xC0C1;&#xC801;&#xC740; &#xC608;&#xCE21;&#xC744; &#xD558;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD574;&#xBCF8;&#xB2E4;.   &#xC815;&#xC0C1;&#xC740; label&#xC744; 1&#xB85C; &#xD558;&#xACE0; &#xBE44;&#xC815;&#xC0C1;&#xC740; label&#xC744; 0&#xC73C;&#xB85C; &#xD574;&#xC11C; &#xD3C9;&#xAC00;&#xD558;&#xB294; &#xAC83;&#xC774; &#xB9C8;&#xCE58; supervised learning &#xACFC; &#xC720;&#xC0AC;&#xD558;&#xB2E4;.   </p>
+<p><img src="img/anomal13.png" alt="">  </p>
+<h2 id="114-anomaly-detection-vs-supervised-learning">11.4. Anomaly Detection vs. Supervised Learning</h2>
+<hr>
+<p>&#xC9C0;&#xAE08;&#xAE4C;&#xC9C0; &#xD655;&#xC778;&#xD55C; &#xBB38;&#xC81C;&#xB294; &#xAE30;&#xC874;&#xC758; logistic regression, NN&#xB4F1;&#xC758; supervised learning &#xBC29;&#xBC95;&#xC73C;&#xB85C; &#xD574;&#xACB0;&#xD560; &#xC218; &#xC788;&#xB294;&#xAC83;&#xC73C;&#xB85C; &#xBCF4;&#xC778;&#xB2E4;.    &#xADF8;&#xB807;&#xB2E4;&#xBA74; &#xC5B8;&#xC81C; Anomaly Detection &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC5B4;&#xB5A4; &#xACBD;&#xC6B0;&#xC5D0; Supervised Learning&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC88B;&#xC744;&#xAE4C;?   positive example (y=1) &#xC740; &#xBE44;&#xC815;&#xC0C1;(anomal)&#xC744; &#xC758;&#xBBF8;&#xD568;&#xC5D0; &#xC8FC;&#xC758;&#xD55C;&#xB2E4;.   </p>
+<p>Anormaly Detection&#xC740; &#xC5B8;&#xC81C; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xAC00;? &#xB4A4;&#xC5D0;&#xB3C4; &#xB098;&#xC624;&#xACA0;&#xC9C0;&#xB9CC;, &#xC218;&#xC9D1;&#xD55C; training data&#xAC00; &#xC815;&#xC0C1;&#xB370;&#xC774;&#xD130;&#xB294; &#xB9CE;&#xC740;&#xB370; &#xBE44;&#xC815;&#xC0C1;&#xB370;&#xC774;&#xD130;&#xAC00; &#xADF8;&#xC5D0; &#xBE44;&#xD574; &#xC6D4;&#xB4F1;&#xD788; &#xC801;&#xC744;&#xB54C;, &#xC774; &#xBAA8;&#xB378;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xC88B;&#xB2E4;.   Logistic Reg&#xB098; NN&#xAC19;&#xC740; supervised learning&#xC740; &#xBE44;&#xC815;&#xC0C1; &#xB370;&#xC774;&#xD130;&#xB3C4; &#xC815;&#xD615;&#xD654; &#xD560; &#xC218; &#xC788;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; &#xBE44;&#xC815;&#xC0C1; &#xAC12;&#xC744; &#xC804;&#xD600; &#xC608;&#xCE21;&#xD560; &#xC218; &#xC5C6;&#xC744;&#xB54C;&#xB294; anomaly detection&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xAC8C; &#xC88B;&#xB2E4;. &#xAC00;&#xB839; &#xBE44;&#xD589;&#xAE30; &#xC5D4;&#xC9C4;&#xC744; &#xC0DD;&#xC0B0;&#xD560;&#xB54C;, &#xB2F9;&#xC7A5; &#xB0B4;&#xC77C; &#xC0DD;&#xC0B0;&#xB41C; &#xC5D4;&#xC9C4;&#xC774; &#xC5B4;&#xB5A4; &#xBB38;&#xC81C;&#xC810;&#xC744; &#xAC16;&#xAC8C;&#xB420;&#xC9C0; &#xC804;&#xD600; &#xC54C;&#xC218;&#xC5C6;&#xB2E4;&#xBA74;, &#xADF8;&#xB7F4;&#xB54C;&#xB294; &#xD3C9;&#xADE0;&#xC5D0;&#xC11C; &#xB9CE;&#xC774; &#xBC97;&#xC5B4;&#xB09C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xBE44;&#xC815;&#xC0C1;(anomal)&#xC73C;&#xB85C; &#xC608;&#xCE21;&#xD558;&#xB294; &#xC774; &#xBAA8;&#xB378;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774;&#xB2E4;.  &#xB9CC;&#xC57D; &#xBE44;&#xD589;&#xAE30; &#xC5D4;&#xC9C4;&#xC774; &#xBE44;&#xC815;&#xC0C1;&#xC778;&#xACBD;&#xC6B0;&#xAC00; &#xC27D;&#xAC8C; &#xC608;&#xCE21;&#xC774; &#xB41C;&#xB2E4;&#xBA74; &#xADF8;&#xB54C;&#xB294; supervised learnining&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB41C;&#xB2E4;.    </p>
+<p><img src="img/anomal14.png" alt="">  </p>
+<p>Spam &#xBA54;&#xC77C; &#xC608;&#xCE21;&#xC758; &#xACBD;&#xC6B0; &#xC218;&#xB9CE;&#xC740; positive example(&#xC2A4;&#xD338; &#xBA54;&#xC77C; &#xB370;&#xC774;&#xD130;&#xB4E4;)&#xC744; &#xC774;&#xBBF8; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;, Supervised learning&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774;&#xB2E4;.    </p>
+<p><img src="img/anomal15.png" alt="">  </p>
+<p>&#xBE44;&#xC815;&#xC0C1;&#xC778; positive example&#xBCF4;&#xB2E4; &#xC815;&#xC0C1; negative example&#xC774; &#xC6D4;&#xB4F1;&#xD788; &#xB9CE;&#xC744;&#xB54C;. -&gt; Anomaly Detection &#xC0AC;&#xC6A9;.  </p>
+<h2 id="115-choosing-what-features-to-use">11.5. Choosing What Features to Use</h2>
+<hr>
+<p>feature&#xB97C; &#xC5B4;&#xB5BB;&#xAC8C; &#xC120;&#xC815;&#xD558;&#xBA74; &#xC88B;&#xC744;&#xC9C0; &#xC54C;&#xC544;&#xBCF4;&#xC790;.   &#xB9CC;&#xC57D; feature x&#xB97C; plot &#xD574; &#xBD24;&#xC744;&#xB54C;, &#xC704;&#xC758; &#xADF8;&#xB9BC;&#xACFC; &#xAC19;&#xC774; &#xB098;&#xC624;&#xBA74; &#xC88B;&#xAC9F;&#xC9C0;&#xB9CC; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC740; &#xADF8;&#xB9BC;&#xC774; &#xB098;&#xC624;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD574;&#xC57C;&#xD560;&#xAE4C;? &#xC544;&#xB798; &#xACF5;&#xC2DD;&#xB4E4;&#xC744; &#xC801;&#xC808;&#xD788; &#xC120;&#xD0DD;&#xD574;&#xC11C; &#xC801;&#xC6A9;&#xD574;&#xBCF8;&#xB2E4;. &#xADF8;&#xB807;&#xAC8C; gaussian &#xD615;&#xD0DC;&#xB85C; &#xBCC0;&#xD658;&#xD558;&#xBA74; &#xB41C;&#xB2E4;-.   </p>
+<p><img src="img/anomal16.png" alt="">  </p>
+<p>Octave&#xC5D0;&#xC11C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xB2E4;.   &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBA85;&#xB839;&#xC744; &#xD588;&#xC744;&#xB54C; &#xACB0;&#xACFC;&#xAC00; &#xC815;&#xADDC;&#xBD84;&#xD3EC;&#xB97C; &#xB530;&#xB974;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xBA74;  </p>
+<pre><code class="lang-matlab">hist(x)
+</code></pre>
+<p><img src="img/hist1.png" alt="">  </p>
+<p>&#xB2E4;&#xC74C;&#xACFC;&#xAC19;&#xC774; x&#xB97C; &#xBCC0;&#xD615;&#xC2DC;&#xD0A8; &#xAC12;&#xC744; &#xD655;&#xC778;&#xD574;&#xC11C; &#xC815;&#xADDC;&#xBD84;&#xD3EC;&#xB97C; &#xB530;&#xB974;&#xAC8C; &#xB9CC;&#xB4E4;&#xBA74; &#xB41C;&#xB2E4;.    </p>
+<pre><code class="lang-matlab">hist(x)  
+hist(x.^<span class="hljs-number">0.5</span>)  
+hist(x.^<span class="hljs-number">0.1</span>)  
+hist(x.^<span class="hljs-number">0.05</span>)  
+hist(<span class="hljs-built_in">log</span>(x))
+</code></pre>
+<p><img src="img/hist2.png" alt="">  </p>
+<p>feature x_1&#xC5D0;&#xC11C;&#xB294; &#xC815;&#xC0C1;&#xC73C;&#xB85C; &#xD310;&#xBCC4;&#xB418;&#xB294;&#xB370; new feature x_2&#xB97C; &#xCD94;&#xAC00;&#xD588;&#xC744;&#xB54C;, &#xC815;&#xC0C1;&#xBC94;&#xC704;&#xAC00; &#xC544;&#xB2C8;&#xB77C;&#xBA74; &#xC88B;&#xC740; &#xC608;&#xCE21;&#xC744; &#xD560; &#xC218; &#xC788;&#xC744; &#xAC83;&#xC774;&#xB2E4;.   </p>
+<p><img src="img/anomal17.png" alt="">  </p>
+<p>data center&#xC5D0;&#xC11C; feature&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC73C;&#xB85C; &#xC120;&#xD0DD;&#xD560; &#xC218; &#xC788;&#xC744;&#xAC83;&#xC774;&#xB2E4;.  </p>
+<p><img src="img/anomal18.png" alt="">  </p>
+<h2 id="116-multivariate-gaussian-distribution">11.6. Multivariate Gaussian Distribution</h2>
+<hr>
+<p>parameter <script type="math/tex; ">\mu, \sum</script> &#xC744; &#xB450;&#xC5B4;&#xC11C; &#xC785;&#xB9DB;&#xC5D0; &#xB9DE;&#xAC8C; &#xC815;&#xADDC;&#xBD84;&#xD3EC; &#xACE1;&#xC120;&#xC744; &#xBCC0;&#xD615;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xB2E4;. &#xC774;&#xAC83;&#xC740; &#xC815;&#xC0C1;&#xC778;&#xB370;&#xB3C4; &#xBAA8;&#xB378;p(x)&#xC758; &#xACB0;&#xACFC;&#xAC00; &#xBE44;&#xC815;&#xC0C1;&#xC73C;&#xB85C; &#xB098;&#xC62C;&#xB54C;, &#xC2DC;&#xB3C4;&#xD574;&#xBCFC;&#xC218; &#xC788;&#xB294; &#xBC29;&#xBC95;&#xC774;&#xB2E4;.   </p>
+<p><img src="img/anomal19.png" alt="">  </p>
+<p>&#xB2E4;&#xC74C;&#xC758; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xD558;&#xBA74;&#xB41C;&#xB2E4;.   </p>
+<p><img src="img/anomal20.png" alt="">  </p>
+<p><img src="img/anomal21.png" alt="">  </p>
+<p>original model&#xACFC; multivariate &#xC758; &#xC7A5;&#xB2E8;&#xC810;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xB2E4;.   </p>
+<p><img src="img/anomal22.png" alt="">  </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="10-dimensionality-reduction.html" class="navigation navigation-prev " aria-label="Previous page: 10 Dimensionality reduction.md">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="12-recommander-systems.html" class="navigation navigation-next " aria-label="Next page: 12 Recommander systems.md">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"11 Anormaly detection.md","level":"2.11","depth":1,"next":{"title":"12 Recommander systems.md","level":"2.12","depth":1,"path":"markdowns/12-recommander-systems.md","ref":"markdowns/12-recommander-systems.md","articles":[]},"previous":{"title":"10 Dimensionality reduction.md","level":"2.10","depth":1,"path":"markdowns/10-dimensionality-reduction.md","ref":"markdowns/10-dimensionality-reduction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/11-anormaly-detection.md","mtime":"2019-08-10T10:01:14.008Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T10:06:46.210Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
