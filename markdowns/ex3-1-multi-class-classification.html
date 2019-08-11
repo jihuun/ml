@@ -623,9 +623,9 @@
 
 
 
-<h2 id="ex3-1-multi-class-classification">ex3-1 Multi-class classification</h2>
+<h1 id="ex3-1-multi-class-classification">ex3-1 Multi-class classification</h1>
 <hr>
-<h3 id="lrcostfunctionm">lrCostFunction.m</h3>
+<h2 id="lrcostfunctionm">lrCostFunction.m</h2>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[J, grad]</span> = <span class="hljs-title">lrCostFunction</span><span class="hljs-params">(theta, X, y, lambda)</span>  </span>
 ...(&#xC911;&#xB7B5;)  
 
@@ -644,7 +644,7 @@ J = (<span class="hljs-number">1</span> / m) * (pos - neg) + regular;
 grad = (<span class="hljs-number">1</span>/m) * X&apos; * (gx - y) + (lambda/m) .* theta;  
 grad(<span class="hljs-number">1</span>) = (<span class="hljs-number">1</span>/m) * X(:,<span class="hljs-number">1</span>)&apos; * (gx - y);
 </code></pre>
-<h3 id="onevsallm">oneVsAll.m</h3>
+<h2 id="onevsallm">oneVsAll.m</h2>
 <pre><code class="lang-matlab">
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[all_theta]</span> = <span class="hljs-title">oneVsAll</span><span class="hljs-params">(X, y, num_labels, lambda)</span>  </span>
 ...(&#xC911;&#xB7B5;)  
@@ -667,7 +667,7 @@ grad(<span class="hljs-number">1</span>) = (<span class="hljs-number">1</span>/m
 <blockquote>
 <p>&apos; &#xC704;&#xC5D0;&#xC11C; &#xB9CC;&#xB4E0; lrCostFunction &#xC744; &#xAC00;&#xC9C0;&#xACE0; num_labels &#xAC2F;&#xC218;&#xB9CC;&#xD07C; &#xBC18;&#xBCF5;&#xD55C;&#xB2E4;. fmincg&#xB294; &#xCD5C;&#xC801;&#xC758; parameter <script type="math/tex; ">\Theta</script>&#xB97C; &#xCC3E;&#xC544;&#xC904;&#xAC83;&#xC774;&#xACE0; 1x401 &#xD06C;&#xAE30;&#xC758; &#xACB0;&#xACFC;(<script type="math/tex; ">\Theta</script>)&#xB97C; &#xC904; &#xAC83;&#xC774;&#xB2E4;. feature&#xAC00; 401&#xAC1C; &#xC600;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xADF8;&#xC5D0; &#xC0C1;&#xC751;&#xD558;&#xB294; parameter(weight)&#xC758; &#xAC2F;&#xC218;&#xB3C4; 401&#xAC1C;. &#xACB0;&#xACFC;&#xB294; &#xB2E8;&#xC9C0; all_theta&#xC5D0; &#xBC18;&#xBCF5; &#xD69F;&#xC218;&#xB9CC;&#xD07C; row&#xAC00; &#xCD94;&#xAC00;&#xB418;&#xB294;&#xAC83;. &#xC774; &#xACB0;&#xACFC; all_theta&#xB97C; &#xAC00;&#xC9C0;&#xACE0; predict &#xD560;&#xAC83;&#xC774;&#xB2E4;.    </p>
 </blockquote>
-<h3 id="predictonevsallm">predictOneVsAll.m</h3>
+<h2 id="predictonevsallm">predictOneVsAll.m</h2>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">p</span> = <span class="hljs-title">predictOneVsAll</span><span class="hljs-params">(all_theta, X)</span>  </span>
 ...(&#xC911;&#xB7B5;)  
 
@@ -719,7 +719,7 @@ p = class_in_one_example;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex3 1 Multi class classification","level":"3.3","depth":1,"next":{"title":"ex3 2 Neural networks","level":"3.4","depth":1,"path":"markdowns/ex3-2-neural-networks.md","ref":"markdowns/ex3-2-neural-networks.md","articles":[]},"previous":{"title":"ex2.2 Regularized logistic regression","level":"3.2","depth":1,"path":"markdowns/ex2.2-regularized-logistic-regression.md","ref":"markdowns/ex2.2-regularized-logistic-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex3-1-multi-class-classification.md","mtime":"2019-08-10T09:14:17.230Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T10:06:46.210Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex3 1 Multi class classification","level":"3.3","depth":1,"next":{"title":"ex3 2 Neural networks","level":"3.4","depth":1,"path":"markdowns/ex3-2-neural-networks.md","ref":"markdowns/ex3-2-neural-networks.md","articles":[]},"previous":{"title":"ex2.2 Regularized logistic regression","level":"3.2","depth":1,"path":"markdowns/ex2.2-regularized-logistic-regression.md","ref":"markdowns/ex2.2-regularized-logistic-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex3-1-multi-class-classification.md","mtime":"2019-08-11T07:58:13.526Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -727,6 +727,10 @@ p = class_in_one_example;
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
     
         
         <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

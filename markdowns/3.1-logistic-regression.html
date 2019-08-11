@@ -621,13 +621,13 @@
 <script> MathJax.Hub.Queue(["Typeset",MathJax.Hub]); </script>
 
 
-<h2 id="31-logistic-regression">3.1. Logistic Regression</h2>
+<h1 id="31-logistic-regression">3.1. Logistic Regression</h1>
 <hr>
 <p>Logistic regression is a method for classifying data into discrete outcomes. For example, we might use logistic regression to classify an email as spam or not spam.  </p>
-<h3 id="311-classfication">3.1.1. Classfication</h3>
+<h2 id="311-classfication">3.1.1. Classfication</h2>
 <hr>
 <p>&#xC774;&#xBC88; &#xCC55;&#xD130;&#xC5D0;&#xC11C;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; Classfication &#xBD84;&#xB958; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xC5B4;&#xB5BB;&#xAC8C; &#xAC1C;&#xBC1C;&#xD560;&#xC218; &#xC788;&#xB294;&#xC9C0; &#xC54C;&#xC544;&#xBCF8;&#xB2E4;. &#xC6B0;&#xC120; linear regression&#xC744; classification&#xC5D0; &#xC801;&#xC6A9;&#xD558;&#xB294;&#xAC83;&#xC740; &#xAC00;&#xB2A5;&#xD574;&#xBCF4;&#xC774;&#xAE30;&#xB294; &#xD558;&#xB098;. &#xB370;&#xC774;&#xD130;&#xAC00; &#xB3D9;&#xB5A8;&#xC5B4;&#xC9C4; &#xACF3;&#xC5D0; &#xD558;&#xB098;&#xB9CC; &#xCD94;&#xAC00;&#xB418;&#xC5B4;&#xB3C4; &#xAC00;&#xC124;&#xD568;&#xC218;&#xAC00; &#xBC14;&#xB00C;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC633;&#xC9C0; &#xBABB;&#xD55C; &#xACB0;&#xACFC;&#xB97C; &#xB9CC;&#xB4E4;&#xC5B4;&#xB0BC; &#xC218; &#xC788;&#xB2E4;.  &#xB530;&#xB77C;&#xC11C; y&#xAC00; 0&#xB610;&#xB294; 1&#xC778; binary classification problem &#xC5D0; &#xC9D1;&#xC911;&#xD560;&#xAC83;&#xC774;&#xB2E4;.   </p>
-<h3 id="312-logistic-regression">3.1.2. Logistic Regression</h3>
+<h2 id="312-logistic-regression">3.1.2. Logistic Regression</h2>
 <hr>
 <p>(&#xC6A9;&#xC5B4;&#xB294; Regression &#xC774;&#xC9C0;&#xB9CC; Classfication &#xBB38;&#xC81C;&#xC784;)  </p>
 <p>Logistic Regression &#xC5D0;&#xC11C; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC740; &#xBC94;&#xC704;&#xB97C; &#xAC16;&#xB294; &#xAC00;&#xC124;&#xD568;&#xC218;&#xB97C; &#xB9CC;&#xB4E4;&#xAC83;&#xC774;&#xB2E4;.<br><script type="math/tex; ">  
@@ -648,7 +648,7 @@ P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
 <blockquote>
 <p><script type="math/tex; ">h_\theta(x) = P(y=1 | x ; \theta)</script>  &#xD574;&#xC11D;:<br> Probability that y=1, given x, parameterized by <script type="math/tex; ">\theta</script><br>y&#xAC00; 1&#xC77C; &#xAC00;&#xB2A5;&#xC131;, &#xC8FC;&#xC5B4;&#xC9C4; x, &#xC989; &#xD658;&#xC790;&#xAC00; &#xD2B9;&#xC9D5; x&#xB85C; &#xB098;&#xD0C0;&#xB0B4;&#xC9C0;&#xB294; &#xD2B9;&#xC815; &#xC885;&#xC591;&#xC758; &#xD06C;&#xAE30;&#xB97C; &#xAC00;&#xC9C8;&#xB54C;, &#xC774;&#xAC83;&#xC774; <script type="math/tex; ">\theta</script>&#xC5D0; &#xB9E4;&#xAC1C;&#xB41C; &#xAC00;&#xB2A5;&#xC131;&#xC774;&#xB2E4;.   </p>
 </blockquote>
-<h3 id="313-decision-boundary">3.1.3. Decision Boundary</h3>
+<h2 id="313-decision-boundary">3.1.3. Decision Boundary</h2>
 <hr>
 <p><script type="math/tex; ">h(x)</script>&#xAC00; &#xACC4;&#xC0B0;&#xD558;&#xB294;&#xAC83;&#xC774; &#xC815;&#xD655;&#xD788; &#xBB34;&#xC5C7;&#xC774;&#xB0D0;? &#xAC00;&#xC124;&#xD568;&#xC218;&#xAC00; &#xC608;&#xCE21;&#xD558;&#xB294; &#xAC12;&#xC774; &#xC5B8;&#xC81C; y=1&#xC774;&#xACE0; 0&#xC778;&#xC9C0; &#xC774;&#xD574;&#xD574;&#xBCF4;&#xC790;.   </p>
 <p><img src="img/logistic2.png" alt="">  </p>
@@ -678,12 +678,12 @@ P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
 </blockquote>
 </li>
 </ul>
-<h3 id="314-non-linear-decision-boundary">3.1.4. Non-linear Decision Boundary</h3>
+<h2 id="314-non-linear-decision-boundary">3.1.4. Non-linear Decision Boundary</h2>
 <hr>
 <p><img src="img/logistic4.png" alt="">  </p>
 <p>&#xC77C;&#xBC18;&#xC801;&#xC778; &#xACBD;&#xC6B0; logistic regression&#xC740; linear&#xD55C; decision boundary &#xBC16;&#xC5D0; &#xCC3E;&#xC744; &#xC218; &#xC5C6;&#xB2E4;. (since logistic regression will only be able to find a linear decision boundary)  &#xB530;&#xB77C;&#xC11C; Decision Boundary&#xAC00; non-linear&#xD55C; &#xACBD;&#xC6B0;&#xC758; &#xC608;&#xB294; &#xC704;&#xC640; &#xAC19;&#xB2E4;. (<script type="math/tex; ">\theta^Tx</script>) &#xB294; feature &#xB450;&#xAC1C;&#xB97C;(<script type="math/tex; ">x_1</script> <script type="math/tex; ">x_2</script>) &#xAC00;&#xC9C0;&#xACE0;Polynomial &#xD55C; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD588;&#xC74C;&#xC5D0; &#xC720;&#xC758; (<script type="math/tex; ">x_1^2</script> <script type="math/tex; ">x_2^2</script>)  <script type="math/tex; ">\theta</script>&#xAC00; Decision Boundary &#xBAA8;&#xC591;&#xC744; &#xACB0;&#xC815;&#xD55C;&#xB2E4; training data&#xAC00; &#xD558;&#xB294;&#xAC8C; &#xC544;&#xB2D8;.  </p>
 <p><img src="img/logistic5.png" alt=""><br>Polynomial &#xD55C; feature&#xB97C; &#xB354; &#xBCF5;&#xD569;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB354; &#xBCF5;&#xC7A1;&#xD55C; &#xBAA8;&#xC591;&#xC758; Decision Boundary&#xB97C; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xB2E4;.  &#xACB0;&#xAD6D; &#xC774; 3 &#xC7A5;&#xC5D0;&#xC11C; &#xD560;&#xC77C;&#xC740;. training set x&#xAC00; &#xC788;&#xC744;&#xB54C; &#xC801;&#xC808;&#xD55C; Decision Boundary&#xD568;&#xC218; &#xADF8;&#xB798;&#xD504; &#xBAA8;&#xD615;(?)&#xC744; &#xC120;&#xD0DD;&#xD558;&#xACE0; <script type="math/tex; ">\theta</script> &#xB97C; &#xAD6C;&#xD55C;&#xB2E4;. &#xCD5C;&#xC801;&#xC758; <script type="math/tex; ">\theta</script>&#xB294; &#xB2F9;&#xC5F0;&#xD788;&#xB3C4; cost function <script type="math/tex; ">J(\theta)</script>&#xB97C; &#xCD5C;&#xC18C;&#xD654;&#xD558;&#xB294; &#xAC12;&#xC73C;&#xB85C; &#xAD6C;&#xD560;&#xAC83;&#xC774;&#xB2E4;. &#xADF8;&#xB807;&#xAC8C; &#xD574;&#xC11C; &#xAD6C;&#xD574;&#xC9C4; &#xAC00;&#xC124;&#xD568;&#xC218; <script type="math/tex; ">h_\theta(x)</script>&#xB294; &#xC8FC;&#xC5B4;&#xC9C4; x&#xAC00; y=1&#xC601;&#xC5ED;&#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0;&#xB97C; &#xD310;&#xB2E8;&#xD574;&#xC900;&#xB2E4;. &#xD655;&#xB960;&#xAC12;&#xC73C;&#xB85C;.  </p>
-<h3 id="315-cost-function">3.1.5. Cost function</h3>
+<h2 id="315-cost-function">3.1.5. Cost function</h2>
 <hr>
 <p>&#xC774;&#xBC88; &#xCC55;&#xD130;&#xC5D0;&#xC11C;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xC801;&#xC808;&#xD55C; parameter <script type="math/tex; ">\theta</script>&#xB97C; &#xAD6C;&#xD560;&#xC218; &#xC788;&#xB294;&#xC9C0; &#xC54C;&#xC544;&#xBCF8;&#xB2E4;.   </p>
 <p><img src="img/cost_func_classify.png" alt="">  </p>
@@ -705,7 +705,7 @@ P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
 <p><script type="math/tex; ">  
 \begin{align*}& \mathrm{Cost}(h_\theta(x),y) = 0 \text{ if } h_\theta(x) = y \newline & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_\theta(x) \rightarrow 1 \newline & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_\theta(x) \rightarrow 0 \newline \end{align*}  
 </script>  </p>
-<h3 id="316-simplified-cost-function-and-gradient-descent">3.1.6. Simplified Cost Function and Gradient Descent</h3>
+<h2 id="316-simplified-cost-function-and-gradient-descent">3.1.6. Simplified Cost Function and Gradient Descent</h2>
 <hr>
 <ul>
 <li>Cost Function  </li>
@@ -739,10 +739,10 @@ P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
 </blockquote>
 <p>&#xACB0;&#xAD6D; Vectorized &#xD558;&#xBA74;  <script type="math/tex; ">\theta</script>&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB2E4;.    </p>
 <p><img src="img/theta.png" alt="">  </p>
-<h3 id="317-advanced-optimization">3.1.7. Advanced Optimization</h3>
+<h2 id="317-advanced-optimization">3.1.7. Advanced Optimization</h2>
 <hr>
 <p>For logistic regression, sometimes gradient descent will converge to a local minimum (and fail to find the global minimum). This is the reason we prefer more advanced optimization algorithms such as fminunc (conjugate gradient/BFGS/L-BFGS/etc).  Octave &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; fminunc() &#xC0AC;&#xC6A9;, theta vector&#xB97C; Gradient descent&#xBCF4;&#xB2E4; &#xBE68;&#xB9AC; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xC74C;.  <a href="https://www.coursera.org/learn/machine-learning/supplement/cmjIc/advanced-optimization" target="_blank">https://www.coursera.org/learn/machine-learning/supplement/cmjIc/advanced-optimization</a>  </p>
-<h3 id="318-multi-class-classification">3.1.8. Multi-Class Classification</h3>
+<h2 id="318-multi-class-classification">3.1.8. Multi-Class Classification</h2>
 <hr>
 <p>&#xC544;&#xB798; &#xC608;&#xC640; &#xAC19;&#xC774;, &#xC774;&#xBA54;&#xC77C;&#xC744; &#xC5EC;&#xB7EC; &#xD0DC;&#xADF8;&#xB85C; &#xBD84;&#xB958;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xB4F1;, &#xB450;&#xAC1C; &#xC774;&#xC0C1;&#xC73C;&#xB85C; &#xBD84;&#xB958;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xD558;&#xB294;&#xC9C0; &#xC54C;&#xC544;&#xBCF4;&#xC790;.   </p>
 <p><img src="img/mul_class.png" alt="">  </p>
@@ -798,7 +798,7 @@ P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"next":{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]},"previous":{"title":"3 Logistic regression regularization.md","level":"2.3","depth":1,"path":"markdowns/3-logistic-regression-regularization.md","ref":"markdowns/3-logistic-regression-regularization.md","articles":[{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"path":"markdowns/3.1-logistic-regression.md","ref":"markdowns/3.1-logistic-regression.md","articles":[]},{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/3.1-logistic-regression.md","mtime":"2019-08-10T09:39:27.154Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T10:06:46.210Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"next":{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]},"previous":{"title":"3 Logistic regression regularization.md","level":"2.3","depth":1,"path":"markdowns/3-logistic-regression-regularization.md","ref":"markdowns/3-logistic-regression-regularization.md","articles":[{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"path":"markdowns/3.1-logistic-regression.md","ref":"markdowns/3.1-logistic-regression.md","articles":[]},{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/3.1-logistic-regression.md","mtime":"2019-08-11T07:57:14.339Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -806,6 +806,10 @@ P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
     
         
         <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

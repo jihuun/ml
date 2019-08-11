@@ -622,9 +622,9 @@
 
 
 
-<h2 id="ex5">ex5</h2>
+<h1 id="ex5">ex5</h1>
 <hr>
-<h3 id="part-2-regularized-linear-regression-cost">Part 2: Regularized Linear Regression Cost</h3>
+<h2 id="part-2-regularized-linear-regression-cost">Part 2: Regularized Linear Regression Cost</h2>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[J, grad]</span> = <span class="hljs-title">linearRegCostFunction</span><span class="hljs-params">(X, y, theta, lambda)</span>  </span>
 
 H = X * theta;         <span class="hljs-comment">% X(12x2), theta(2x1)  </span>
@@ -634,7 +634,7 @@ J = (<span class="hljs-number">1</span>/(<span class="hljs-number">2</span>*m)) 
 
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="part-3-regularized-linear-regression-gradient">Part 3: Regularized Linear Regression Gradient</h3>
+<h2 id="part-3-regularized-linear-regression-gradient">Part 3: Regularized Linear Regression Gradient</h2>
 <p>Gradient &#xACC4;&#xC0B0; &#xD558;&#xAE30;   </p>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[J, grad]</span> = <span class="hljs-title">linearRegCostFunction</span><span class="hljs-params">(X, y, theta, lambda)</span>  </span>
 
@@ -649,7 +649,7 @@ grad    = (<span class="hljs-number">1</span>/m) * (X&apos; * (H - y)) + ((lambd
 
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="part-4-train-linear-regression">Part 4: Train Linear Regression</h3>
+<h2 id="part-4-train-linear-regression">Part 4: Train Linear Regression</h2>
 <p>Caller   </p>
 <pre><code class="lang-matlab">[theta] = trainLinearReg([ones(m, <span class="hljs-number">1</span>) X], y, lambda);
 </code></pre>
@@ -668,7 +668,7 @@ options = optimset(<span class="hljs-string">&apos;MaxIter&apos;</span>, <span c
 <span class="hljs-comment">% Minimize using fmincg  </span>
 theta = fmincg(costFunction, initial_theta, options);
 </code></pre>
-<h3 id="part-5-learning-curve-for-linear-regression">Part 5: Learning Curve for Linear Regression</h3>
+<h2 id="part-5-learning-curve-for-linear-regression">Part 5: Learning Curve for Linear Regression</h2>
 <p>Learning algorithm&#xC744; &#xB514;&#xBC84;&#xAE45;(&#xAC80;&#xC99D;) &#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; Learning Curve &#xB97C; &#xADF8;&#xB9B0;&#xB2E4;.  Learning Curve &#xB294; training set &#xAC2F;&#xC218;&#xC5D0; &#xB530;&#xB77C;&#xC11C; training example&#xACFC; cross validation set&#xC758; cost&#xB97C; &#xAC01;&#xAC01; &#xAD6C;&#xD574;&#xC11C; &#xADF8;&#xB824;&#xBD04; &#xC73C;&#xB85C;&#xC368;, high bias vs variaence &#xC778;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xB860;&#xC774;&#xB2E4;.<br>&#xAE30;&#xC874;&#xC758; training example&#xC5D0;&#xC11C; &#xD06C;&#xAE30;m&#xC744; 1&#xBD80;&#xD130; &#xB298;&#xB824;&#xAC00;&#xBA70; <script type="math/tex; ">\theta</script>&#xB97C; &#xD559;&#xC2B5;&#xD558;&#xC5EC; &#xBAA8;&#xB378;&#xC744; &#xB9CC;&#xB4E0;&#xB2E4; -&gt; &#xADF8;&#xB4A4; training example&#xACFC;  C.V &#xC5D0;&#xC11C; &#xAC01;&#xAC01; cost&#xB97C; &#xAD6C;&#xD574;&#xBCF8;&#xB2E4;.   </p>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[error_train, error_val]</span> = ...  </span>
     learningCurve(X, y, Xval, yval, lambda)  
@@ -696,7 +696,7 @@ theta = fmincg(costFunction, initial_theta, options);
 <li>&#xADF8; &#xB4A4; &#xADF8;&#xB798;&#xD504;&#xB97C; &#xADF8;&#xB824;&#xBCF8;&#xB2E4;.   </li>
 </ul>
 <pre><code>plot(1:m, error_train, 1:m, error_val);
-</code></pre><h3 id="part-6-feature-mapping-for-polynomial-regression">Part 6: Feature Mapping for Polynomial Regression</h3>
+</code></pre><h2 id="part-6-feature-mapping-for-polynomial-regression">Part 6: Feature Mapping for Polynomial Regression</h2>
 <p>&#xACB0;&#xACFC; matrix X_poly&#xB294; (m x p) &#xD06C;&#xAE30;&#xB2E4;. &#xAC01; &#xC5F4;&#xC740; x, x^2, x^3, .. x^p &#xAC00; &#xACC4;&#xC0B0;&#xB41C; &#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;.    </p>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[X_poly]</span> = <span class="hljs-title">polyFeatures</span><span class="hljs-params">(X, p)</span>  </span>
 
@@ -706,8 +706,8 @@ X_poly = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">nu
         X_poly(:,<span class="hljs-built_in">j</span>) = X .^ <span class="hljs-built_in">j</span>;  
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="part-7-learning-curve-for-polynomial-regression">Part 7: Learning Curve for Polynomial Regression</h3>
-<h3 id="part-8-validation-for-selecting-lambda">Part 8: Validation for Selecting Lambda</h3>
+<h2 id="part-7-learning-curve-for-polynomial-regression">Part 7: Learning Curve for Polynomial Regression</h2>
+<h2 id="part-8-validation-for-selecting-lambda">Part 8: Validation for Selecting Lambda</h2>
 <p>Caller  </p>
 <pre><code class="lang-matlab">[lambda_vec, error_train, error_val] = ...  
     validationCurve(X_poly, y, X_poly_val, yval);
@@ -765,7 +765,7 @@ X_poly = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">nu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex5","level":"3.7","depth":1,"next":{"title":"ex6 1 Support vector machines","level":"3.8","depth":1,"path":"markdowns/ex6-1-support-vector-machines.md","ref":"markdowns/ex6-1-support-vector-machines.md","articles":[]},"previous":{"title":"ex4 2 Backpropagation","level":"3.6","depth":1,"path":"markdowns/ex4-2-backpropagation.md","ref":"markdowns/ex4-2-backpropagation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex5.md","mtime":"2019-08-10T09:14:16.556Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T10:06:46.210Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex5","level":"3.7","depth":1,"next":{"title":"ex6 1 Support vector machines","level":"3.8","depth":1,"path":"markdowns/ex6-1-support-vector-machines.md","ref":"markdowns/ex6-1-support-vector-machines.md","articles":[]},"previous":{"title":"ex4 2 Backpropagation","level":"3.6","depth":1,"path":"markdowns/ex4-2-backpropagation.md","ref":"markdowns/ex4-2-backpropagation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex5.md","mtime":"2019-08-11T07:58:33.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -773,6 +773,10 @@ X_poly = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">nu
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
     
         
         <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

@@ -623,9 +623,9 @@
 
 
 
-<h2 id="ex6-2-spam-classification">ex6-2 Spam classification</h2>
+<h1 id="ex6-2-spam-classification">ex6-2 Spam classification</h1>
 <hr>
-<h3 id="part-1-email-preprocessing">Part 1: Email Preprocessing</h3>
+<h2 id="part-1-email-preprocessing">Part 1: Email Preprocessing</h2>
 <hr>
 <ol>
 <li>normialize : &#xAC01; &#xB2E8;&#xC5B4;&#xB4E4;&#xC744; &#xC9D1;&#xACC4;&#xD558;&#xAE30; &#xC27D;&#xAC8C; &#xBCC0;&#xACBD;, &#xBD88;&#xD544;&#xC694; charactor&#xC81C;&#xAC70;  </li>
@@ -649,7 +649,7 @@ word_indices  = processEmail(file_contents);
     <span class="hljs-keyword">end</span>  
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="part-2-feature-extraction">Part 2: Feature Extraction</h3>
+<h2 id="part-2-feature-extraction">Part 2: Feature Extraction</h2>
 <hr>
 <p>mapping&#xB41C; email&#xC5D0;&#xC11C; feature vector x&#xB97C; &#xCD94;&#xCD9C;&#xD574;&#xC57C;&#xD55C;&#xB2E4;. &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C; &#xD558;&#xB098;&#xC758; email&#xC5D0;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xD615;&#xD0DC;&#xC758; x&#xBCA1;&#xD130;&#xAC00; &#xCD94;&#xCD9C;&#xB420; &#xAC83;&#xC774;&#xB2E4;. (vocabList &#xAC2F;&#xC218;&#xAC00; 1899&#xAC1C;)    </p>
 <p><script type="math/tex; ">  
@@ -677,7 +677,7 @@ features      = emailFeatures(word_indices);
     x(word_indices) = <span class="hljs-number">1</span>;  
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="part-3-train-linear-svm-for-spam-classification">Part 3: Train Linear SVM for Spam Classification</h3>
+<h2 id="part-3-train-linear-svm-for-spam-classification">Part 3: Train Linear SVM for Spam Classification</h2>
 <hr>
 <p>spamTrain.mat&#xC740; &#xC6B0;&#xB9AC;&#xAC00; &#xD559;&#xC2B5;&#xD560; trainig examples &#xC774;&#xB2E4;.<br>spamTrain.mat &#xC5D0;&#xB294; &#xC704;&#xCC98;&#xB7FC; email&#xC744; feature vector x&#xB85C; mapping&#xD55C; 1899&#xD06C;&#xAE30;&#xC758; x&#xBCA1;&#xD130;&#xAC00; 4000&#xAC1C; &#xD3EC;&#xD568;&#xB418;&#xC5B4;&#xC788;&#xB2E4;.    </p>
 <pre><code class="lang-matlab"><span class="hljs-comment">% Load the Spam Email dataset  </span>
@@ -755,13 +755,13 @@ pred(p &lt;  <span class="hljs-number">0</span>) =  <span class="hljs-number">0<
 
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="part-4-test-spam-classification">Part 4: Test Spam Classification</h3>
+<h2 id="part-4-test-spam-classification">Part 4: Test Spam Classification</h2>
 <hr>
 <p>training example&#xC5D0;&#xC11C; &#xD559;&#xC2B5;&#xD55C; &#xBAA8;&#xB378;&#xC744; &#xAC00;&#xC9C0;&#xACE0; test set&#xC5D0;&#xC11C;&#xB3C4; &#xC801;&#xC911;&#xD558;&#xB294;&#xC9C0; &#xB9DE;&#xCDB0;&#xBCF8;&#xB2E4;.   </p>
 <pre><code class="lang-matlab">p = svmPredict(model, Xtest);  
 fprintf(<span class="hljs-string">&apos;Test Accuracy: %f\n&apos;</span>, mean(double(p == ytest)) * <span class="hljs-number">100</span>);
 </code></pre>
-<h3 id="part-5-top-predictors-of-spam">Part 5: Top Predictors of Spam</h3>
+<h2 id="part-5-top-predictors-of-spam">Part 5: Top Predictors of Spam</h2>
 <hr>
 <p>Spam&#xC73C;&#xB85C; &#xBD84;&#xB958;&#xB418;&#xB294;&#xB370; &#xAC00;&#xC7A5; &#xB9CE;&#xC740; weight&#xB97C; &#xAC16;&#xB294; &#xB2E8;&#xC5B4; 10&#xAC1C;&#xB97C; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xBCF4;&#xC5EC;&#xC900;&#xB2E4;.   </p>
 <pre><code class="lang-matlab"><span class="hljs-comment">% Sort the weights and obtin the vocabulary list  </span>
@@ -773,7 +773,7 @@ fprintf(<span class="hljs-string">&apos;\nTop predictors of spam: \n&apos;</span
     fprintf(<span class="hljs-string">&apos; %-15s (%f) \n&apos;</span>, vocabList{idx(i)}, weight(<span class="hljs-built_in">i</span>));  
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="part-6-try-your-own-emails">Part 6: Try Your Own Emails</h3>
+<h2 id="part-6-try-your-own-emails">Part 6: Try Your Own Emails</h2>
 <hr>
 <p>&#xAE30;&#xC874;&#xC5D0; train&#xD55C; model&#xC744; &#xAC00;&#xC9C0;&#xACE0;, &#xC2E0;&#xADDC; &#xBA54;&#xC77C; emailSample4.txt &#xC774; spam &#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0; &#xC608;&#xCE21;&#xD558;&#xAE30;!  </p>
 <pre><code class="lang-matlab">filename = <span class="hljs-string">&apos;emailSample4.txt&apos;</span>;  
@@ -829,7 +829,7 @@ fprintf(<span class="hljs-string">&apos;\nProcessed %s\n\nSpam Classification: %
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex6 2 Spam classification","level":"3.9","depth":1,"next":{"title":"ex7 K-means clustering and pca","level":"3.10","depth":1,"path":"markdowns/ex7-k-means-clustering-and-pca.md","ref":"markdowns/ex7-k-means-clustering-and-pca.md","articles":[]},"previous":{"title":"ex6 1 Support vector machines","level":"3.8","depth":1,"path":"markdowns/ex6-1-support-vector-machines.md","ref":"markdowns/ex6-1-support-vector-machines.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex6-2-spam-classification.md","mtime":"2019-08-10T09:14:17.228Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T10:06:46.210Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex6 2 Spam classification","level":"3.9","depth":1,"next":{"title":"ex7 K-means clustering and pca","level":"3.10","depth":1,"path":"markdowns/ex7-k-means-clustering-and-pca.md","ref":"markdowns/ex7-k-means-clustering-and-pca.md","articles":[]},"previous":{"title":"ex6 1 Support vector machines","level":"3.8","depth":1,"path":"markdowns/ex6-1-support-vector-machines.md","ref":"markdowns/ex6-1-support-vector-machines.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex6-2-spam-classification.md","mtime":"2019-08-11T07:58:49.565Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -837,6 +837,10 @@ fprintf(<span class="hljs-string">&apos;\nProcessed %s\n\nSpam Classification: %
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
     
         
         <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

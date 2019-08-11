@@ -622,9 +622,9 @@
 
 
 
-<h2 id="ex2-1-logistic-regression">ex2-1: Logistic Regression</h2>
+<h1 id="ex2-1-logistic-regression">ex2-1: Logistic Regression</h1>
 <hr>
-<h3 id="0-ex2m">0. ex2.m</h3>
+<h2 id="0-ex2m">0. ex2.m</h2>
 <p>&#xC57D;&#xC2DD;  </p>
 <pre><code class="lang-matlab"><span class="hljs-comment">%% ============ Part 2: Compute Cost and Gradient ============  </span>
 <span class="hljs-comment">% Add intercept term to x and X_test  </span>
@@ -655,7 +655,7 @@ fprintf([<span class="hljs-string">&apos;for a student with scores 45 and 85, we
 p = predict(theta, X);  
 fprintf(<span class="hljs-string">&apos;Train Accuracy: %f\n&apos;</span>, mean(double(p == y)) * <span class="hljs-number">100</span>);
 </code></pre>
-<h3 id="1-plotdatam">1. plotData.m</h3>
+<h2 id="1-plotdatam">1. plotData.m</h2>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">plotData</span><span class="hljs-params">(X, y)</span>  </span>
 
 <span class="hljs-comment">% Create New Figure  </span>
@@ -675,7 +675,7 @@ hold off;
 
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="2-sigmoidm">2. sigmoid.m</h3>
+<h2 id="2-sigmoidm">2. sigmoid.m</h2>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">g</span> = <span class="hljs-title">sigmoid</span><span class="hljs-params">(z)</span>  </span>
 <span class="hljs-comment">%SIGMOID Compute sigmoid function  </span>
 <span class="hljs-comment">%   g = SIGMOID(z) computes the sigmoid of z.  </span>
@@ -693,7 +693,7 @@ g = <span class="hljs-number">1</span> ./ (<span class="hljs-number">1</span> + 
 
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="3-costfuncionm">3. costFuncion.m</h3>
+<h2 id="3-costfuncionm">3. costFuncion.m</h2>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[J, grad]</span> = <span class="hljs-title">costFunction</span><span class="hljs-params">(theta, X, y)</span>  </span>
 
 <span class="hljs-comment">% Initialize some useful values  </span>
@@ -746,7 +746,7 @@ J = (<span class="hljs-number">1</span> / m) * (pos - neg);
 <span class="hljs-comment">% Gradient descent  </span>
 grad = (<span class="hljs-number">1</span>/m) * X&apos; * (gx - y);
 </code></pre>
-<h3 id="4-predictm">4. predict.m</h3>
+<h2 id="4-predictm">4. predict.m</h2>
 <pre><code class="lang-matlab">
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">p</span> = <span class="hljs-title">predict</span><span class="hljs-params">(theta, X)</span>  </span>
 <span class="hljs-comment">%   p = PREDICT(theta, X) computes the predictions for X using a   </span>
@@ -814,7 +814,7 @@ gx = sigmoid(X * theta);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex2.1 Logistic regression","level":"3.1","depth":1,"next":{"title":"ex2.2 Regularized logistic regression","level":"3.2","depth":1,"path":"markdowns/ex2.2-regularized-logistic-regression.md","ref":"markdowns/ex2.2-regularized-logistic-regression.md","articles":[]},"previous":{"title":"15 Vectorized implementations in octave.md","level":"2.15","depth":1,"path":"markdowns/15-vectorized-implementations-in-octave.md","ref":"markdowns/15-vectorized-implementations-in-octave.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex2.1-logistic-regression.md","mtime":"2019-08-10T09:14:17.216Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T10:06:46.210Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex2.1 Logistic regression","level":"3.1","depth":1,"next":{"title":"ex2.2 Regularized logistic regression","level":"3.2","depth":1,"path":"markdowns/ex2.2-regularized-logistic-regression.md","ref":"markdowns/ex2.2-regularized-logistic-regression.md","articles":[]},"previous":{"title":"15 Vectorized implementations in octave.md","level":"2.15","depth":1,"path":"markdowns/15-vectorized-implementations-in-octave.md","ref":"markdowns/15-vectorized-implementations-in-octave.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex2.1-logistic-regression.md","mtime":"2019-08-11T07:58:02.336Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -822,6 +822,10 @@ gx = sigmoid(X * theta);
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
     
         
         <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

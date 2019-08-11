@@ -623,10 +623,10 @@
 
 
 
-<h2 id="ex2-2-regularized-logistic-regression">ex2-2: Regularized Logistic Regression</h2>
+<h1 id="ex2-2-regularized-logistic-regression">ex2-2: Regularized Logistic Regression</h1>
 <hr>
 <p>Training data set&#xC774; Non-linear&#xD55C; decision boundary&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC744;&#xB54C;.  </p>
-<h3 id="1-mapfeaturem">1. mapFeature.m</h3>
+<h2 id="1-mapfeaturem">1. mapFeature.m</h2>
 <p><code>&#xC911;&#xC694;</code> &#xAE30;&#xC874; &#xB370;&#xC774;&#xD130; X&#xB97C; &#xAC00;&#xC9C0;&#xACE0; polynomial feature&#xB97C; &#xC0DD;&#xC131;&#xD55C;&#xB2E4;. &#xC774;&#xD6C4;&#xC5D0; X&#xB294; &#xC5F4;&#xC740; 28&#xAC1C;&#xAC00; &#xB41C;&#xB2E4;. <script type="math/tex; ">m \times 28</script><br>training set&#xC744; &#xB354; &#xC798; &#xD45C;&#xD604;&#xD560;&#xC218; &#xC788;&#xAC8C; &#xB418;&#xC5C8;&#xC9C0;&#xB9CC; Overfitting &#xC704;&#xD5D8;&#xC131;&#xC774; &#xC0DD;&#xACBC;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; Regularized&#xD574;&#xC57C;&#xD55C;&#xB2E4;.   </p>
 <pre><code class="lang-matlab">
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">out</span> = <span class="hljs-title">mapFeature</span><span class="hljs-params">(X1, X2)</span>  </span>
@@ -651,7 +651,7 @@ out = <span class="hljs-built_in">ones</span>(<span class="hljs-built_in">size</
 
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h3 id="1-costfunctionregm">1. costFunctionReg.m</h3>
+<h2 id="1-costfunctionregm">1. costFunctionReg.m</h2>
 <p>gradient descent&#xB97C; &#xD560;&#xB54C; for &#xBB38;&#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xBC18;&#xBCF5; &#xACC4;&#xC0B0;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xB2E4;. &#xB098;&#xC911;&#xC5D0; fminunc&#xB97C; &#xC0AC;&#xC6A9;&#xD560;&#xB54C; &#xC54C;&#xC544;&#xC11C;&#xD55C;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C;&#xB294; &#xD55C;&#xBC88;&#xC758;&#xACF5;&#xC2DD;&#xB9CC; &#xAD6C;&#xD558;&#xBA74;&#xB41C;&#xB2E4;.<br><del>Regularziation logistic regression &#xC758; gradient descent &#xACF5;&#xC2DD;&#xC774; &#xB0B4;&#xAC00; &#xC54C;&#xB358;&#xAC70;&#xB791; &#xB2E4;&#xB978;&#xAC83; &#xAC19;&#xC74C;, &#xC54C;&#xC544;&#xBCF4;&#xAE30;.</del>&#xD655;&#xC778; &#xBC0F; &#xC218;&#xC815;&#xC644;&#xB8CC;.  </p>
 <pre><code class="lang-matlab">
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[J, grad]</span> = <span class="hljs-title">costFunctionReg</span><span class="hljs-params">(theta, X, y, lambda)</span>  </span>
@@ -724,7 +724,7 @@ grad(<span class="hljs-number">1</span>) = (<span class="hljs-number">1</span>/m
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex2.2 Regularized logistic regression","level":"3.2","depth":1,"next":{"title":"ex3 1 Multi class classification","level":"3.3","depth":1,"path":"markdowns/ex3-1-multi-class-classification.md","ref":"markdowns/ex3-1-multi-class-classification.md","articles":[]},"previous":{"title":"ex2.1 Logistic regression","level":"3.1","depth":1,"path":"markdowns/ex2.1-logistic-regression.md","ref":"markdowns/ex2.1-logistic-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex2.2-regularized-logistic-regression.md","mtime":"2019-08-10T09:14:17.221Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T10:06:46.210Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex2.2 Regularized logistic regression","level":"3.2","depth":1,"next":{"title":"ex3 1 Multi class classification","level":"3.3","depth":1,"path":"markdowns/ex3-1-multi-class-classification.md","ref":"markdowns/ex3-1-multi-class-classification.md","articles":[]},"previous":{"title":"ex2.1 Logistic regression","level":"3.1","depth":1,"path":"markdowns/ex2.1-logistic-regression.md","ref":"markdowns/ex2.1-logistic-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex2.2-regularized-logistic-regression.md","mtime":"2019-08-11T07:58:08.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -732,6 +732,10 @@ grad(<span class="hljs-number">1</span>) = (<span class="hljs-number">1</span>/m
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
     
         
         <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

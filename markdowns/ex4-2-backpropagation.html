@@ -622,17 +622,17 @@
 
 
 
-<h2 id="ex4-2-backpropagation">ex4-2 Backpropagation</h2>
+<h1 id="ex4-2-backpropagation">ex4-2 Backpropagation</h1>
 <hr>
-<h3 id="1-sigmoid-gradient">1. sigmoid gradient</h3>
+<h2 id="1-sigmoid-gradient">1. sigmoid gradient</h2>
 <pre><code class="lang-matlab">gz = sigmoid(z);  
 g = gz .* (<span class="hljs-number">1</span> - gz);
 </code></pre>
-<h3 id="2-random-initialization">2. Random initialization</h3>
+<h2 id="2-random-initialization">2. Random initialization</h2>
 <pre><code class="lang-matlab">epsilon_init = <span class="hljs-number">0.12</span>;  
 W = <span class="hljs-built_in">rand</span>(L_out, <span class="hljs-number">1</span> + L_in) * <span class="hljs-number">2</span> * epsilon_init - epsilon_init;
 </code></pre>
-<h3 id="3-backpropagation">3. Backpropagation</h3>
+<h2 id="3-backpropagation">3. Backpropagation</h2>
 <pre><code class="lang-matlab">
 <span class="hljs-comment">% -------------------------------------------------------------  </span>
 <span class="hljs-comment">% Part 2: Implement the backpropagation algorithm to compute the gradients  </span>
@@ -676,7 +676,7 @@ W = <span class="hljs-built_in">rand</span>(L_out, <span class="hljs-number">1</
 Theta2_grad = Theta2_grad ./ m;  
 Theta1_grad = Theta1_grad ./ m;
 </code></pre>
-<h3 id="4-regularizaed-neural-networks">4. Regularizaed Neural networks</h3>
+<h2 id="4-regularizaed-neural-networks">4. Regularizaed Neural networks</h2>
 <pre><code class="lang-matlab">
 <span class="hljs-comment">% -------------------------------------------------------------  </span>
 <span class="hljs-comment">% Part 3: Implement regularization with the cost function and gradients.  </span>
@@ -693,7 +693,7 @@ Theta1_grad(:,<span class="hljs-number">2</span>:<span class="hljs-keyword">end<
 Theta2_grad(:,<span class="hljs-number">1</span>) = Theta2_grad(:,<span class="hljs-number">1</span>);  
 Theta1_grad(:,<span class="hljs-number">1</span>) = Theta1_grad(:,<span class="hljs-number">1</span>);
 </code></pre>
-<h2 id="ex4m">ex4.m</h2>
+<h1 id="ex4m">ex4.m</h1>
 <hr>
 <p>&#xC704;&#xC5D0;&#xC11C; &#xAD6C;&#xD604;&#xD55C; costFunction &#xC744; &#xAC00;&#xC9C0;&#xACE0; fmincg &#xB3CC;&#xB9AC;&#xBA74; <script type="math/tex; ">\Theta</script> &#xAD6C;&#xD574;&#xC9D0;.   </p>
 <pre><code class="lang-matlab">[nn_params, cost] = fmincg(costFunction, initial_nn_params, options);
@@ -741,7 +741,7 @@ Theta1_grad(:,<span class="hljs-number">1</span>) = Theta1_grad(:,<span class="h
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex4 2 Backpropagation","level":"3.6","depth":1,"next":{"title":"ex5","level":"3.7","depth":1,"path":"markdowns/ex5.md","ref":"markdowns/ex5.md","articles":[]},"previous":{"title":"ex4 1 Neural networks","level":"3.5","depth":1,"path":"markdowns/ex4-1-neural-networks.md","ref":"markdowns/ex4-1-neural-networks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["mathjax","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex4-2-backpropagation.md","mtime":"2019-08-10T09:14:17.216Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T10:06:46.210Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex4 2 Backpropagation","level":"3.6","depth":1,"next":{"title":"ex5","level":"3.7","depth":1,"path":"markdowns/ex5.md","ref":"markdowns/ex5.md","articles":[]},"previous":{"title":"ex4 1 Neural networks","level":"3.5","depth":1,"path":"markdowns/ex4-1-neural-networks.md","ref":"markdowns/ex4-1-neural-networks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex4-2-backpropagation.md","mtime":"2019-08-11T07:58:27.599Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -749,6 +749,10 @@ Theta1_grad(:,<span class="hljs-number">1</span>) = Theta1_grad(:,<span class="h
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
     
         
         <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
