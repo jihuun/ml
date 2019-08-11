@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -624,6 +628,17 @@
 
 <h1 id="12-recommander-systems">12. Recommander Systems</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#121-predicting-movie-ratings-problem-define">12.1. Predicting Movie Ratings: Problem define</a></li>
+<li><a href="#122-predicting-movie-ratings-practice">12.2. Predicting Movie Ratings: Practice</a></li>
+<li><a href="#123-collaborative-filtering">12.3. Collaborative Filtering</a></li>
+<li><a href="#124-in-practice-of-collaborative-filtering">12.4. In practice of Collaborative Filtering</a></li>
+<li><a href="#125-low-rank-matrix-factorization">12.5. Low Rank Matrix Factorization</a></li>
+<li><a href="#126-finding-related-movies">12.6. Finding related movies</a></li>
+<li><a href="#127-implementational-detail-mean-normalization">12.7. Implementational Detail: Mean Normalization</a></li>
+</ul>
+<!-- tocstop -->
 <p>&#xC2E4;&#xB9AC;&#xCF58;&#xBC38;&#xB9AC;&#xC5D0;&#xC11C;, &#xC5B4;&#xB5A4; &#xBD84;&#xC57C;&#xC5D0; ML&#xC744; &#xC801;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB294;&#xC9C0;(&#xC2F6;&#xC740;&#xC9C0;) &#xBB3C;&#xC5C8;&#xC744;&#xB54C;, &#xB9CE;&#xC740; &#xC218;&#xC758; &#xD68C;&#xC0AC;&#xAC00; &#xCD94;&#xCC9C; &#xC2DC;&#xC2A4;&#xD15C;&#xC774;&#xB77C;&#xACE0; &#xB2F5;&#xD588;&#xB2E4;&#xACE0; &#xD55C;&#xB2E4;.   &#xCD94;&#xAC00;&#xB85C; &#xD604;&#xC5C5;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xCD94;&#xCC9C; &#xC54C;&#xACE0;&#xB9AC;&#xC998;(Recommander Systems)&#xC740; 12&#xC7A5;&#xC5D0;&#xC11C; &#xBC30;&#xC6B8; Content-based recommander system &#xACFC;, 13&#xC7A5;&#xC5D0;&#xC11C; &#xBC30;&#xC6B8; Collaborative filtering &#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;. &#xC774;&#xAC83;&#xBCF4;&#xB2E4; &#xB354; &#xC88B;&#xC740; &#xBC29;&#xBC95;&#xB860;&#xC774; &#xC544;&#xC9C1; &#xAC1C;&#xBC1C;&#xB418;&#xC9C0; &#xC54A;&#xC558;&#xB2E4;&#xACE0; &#xD55C;&#xB2E4;. &#xCC38;&#xACE0;&#xB85C; &#xB2E4;&#xC74C;&#xC740; &#xCE74;&#xCE74;&#xC624;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xC74C;&#xC545;&#xCD94;&#xCC9C; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC778;&#xB370; &#xC2AC;&#xB77C;&#xC774;&#xB4DC;&#xB97C; &#xB118;&#xAE30;&#xB2E4;&#xBCF4;&#xBA74; &#xC6B0;&#xB9AC;&#xC640; &#xAC19;&#xC774; CBF, CF &#xB97C; &#xC0AC;&#xC6A9;&#xD568;&#xC744; &#xC54C; &#xC218; &#xC788;&#xB2E4;.    </p>
 <p><a href="https://www.slideshare.net/ifkakao/ss-113740836" target="_blank">&#xB208;&#xC73C;&#xB85C; &#xB4E3;&#xB294; &#xC74C;&#xC545; &#xCD94;&#xCC9C; &#xC2DC;&#xC2A4;&#xD15C;, &#xCD5C;&#xADDC;&#xBBFC;, Kakao, 2018</a>  </p>
 <h2 id="121-predicting-movie-ratings-problem-define">12.1. Predicting Movie Ratings: Problem define</h2>
@@ -763,7 +778,7 @@ X\Theta^T
 <p><img src="img/cf10.png" alt="">  </p>
 <p>&#xC774;&#xB807;&#xAC8C; &#xBCC0;&#xACBD;&#xD55C; Y matrix&#xB97C; &#xAC00;&#xC9C0;&#xACE0; parameter <script type="math/tex; ">\theta^{(5)}</script> &#xC640; <script type="math/tex; "> x^{(i)}</script> &#xB97C; &#xD559;&#xC2B5;&#xD560; &#xAC83;&#xC774;&#xB2E4;.   &#xB530;&#xB77C;&#xC11C; &#xC601;&#xD654; i&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xC790; j&#xC758; &#xC608;&#xCE21;&#xAC12;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xB420; &#xAC83;&#xC774;&#xB2E4;. <script type="math/tex; ">\mu</script> &#xB97C; &#xB2E4;&#xC2DC; &#xB354;&#xD574;&#xC11C; original &#xB85C; &#xB3CC;&#xC544;&#xAC04;&#xB2E4;.   </p>
 <p><img src="img/cf11.png" alt="">  </p>
-<p>&#xC0AC;&#xC6A9;&#xC790; 5&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC774;&#xAC83;&#xC744; &#xACC4;&#xC0B0;&#xD574;&#xBCF4;&#xBA74; <script type="math/tex; ">\mu_i</script> &#xB9CC; &#xB0A8;&#xB294;&#xB2E4;. &#xC989; &#xC544;&#xBB34;&#xAC83;&#xB3C4; &#xD3C9;&#xAC00;&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xC0AC;&#xC6A9;&#xC790;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC601;&#xD654; <script type="math/tex; "> x^{(i)}</script> &#xB97C; &#xD3C9;&#xADE0;&#xAC12;&#xC73C;&#xB85C; &#xC608;&#xCE21;&#xD574;&#xC900;&#xB2E4;&#xB294; &#xC758;&#xBBF8;&#xB2E4;.    </p>
+<p>&#xC0AC;&#xC6A9;&#xC790; 5&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC774;&#xAC83;&#xC744; &#xACC4;&#xC0B0;&#xD574;&#xBCF4;&#xBA74; <script type="math/tex; ">\mu_i</script> &#xB9CC; &#xB0A8;&#xB294;&#xB2E4;. &#xC989; &#xC544;&#xBB34;&#xAC83;&#xB3C4; &#xD3C9;&#xAC00;&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xC0AC;&#xC6A9;&#xC790;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC601;&#xD654; <script type="math/tex; "> x^{(i)}</script> &#xB97C; &#xD3C9;&#xADE0;&#xAC12;&#xC73C;&#xB85C; &#xC608;&#xCE21;&#xD574;&#xC900;&#xB2E4;&#xB294; &#xC758;&#xBBF8;&#xB2E4;.</p>
 
                                 
                                 </section>
@@ -807,7 +822,7 @@ X\Theta^T
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"12 Recommander systems.md","level":"2.12","depth":1,"next":{"title":"13 Large scale machine learning.md","level":"2.13","depth":1,"path":"markdowns/13-large-scale-machine-learning.md","ref":"markdowns/13-large-scale-machine-learning.md","articles":[]},"previous":{"title":"11 Anormaly detection.md","level":"2.11","depth":1,"path":"markdowns/11-anormaly-detection.md","ref":"markdowns/11-anormaly-detection.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/12-recommander-systems.md","mtime":"2019-08-10T10:04:11.892Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"12 Recommander systems.md","level":"2.12","depth":1,"next":{"title":"13 Large scale machine learning.md","level":"2.13","depth":1,"path":"markdowns/13-large-scale-machine-learning.md","ref":"markdowns/13-large-scale-machine-learning.md","articles":[]},"previous":{"title":"11 Anormaly detection.md","level":"2.11","depth":1,"path":"markdowns/11-anormaly-detection.md","ref":"markdowns/11-anormaly-detection.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/12-recommander-systems.md","mtime":"2019-08-11T09:16:57.899Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -826,6 +841,14 @@ X\Theta^T
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

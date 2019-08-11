@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -624,6 +628,16 @@
 
 <h1 id="13-large-scale-machine-learning">13. Large scale machine learning</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#131-learning-with-large-datasets">13.1 Learning With Large Datasets</a></li>
+<li><a href="#132-stochastic-gradient-descent">13.2. Stochastic Gradient Descent</a></li>
+<li><a href="#133-mini-batch-gradient-descent">13.3. Mini-Batch Gradient Descent</a></li>
+<li><a href="#134-stochastic-gradient-descent-convergence">13.4. Stochastic Gradient Descent Convergence</a></li>
+<li><a href="#135-advanced-topics-online-learning">13.5. Advanced Topics: Online Learning</a></li>
+<li><a href="#136-advanced-topics-map-reduce-and-data-parallelism">13.6. Advanced Topics: Map Reduce and Data Parallelism</a></li>
+</ul>
+<!-- tocstop -->
 <p>Gredient descent with large datasets.  we will be covering large scale machine learning. Machine learning works best when there is an abundance of data to leverage for training. With the amount data that many websites/companies are gathering today, knowing how to handle &#x2018;big data&#x2019; is one of the most sought after skills in Silicon Valley.  </p>
 <h2 id="131-learning-with-large-datasets">13.1 Learning With Large Datasets</h2>
 <hr>
@@ -692,7 +706,7 @@
 <p>&#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xB2E4;.   </p>
 <p><img src="img/large16.png" alt="">  </p>
 <p>&#xD558;&#xB098;&#xC758; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xBA40;&#xD2F0;&#xCF54;&#xC5B4;&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xB098;&#xB20C;&#xC218;&#xB3C4; &#xC788;&#xB2E4;.    </p>
-<p><img src="img/large17.png" alt="">  </p>
+<p><img src="img/large17.png" alt=""></p>
 
                                 
                                 </section>
@@ -736,7 +750,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"13 Large scale machine learning.md","level":"2.13","depth":1,"next":{"title":"14 Application example photo ocr.md","level":"2.14","depth":1,"path":"markdowns/14-application-example-photo-ocr.md","ref":"markdowns/14-application-example-photo-ocr.md","articles":[]},"previous":{"title":"12 Recommander systems.md","level":"2.12","depth":1,"path":"markdowns/12-recommander-systems.md","ref":"markdowns/12-recommander-systems.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/13-large-scale-machine-learning.md","mtime":"2019-08-10T10:05:58.441Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"13 Large scale machine learning.md","level":"2.13","depth":1,"next":{"title":"14 Application example photo ocr.md","level":"2.14","depth":1,"path":"markdowns/14-application-example-photo-ocr.md","ref":"markdowns/14-application-example-photo-ocr.md","articles":[]},"previous":{"title":"12 Recommander systems.md","level":"2.12","depth":1,"path":"markdowns/12-recommander-systems.md","ref":"markdowns/12-recommander-systems.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/13-large-scale-machine-learning.md","mtime":"2019-08-11T09:17:08.716Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -755,6 +769,14 @@
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

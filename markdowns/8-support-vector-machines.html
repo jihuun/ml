@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -624,6 +628,16 @@
 
 <h1 id="8-support-vector-machines">8. Support Vector Machines</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#81-optimization-objective">8.1. Optimization Objective</a></li>
+<li><a href="#82-large-margin-classification">8.2. Large margin classification</a></li>
+<li><a href="#83-mathematics-behind-large-margin-classification">8.3. Mathematics Behind Large Margin Classification</a></li>
+<li><a href="#84-kernel">8.4. Kernel</a></li>
+<li><a href="#85-choosing-the-landmarks">8.5. Choosing the Landmarks</a></li>
+<li><a href="#86-svms-in-practice">8.6. SVMs in Practice</a></li>
+</ul>
+<!-- tocstop -->
 <p>&#xC9C0;&#xAE08;&#xAE4C;&#xC9C0; &#xC5EC;&#xB7EC;&#xAC00;&#xC9C0; supervised learning &#xC5D0;&#xB300;&#xD574; &#xC0B4;&#xD3B4;&#xBCF4;&#xC558;&#xB2E4;. &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; &#xB610;&#xB2E4;&#xB978; supervised learning &#xC778; SVM&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC54C;&#xC544;&#xBCF8;&#xB2E4;.   Logistic regression&#xC640; NN &#xACFC; &#xBE44;&#xAD50;&#xD588;&#xC744;&#xB54C;, SVM&#xC740; &#xBCF5;&#xC7A1;&#xD55C; &#xBE44;&#xC120;&#xD615; &#xD568;&#xC218;&#xC5D0; &#xB300;&#xD574;&#xC11C;  &#xB54C;&#xB54C;&#xB85C; &#xB354;&#xC6B1; &#xBA85;&#xB8CC;&#xD558;&#xACE0; &#xAC15;&#xB825;&#xD55C; &#xBC29;&#xBC95;&#xC774; &#xB420; &#xC218; &#xC788;&#xB2E4;.   decision boundary &#xC5D0; &#xD070; gap &#xC744; &#xB9CC;&#xB4E6;&#xC73C;&#xB85C;&#xC368; &#xB354; &#xBA85;&#xD655;&#xD788; classify  &#xD560; &#xC218; &#xC788;&#xB294;&#xAC83; &#xCC98;&#xB7FC; &#xBCF4;&#xC778;&#xB2E4;.  Support vector&#xB294; desicion boundary &#xB97C; support &#xD558;&#xB294; &#xB610; &#xB2E4;&#xB978; &#xACBD;&#xACC4;&#xB97C; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;. &#xC591; &#xADF9;&#xB2E8;&#xC758; &#xB370;&#xC774;&#xD130; &#xD3EC;&#xC778;&#xD2B8;&#xB97C; &#xB098;&#xD0C0;&#xB0B8; &#xC120;&#xC774;&#xB2E4;.   </p>
 <h2 id="81-optimization-objective">8.1. Optimization Objective</h2>
 <hr>
@@ -730,7 +744,7 @@ u^Tv &=& p \cdot ||u|| \\
 </li>
 <li><p>feature&#xAC00; &#xC801;&#xACE0;, training example&#xC774; &#xB9CE;&#xB2E4;&#xBA74; (n = 1~1000, m = 50000+)<br>-&gt; &#xBA3C;&#xC800; feature&#xB97C; &#xB354; &#xB9CC;&#xB4E4;&#xACE0;,<br>-&gt; logistic regression&#xB610;&#xB294; kernel&#xC5C6;&#xB294; SVM&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xAC8C; &#xC720;&#xB9AC;&#xD558;&#xB2E4;.   </p>
 </li>
-<li><p>NN&#xC740; &#xC704;&#xC758; &#xBAA8;&#xB4E0; &#xACBD;&#xC6B0;&#xC5D0; &#xC798; &#xB3D9;&#xC791;&#xD560;&#xAC83;&#xC774;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; train&#xC774; &#xB354; &#xB290;&#xB9B4; &#xC218; &#xC788;&#xB2E4;.   </p>
+<li><p>NN&#xC740; &#xC704;&#xC758; &#xBAA8;&#xB4E0; &#xACBD;&#xC6B0;&#xC5D0; &#xC798; &#xB3D9;&#xC791;&#xD560;&#xAC83;&#xC774;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; train&#xC774; &#xB354; &#xB290;&#xB9B4; &#xC218; &#xC788;&#xB2E4;.</p>
 </li>
 </ul>
 
@@ -776,7 +790,7 @@ u^Tv &=& p \cdot ||u|| \\
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8 Support vector machines.md","level":"2.8","depth":1,"next":{"title":"9 Unsupervised learning  dimensionality reduction.md","level":"2.9","depth":1,"path":"markdowns/9-unsupervised-learning--dimensionality-reduction.md","ref":"markdowns/9-unsupervised-learning--dimensionality-reduction.md","articles":[]},"previous":{"title":"7 Machine learning system design.md","level":"2.7","depth":1,"path":"markdowns/7-machine-learning-system-design.md","ref":"markdowns/7-machine-learning-system-design.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/8-support-vector-machines.md","mtime":"2019-08-10T09:54:02.792Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8 Support vector machines.md","level":"2.8","depth":1,"next":{"title":"9 Unsupervised learning  dimensionality reduction.md","level":"2.9","depth":1,"path":"markdowns/9-unsupervised-learning--dimensionality-reduction.md","ref":"markdowns/9-unsupervised-learning--dimensionality-reduction.md","articles":[]},"previous":{"title":"7 Machine learning system design.md","level":"2.7","depth":1,"path":"markdowns/7-machine-learning-system-design.md","ref":"markdowns/7-machine-learning-system-design.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/8-support-vector-machines.md","mtime":"2019-08-11T09:18:13.173Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -795,6 +809,14 @@ u^Tv &=& p \cdot ||u|| \\
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

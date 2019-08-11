@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -623,6 +627,13 @@
 
 
 <h1 id="7-machine-learning-system-design">7. Machine Learning System Design</h1>
+<!-- toc -->
+<ul>
+<li><a href="#71-building-a-spam-classifier">7.1 Building a Spam Classifier</a></li>
+<li><a href="#72-handling-skewed-data">7.2. Handling Skewed Data</a></li>
+<li><a href="#73-using-large-data-sets">7.3. Using Large Data Sets</a></li>
+</ul>
+<!-- tocstop -->
 <h2 id="71-building-a-spam-classifier">7.1 Building a Spam Classifier</h2>
 <hr>
 <p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC774;&#xBA54;&#xC77C;&#xC5D0;&#xC11C; spam &#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0; classify &#xD558;&#xB294; &#xB7EC;&#xB2DD; &#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xBCF4;&#xC790;.   </p>
@@ -703,7 +714,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7 Machine learning system design.md","level":"2.7","depth":1,"next":{"title":"8 Support vector machines.md","level":"2.8","depth":1,"path":"markdowns/8-support-vector-machines.md","ref":"markdowns/8-support-vector-machines.md","articles":[]},"previous":{"title":"6 Advice for applying machine learning.md","level":"2.6","depth":1,"path":"markdowns/6-advice-for-applying-machine-learning.md","ref":"markdowns/6-advice-for-applying-machine-learning.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/7-machine-learning-system-design.md","mtime":"2019-08-10T09:51:33.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7 Machine learning system design.md","level":"2.7","depth":1,"next":{"title":"8 Support vector machines.md","level":"2.8","depth":1,"path":"markdowns/8-support-vector-machines.md","ref":"markdowns/8-support-vector-machines.md","articles":[]},"previous":{"title":"6 Advice for applying machine learning.md","level":"2.6","depth":1,"path":"markdowns/6-advice-for-applying-machine-learning.md","ref":"markdowns/6-advice-for-applying-machine-learning.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/7-machine-learning-system-design.md","mtime":"2019-08-11T09:18:10.274Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -722,6 +733,14 @@
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

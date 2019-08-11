@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -624,6 +628,14 @@
 
 <h1 id="32-overfitting-problem">3.2. Overfitting problem</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#321-overfitting-%EC%9D%B4%EB%9E%80">3.2.1. Overfitting &#xC774;&#xB780;?</a></li>
+<li><a href="#322-cost-function">3.2.2. Cost function</a></li>
+<li><a href="#323-regularized-linear-regression">3.2.3. Regularized Linear Regression</a></li>
+<li><a href="#324-regularized-logistic-regression">3.2.4. Regularized Logistic Regression</a></li>
+</ul>
+<!-- tocstop -->
 <h2 id="321-overfitting-&#xC774;&#xB780;">3.2.1. Overfitting &#xC774;&#xB780;?</h2>
 <p><img src="img/overfit.png" alt="">  </p>
 <p>Feature&#xB97C; &#xB9CE;&#xC774; &#xB458; &#xC218;&#xB85D; Training data&#xC744; &#xB354; &#xC815;&#xD655;&#xD788; &#xBAA8;&#xC0AC;&#xD560; &#xC218; &#xC788;&#xB2E4;.  &#xD558;&#xC9C0;&#xB9CC; &#xAC00;&#xC124;&#xD568;&#xC218;&#xAC00; &#xB108;&#xBB34; Training data&#xC5D0;&#xB9CC; &#xC801;&#xD569;&#xD574;&#xC11C; Training data&#xB294; &#xAC70;&#xC758; &#xC815;&#xD655;&#xD558;&#xAC8C; &#xC608;&#xCE21;&#xD558;&#xC9C0;&#xB9CC; &#xC0C8;&#xB85C; &#xB4E4;&#xC5B4;&#xC628; &#xB370;&#xC774;&#xD130;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB294; &#xC608;&#xCE21;&#xC744; &#xBABB;&#xD558;&#xB294; &#xBB38;&#xC81C;&#xAC00; &#xBC1C;&#xC0DD;&#xD560;&#xC218; &#xC788;&#xB2E4;.  &#xD574;&#xB2F9; &#xAC00;&#xC124;&#xD568;&#xC218;&#xB85C; &#xBB38;&#xC81C;&#xB97C; &#xC77C;&#xBC18;&#xD654;(generalize)&#xD558;&#xB294;&#xAC83;&#xC744; &#xC2E4;&#xD328;&#xD588;&#xB2E4;.  &#xADF8;&#xB9BC; &#xB9E8; &#xC67C;&#xCABD;&#xC740; Underfit (high bias, preconception &#xC774;&#xB77C;&#xACE0;&#xB3C4; &#xD45C;&#xD604;&#xD560;&#xC218; &#xC788;&#xC74C;), &#xC624;&#xB978;&#xCABD;&#xC774; Overfit, &#xAC00;&#xC6B4;&#xB370;&#xAC00; &#xC801;&#xD569;&#xD558;&#xB2E4;.  &#xAC15;&#xC758; &#xB4B7;&#xD3B8;&#xC5D0;&#xC11C; &#xD559;&#xC2B5;&#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC774; Overfitting&#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0; &#xBD84;&#xC11D;&#xD558;&#xB294; &#xD234;&#xC5D0;&#xB300;&#xD574; &#xC0B4;&#xD3B4;&#xBCFC; &#xAC83;&#xC774;&#xB2E4;.   </p>
@@ -669,7 +681,7 @@ J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_\theta( x^{(i)}) - y^{(i)} \rig
 <p><script type="math/tex; ">h_\theta(x)</script>&#xAC00; &#xC704;&#xC640; &#xAC19;&#xC744;&#xB54C; Decision boundary&#xB294; &#xB9E4;&#xC6B0; &#xBCF5;&#xC7A1;&#xD560; &#xAC83;&#xC774;&#xACE0; trainig set&#xC5D0;&#xB294; &#xB9E4;&#xC6B0; &#xC801;&#xD569;&#xD558;&#xC9C0;&#xB9CC; &#xC0C8;&#xB85C;&#xC6B4; &#xB370;&#xC774;&#xD130;&#xC5D0;&#xB294; &#xACFC;&#xC801;&#xD569;(Overfit) &#xD558;&#xB2E4;.    &#xB530;&#xB77C;&#xC11C; Regularized &#xB41C; cost function <script type="math/tex; ">J(\theta)</script>&#xB294; &#xC704;&#xC640; &#xAC19;&#xB2E4;. &#xAE30;&#xC874;&#xC758; <script type="math/tex; ">J(\theta)</script>&#xC5D0;&#xC11C; &#xB78C;&#xB2E4; &#xD56D;&#xC774; &#xCD94;&#xAC00;&#xB418;&#xC5C8;&#xB2E4;.   &#xC774;&#xAC83;&#xC744; &#xAC00;&#xC9C0;&#xACE0; Gradient descent &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC5D0; &#xC801;&#xC6A9;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xB2E4;.   </p>
 <p><img src="img/regularization_logi2.png" alt="">  </p>
 <blockquote>
-<p><script type="math/tex; ">h_\theta(x)</script> &#xD568;&#xC218;&#xC758; &#xD615;&#xD0DC;&#xAC00; linear regression&#xACFC; &#xB2E4;&#xB984;&#xC5D0; &#xC720;&#xC758;.  </p>
+<p><script type="math/tex; ">h_\theta(x)</script> &#xD568;&#xC218;&#xC758; &#xD615;&#xD0DC;&#xAC00; linear regression&#xACFC; &#xB2E4;&#xB984;&#xC5D0; &#xC720;&#xC758;.</p>
 </blockquote>
 
                                 
@@ -714,7 +726,7 @@ J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_\theta( x^{(i)}) - y^{(i)} \rig
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"next":{"title":"4 Neural networks.md","level":"2.4","depth":1,"path":"markdowns/4-neural-networks.md","ref":"markdowns/4-neural-networks.md","articles":[]},"previous":{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"path":"markdowns/3.1-logistic-regression.md","ref":"markdowns/3.1-logistic-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/3.2-regularization-and-overfitting-problem.md","mtime":"2019-08-11T07:57:22.290Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"next":{"title":"4 Neural networks.md","level":"2.4","depth":1,"path":"markdowns/4-neural-networks.md","ref":"markdowns/4-neural-networks.md","articles":[]},"previous":{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"path":"markdowns/3.1-logistic-regression.md","ref":"markdowns/3.1-logistic-regression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/3.2-regularization-and-overfitting-problem.md","mtime":"2019-08-11T09:17:55.421Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -733,6 +745,14 @@ J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_\theta( x^{(i)}) - y^{(i)} \rig
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

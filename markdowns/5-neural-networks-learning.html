@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -625,6 +629,14 @@
 
 <h1 id="5-neural-networks-learning">5. Neural Networks: Learning</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#51-cost-function">5.1 Cost function</a></li>
+<li><a href="#52-backpropagation-algorithm">5.2. Backpropagation Algorithm</a></li>
+<li><a href="#53-backpropagation-intuition">5.3. Backpropagation Intuition</a></li>
+<li><a href="#54-backpropagation-in-practice">5.4. Backpropagation in Practice</a></li>
+</ul>
+<!-- tocstop -->
 <h2 id="51-cost-function">5.1 Cost function</h2>
 <hr>
 <p><img src="img/nn_a.png" alt="">  </p>
@@ -770,7 +782,7 @@ Theta3 = <span class="hljs-built_in">rand</span>(<span class="hljs-number">1</sp
 <li>Use <strong>gradient checking</strong> to confirm that your backpropagation works. Then disable gradient checking.  </li>
 <li>Use <strong>gradient descent</strong> or a <strong>built-in optimization function</strong> to minimize the cost function with the weights in theta.  </li>
 </ol>
-<p><img src="img/nn_a15.png" alt=""><br>&#xCD5C;&#xACE0;&#xC810;&#xC740; <script type="math/tex; ">h_\theta(x)^{(i)}</script> &#xAC00; &#xC2E4;&#xC81C; &#xAC12; <script type="math/tex; ">y^{(i)}</script> &#xC640; &#xAC00;&#xC7A5; &#xCC28;&#xC774;&#xAC00; &#xD070; &#xAC83;&#xC774;&#xACE0;, &#xCD5C;&#xC800;&#xC810;&#xC740;  <script type="math/tex; ">h_\theta(x)^{(i)}</script> &#xAC00; &#xC2E4;&#xC81C; &#xAC12; <script type="math/tex; ">y^{(i)}</script> &#xC5D0; &#xAC00;&#xC7A5; &#xAC00;&#xAE5D;&#xB2E4;&#xB294; &#xB73B;&#xC774;&#xB2E4;.    gradient descent&#xB294; &#xAE30;&#xC6B8;&#xAE30;&#xB97C; &#xD558;&#xAC15;&#xD558;&#xB294; &#xAC83;&#xC774;&#xACE0;, BP&#xB294; &#xAE30;&#xC6B8;&#xAE30;&#xB97C; &#xD558;&#xAC15;&#xD560;&#xB54C; &#xBC29;&#xD5A5;&#xC744; &#xC124;&#xC815;&#xD558;&#xB294;&#xAC83;&#xACFC; &#xAC19;&#xB2E4;.   </p>
+<p><img src="img/nn_a15.png" alt=""><br>&#xCD5C;&#xACE0;&#xC810;&#xC740; <script type="math/tex; ">h_\theta(x)^{(i)}</script> &#xAC00; &#xC2E4;&#xC81C; &#xAC12; <script type="math/tex; ">y^{(i)}</script> &#xC640; &#xAC00;&#xC7A5; &#xCC28;&#xC774;&#xAC00; &#xD070; &#xAC83;&#xC774;&#xACE0;, &#xCD5C;&#xC800;&#xC810;&#xC740;  <script type="math/tex; ">h_\theta(x)^{(i)}</script> &#xAC00; &#xC2E4;&#xC81C; &#xAC12; <script type="math/tex; ">y^{(i)}</script> &#xC5D0; &#xAC00;&#xC7A5; &#xAC00;&#xAE5D;&#xB2E4;&#xB294; &#xB73B;&#xC774;&#xB2E4;.    gradient descent&#xB294; &#xAE30;&#xC6B8;&#xAE30;&#xB97C; &#xD558;&#xAC15;&#xD558;&#xB294; &#xAC83;&#xC774;&#xACE0;, BP&#xB294; &#xAE30;&#xC6B8;&#xAE30;&#xB97C; &#xD558;&#xAC15;&#xD560;&#xB54C; &#xBC29;&#xD5A5;&#xC744; &#xC124;&#xC815;&#xD558;&#xB294;&#xAC83;&#xACFC; &#xAC19;&#xB2E4;.</p>
 
                                 
                                 </section>
@@ -814,7 +826,7 @@ Theta3 = <span class="hljs-built_in">rand</span>(<span class="hljs-number">1</sp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5 Neural networks learning.md","level":"2.5","depth":1,"next":{"title":"6 Advice for applying machine learning.md","level":"2.6","depth":1,"path":"markdowns/6-advice-for-applying-machine-learning.md","ref":"markdowns/6-advice-for-applying-machine-learning.md","articles":[]},"previous":{"title":"4 Neural networks.md","level":"2.4","depth":1,"path":"markdowns/4-neural-networks.md","ref":"markdowns/4-neural-networks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/5-neural-networks-learning.md","mtime":"2019-08-10T09:49:39.976Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5 Neural networks learning.md","level":"2.5","depth":1,"next":{"title":"6 Advice for applying machine learning.md","level":"2.6","depth":1,"path":"markdowns/6-advice-for-applying-machine-learning.md","ref":"markdowns/6-advice-for-applying-machine-learning.md","articles":[]},"previous":{"title":"4 Neural networks.md","level":"2.4","depth":1,"path":"markdowns/4-neural-networks.md","ref":"markdowns/4-neural-networks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/5-neural-networks-learning.md","mtime":"2019-08-11T09:18:01.636Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -833,6 +845,14 @@ Theta3 = <span class="hljs-built_in">rand</span>(<span class="hljs-number">1</sp
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

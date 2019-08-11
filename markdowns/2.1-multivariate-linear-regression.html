@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -623,6 +627,15 @@
 
 <h1 id="21-multivariate-linear-regression">2.1. Multivariate Linear Regression</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#211-multiple-features">2.1.1. Multiple Features</a></li>
+<li><a href="#212-gradient-descent-for-multiple-variables">2.1.2. Gradient Descent for Multiple Variables</a></li>
+<li><a href="#213-gradient-descent-in-practice-i---feature-scaling">2.1.3. Gradient Descent in Practice I - Feature Scaling</a></li>
+<li><a href="#214-gradient-descent-in-practice-ii---learning-rate">2.1.4. Gradient Descent in Practice II - Learning Rate</a></li>
+<li><a href="#215-features-and-polynomial-regression">2.1.5. Features and Polynomial Regression</a></li>
+</ul>
+<!-- tocstop -->
 <p>&#xC774;&#xBC88; &#xCC55;&#xD130;&#xC5D0;&#xC11C;&#xB294; &#xD558;&#xB098; &#xC774;&#xC0C1;&#xC758; variable &#xB610;&#xB294; &#xD558;&#xB098; &#xC774;&#xC0C1;&#xC758; feature&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBCF4;&#xB2E4; &#xAC15;&#xB825;&#xD55C; Linear regression&#xC5D0; &#xB300;&#xD574; &#xC54C;&#xC544;&#xBCFC; &#xAC83;&#xC774;&#xB2E4;.     </p>
 <h2 id="211-multiple-features">2.1.1. Multiple Features</h2>
 <p><img src="img/single_feature.png" alt=""><br>&#xC9C0;&#xAE08;&#xAE4C;&#xC9C0;&#xB294; <script type="math/tex; ">x</script> (&#xC9D1; &#xD06C;&#xAE30;) &#xB77C;&#xB294; &#xD558;&#xB098;&#xC758; feature&#xB9CC; &#xC0AC;&#xC6A9;&#xD588;&#xB2E4;. &#xC774;&#xAC83;&#xC744; &#xC9D1;&#xC758; &#xAC00;&#xACA9;&#xC744; &#xACB0;&#xC815;(&#xC608;&#xCE21;)&#xD558;&#xB294; &#xC694;&#xC18C;&#xB85C; &#xC0AC;&#xC6A9;&#xD588;&#xB2E4;. &#xADF8;&#xB7F0;&#xB370; &#xC9D1;&#xAC12;&#xC744; &#xACB0;&#xC815;&#xC9D3;&#xB294; &#xC694;&#xC18C;&#xB294; &#xC9D1; &#xD06C;&#xAE30;&#xD558;&#xB098; &#xB9D0;&#xACE0;&#xB3C4; &#xB354; &#xB9CE;&#xC744; &#xC218; &#xC788;&#xB2E4;. &#xC774;&#xB7F4;&#xB54C; Linear regrresion&#xC744; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xC218; &#xC788;&#xC744;&#xAE4C;? &#xB2E4;&#xC74C;&#xC758; &#xC608;&#xC2DC;&#xCC98;&#xB7FC; &#xC9D1;&#xC758; &#xD06C;&#xAE30;&#xC640; &#xBC29;&#xC758; &#xAC2F;&#xC218;, &#xCE35;&#xC218;, &#xC5F0;&#xC2DD; &#xB4F1;&#xB4F1;&#xC73C;&#xB85C; &#xACE0;&#xB824;&#xD574;&#xC11C; &#xC9D1;&#xAC12;&#xC744; &#xC608;&#xCE21;(&#xACB0;&#xC815;) &#xD560; &#xC218; &#xC788;&#xC744; &#xAC83;&#xC774;&#xB2E4;. &#xCE68;&#xC2E4; &#xC218;, &#xCE35; &#xC218;, &#xC5F0;&#xC2DD;, &#xAC00;&#xACA9;&#xC774;&#xB77C;&#xB294; 4&#xAC1C;&#xC758; feature&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC9D1;&#xAC12;&#xC744; &#xC608;&#xCE21;&#xD574; &#xBCFC; &#xAC83;&#xC774;&#xB2E4;.   </p>
@@ -741,7 +754,7 @@ x_1 , x_2 , x_1^2, x_2^2, x_1x_2, x_1^3, x_1^2x_2, x_1x_2^2 , x_2^3, ....
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.1 Multivariate linear regression.md","level":"2.2.1","depth":2,"next":{"title":"2.2 Computing parameters analytically.md","level":"2.2.2","depth":2,"path":"markdowns/2.2-computing-parameters-analytically.md","ref":"markdowns/2.2-computing-parameters-analytically.md","articles":[]},"previous":{"title":"2 Linear regression with multiple variables.md","level":"2.2","depth":1,"path":"markdowns/2-linear-regression-with-multiple-variables.md","ref":"markdowns/2-linear-regression-with-multiple-variables.md","articles":[{"title":"2.1 Multivariate linear regression.md","level":"2.2.1","depth":2,"path":"markdowns/2.1-multivariate-linear-regression.md","ref":"markdowns/2.1-multivariate-linear-regression.md","articles":[]},{"title":"2.2 Computing parameters analytically.md","level":"2.2.2","depth":2,"path":"markdowns/2.2-computing-parameters-analytically.md","ref":"markdowns/2.2-computing-parameters-analytically.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/2.1-multivariate-linear-regression.md","mtime":"2019-08-11T07:56:57.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.1 Multivariate linear regression.md","level":"2.2.1","depth":2,"next":{"title":"2.2 Computing parameters analytically.md","level":"2.2.2","depth":2,"path":"markdowns/2.2-computing-parameters-analytically.md","ref":"markdowns/2.2-computing-parameters-analytically.md","articles":[]},"previous":{"title":"2 Linear regression with multiple variables.md","level":"2.2","depth":1,"path":"markdowns/2-linear-regression-with-multiple-variables.md","ref":"markdowns/2-linear-regression-with-multiple-variables.md","articles":[{"title":"2.1 Multivariate linear regression.md","level":"2.2.1","depth":2,"path":"markdowns/2.1-multivariate-linear-regression.md","ref":"markdowns/2.1-multivariate-linear-regression.md","articles":[]},{"title":"2.2 Computing parameters analytically.md","level":"2.2.2","depth":2,"path":"markdowns/2.2-computing-parameters-analytically.md","ref":"markdowns/2.2-computing-parameters-analytically.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/2.1-multivariate-linear-regression.md","mtime":"2019-08-11T09:17:25.892Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -760,6 +773,14 @@ x_1 , x_2 , x_1^2, x_2^2, x_1x_2, x_1^3, x_1^2x_2, x_1x_2^2 , x_2^3, ....
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

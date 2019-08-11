@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -623,6 +627,17 @@
 
 <h1 id="4-neural-networks">4. Neural Networks</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#41-%EB%B0%B0%EA%B2%BD">4.1. &#xBC30;&#xACBD;</a></li>
+<li><a href="#42-%EC%A7%80%EB%82%9C-%EB%82%B4%EC%9A%A9-remind">4.2. &#xC9C0;&#xB09C; &#xB0B4;&#xC6A9; remind</a></li>
+<li><a href="#43-neuron-model-logistic-unit">4.3. Neuron model: Logistic Unit</a></li>
+<li><a href="#44-neural-network">4.4. Neural Network</a></li>
+<li><a href="#45-forward-propagation-vectored-implementation">4.5. Forward propagation: Vectored Implementation</a></li>
+<li><a href="#46-neural-network-learning-its-own-features">4.6. Neural Network Learning its Own Features</a></li>
+<li><a href="#47-examples">4.7. Examples</a></li>
+</ul>
+<!-- tocstop -->
 <h2 id="41-&#xBC30;&#xACBD;">4.1. &#xBC30;&#xACBD;</h2>
 <hr>
 <p>&#xC774;&#xBBF8; linear regression, logistic regression&#xC774; &#xAE30;&#xACC4;&#xD559;&#xC2B5;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xACE0; &#xC788;&#xB294;&#xB370;, &#xC2E0;&#xACBD;&#xB9DD; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC740; &#xC65C; &#xD544;&#xC694;&#xD560;&#xAE4C;?  </p>
@@ -736,7 +751,7 @@ z_k^{\color{red}(2)} =
 <p>&#xAC00;&#xC6B4;&#xB370; &#xBCF4;&#xC774;&#xB294; 9&#xB294; input layer&#xC774;&#xB2E4;. &#xC67C;&#xCABD;&#xC5D0; &#xBCF4;&#xC774;&#xB294; &#xAC83;&#xC774; &#xBCF4;&#xB2E4; &#xCD94;&#xC0C1;&#xD654; &#xC2DC;&#xD0A8; Hidden layer 1 &#xADF8;&#xB9AC;&#xACE0; &#xADF8; &#xB2E4;&#xC74C;&#xB2E8;&#xACC4; Hidden layer2, &#xADF8; &#xB2E4;&#xC74C;&#xB2E8;&#xACC4; Hidden layer3 &#xC774;&#xB41C;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xCD5C;&#xC885; output&#xC740; answer: 9 &#xC774;&#xB2E4;. (&#xC774;&#xAC83;&#xC740; &#xB9C8;&#xCE58; &#xB300;&#xC0C1;&#xC5D0;&#xC11C; &#xC810;&#xCC28; &#xC758;&#xBBF8;&#xB97C; &#xC81C;&#xAC70;&#xD558;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;. &#xB2E8;&#xACC4;&#xBCC4; &#xCD94;&#xC0C1;&#xD654;&#xC758; &#xCD5C;&#xC885; &#xACB0;&#xACFC;&#xBB3C;&#xC5D0;&#xB294; &#xBAA8;&#xB4E0; &#xC758;&#xBBF8;&#xAC00; &#xC0AC;&#xB77C;&#xC9C0;&#xACE0; &#xAE30;&#xD638;&#xB9CC;&#xC774; &#xB0A8;&#xB294;&#xB2E4;. &#xC774;&#xAC83;&#xC774; &#xB1CC;&#xC758; &#xADFC;&#xBCF8; &#xB3D9;&#xC791;&#xC6D0;&#xB9AC;&#xB77C;&#xBA74;, &#xC778;&#xAC04;&#xC758; &#xACB0;&#xAD6D; &#xB1CC;&#xB294; &#xC758;&#xBBF8; &#xC81C;&#xAC70;&#xC7A5;&#xCE58;&#xC778; &#xAC83;&#xC774;&#xB2E4;. &#xCC38;&#xACE0;: &#xC778;&#xD3EC;&#xBA54;&#xC774;&#xC158;, &#xC81C;&#xC784;&#xC2A4; &#xAE00;&#xB9AD;)  </p>
 <p><img src="img/nn_ex6.png" alt="">  </p>
 <p>&#xB9CC;&#xC57D; 4&#xAC1C;&#xC758; &#xC0AC;&#xC9C4;&#xC744; &#xBD84;&#xB958;&#xD55C;&#xB2E4;&#xACE0; &#xD558;&#xBA74;, &#xC5EC;&#xB7EC; layer&#xB97C; &#xAC70;&#xCCD0; &#xB098;&#xC628; &#xCD5C;&#xC885; &#xACB0;&#xACFC;&#xBB3C;&#xC740; 4&#xAC1C;&#xC758; <script type="math/tex; ">4 \times 1</script> &#xBCA1;&#xD130; &#xC774;&#xB2E4;.<br><img src="img/nn_ex8.png" alt="">  </p>
-<p><img src="img/nn_ex7.png" alt=""><br>&#xCD5C;&#xC885; &#xACB0;&#xACFC;&#xB294; y &#xBCA1;&#xD130;&#xB85C; &#xD45C;&#xD604;&#xAC00;&#xB2A5;&#xD558;&#xB2E4;.   </p>
+<p><img src="img/nn_ex7.png" alt=""><br>&#xCD5C;&#xC885; &#xACB0;&#xACFC;&#xB294; y &#xBCA1;&#xD130;&#xB85C; &#xD45C;&#xD604;&#xAC00;&#xB2A5;&#xD558;&#xB2E4;.</p>
 
                                 
                                 </section>
@@ -780,7 +795,7 @@ z_k^{\color{red}(2)} =
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4 Neural networks.md","level":"2.4","depth":1,"next":{"title":"5 Neural networks learning.md","level":"2.5","depth":1,"path":"markdowns/5-neural-networks-learning.md","ref":"markdowns/5-neural-networks-learning.md","articles":[]},"previous":{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/4-neural-networks.md","mtime":"2019-08-10T09:47:48.969Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4 Neural networks.md","level":"2.4","depth":1,"next":{"title":"5 Neural networks learning.md","level":"2.5","depth":1,"path":"markdowns/5-neural-networks-learning.md","ref":"markdowns/5-neural-networks-learning.md","articles":[]},"previous":{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/4-neural-networks.md","mtime":"2019-08-11T09:17:58.297Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -799,6 +814,14 @@ z_k^{\color{red}(2)} =
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

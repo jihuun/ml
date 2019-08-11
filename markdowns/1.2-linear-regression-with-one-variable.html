@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -623,8 +627,21 @@
 
 <h1 id="12-linear-regression-with-one-variable">1.2. Linear Regression with One Variable</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#121-model-and-cost-function">1.2.1. Model and Cost Function</a></li>
+<li><a href="#122-linear-regression">1.2.2 Linear Regression</a></li>
+<li><a href="#123-model-representation">1.2.3. Model Representation</a></li>
+<li><a href="#124-cost-function">1.2.4. Cost Function</a></li>
+<li><a href="#125-simplified-cost-function-of-linear-regression">1.2.5. Simplified Cost function of Linear Regression</a></li>
+<li><a href="#126-cost-function-of-linear-regression">1.2.6. Cost function of Linear Regression</a></li>
+<li><a href="#127-parameter-learning-gradient-descent">1.2.7. Parameter Learning (Gradient Descent)</a></li>
+<li><a href="#128-gradient-descent-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%88%98%ED%95%99%EC%A0%81-%EC%A0%95%EC%9D%98">1.2.8. Gradient Descent &#xC54C;&#xACE0;&#xB9AC;&#xC998; &#xC218;&#xD559;&#xC801; &#xC815;&#xC758;</a></li>
+<li><a href="#129-learning-rate%EC%99%80-%EB%AF%B8%EB%B6%84%EA%B3%84%EC%88%98">1.2.9. Learning rate&#xC640; &#xBBF8;&#xBD84;&#xACC4;&#xC218;</a></li>
+<li><a href="#1210-gradient-descent-for-linear-regression">1.2.10. Gradient Descent for Linear Regression</a></li>
+</ul>
+<!-- tocstop -->
 <h2 id="121-model-and-cost-function">1.2.1. Model and Cost Function</h2>
-<hr>
 <p>&#xC774;&#xBC88;&#xC7A5;&#xC5D0;&#xC11C;&#xB294; Linear regression &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC5D0; &#xB300;&#xD574; &#xC54C;&#xC544;&#xBCF4;&#xACE0; Model&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xADF8;&#xB9AC;&#xACE0; &#xC9C0;&#xB3C4;&#xD559;&#xC2B5;&#xC758; &#xC804;&#xCCB4; &#xACFC;&#xC815;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC54C;&#xC544;&#xBCFC; &#xAC83;&#xC774;&#xB2E4;.
 Linear regression&#xC740; &#xC785;&#xB825;&#xB41C; &#xAC12;&#xC744; &#xAE30;&#xBC18;&#xC73C;&#xB85C; &#xACB0;&#xACFC;&#xAC12;&#xC744; &#xC608;&#xCE21;&#xD558;&#xB294; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC774;&#xB2E4;. &#xC774;&#xC7A5;&#xC5D0;&#xC11C;&#xB294; &#xC9D1;&#xAC12;&#xC744; &#xC608;&#xCE21;&#xD558;&#xB294;&#xB370; Linear regression&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xBCFC; &#xAC83;&#xC774;&#xB2E4;. &#xADF8;&#xAC83;&#xC744; &#xC704;&#xD574;&#xC11C; cost function &#xACFC; gradient descent &#xB77C;&#xB294; &#xAC1C;&#xB150;&#xC5D0;&#xB300;&#xD574;&#xC11C; &#xC0B4;&#xD3B4;&#xBCFC; &#xAC83;&#xC774;&#xB2E4;.  </p>
 <h2 id="122-linear-regression">1.2.2 Linear Regression</h2>
@@ -642,7 +659,7 @@ Linear regression&#xC740; &#xC785;&#xB825;&#xB41C; &#xAC12;&#xC744; &#xAE30;&#xB
 <blockquote>
 <p>training set &#xB370;&#xC774;&#xD130;&#xB97C; &#xD559;&#xC2B5; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xAC70;&#xCE58;&#xBA74; &#xD568;&#xC218;&#xAC00; &#xB098;&#xC624;&#xB294;&#xB370; &#xADF8;&#xAC83;&#xC744; <code>h</code>&#xB77C;&#xACE0; &#xD45C;&#xAE30;&#xD55C;&#xB2E4;. Hypothesis Function &#xC774;&#xB77C;&#xACE0; &#xBD80;&#xB978;&#xB2E4;.    </p>
 </blockquote>
-<h2 id="124-cost-function-&#xBE44;&#xC6A9;&#xD568;&#xC218;">1.2.4. Cost Function (&#xBE44;&#xC6A9;&#xD568;&#xC218;)</h2>
+<h2 id="124-cost-function">1.2.4. Cost Function</h2>
 <p>Cost Function&#xC740; Hypothesis Function&#xC758; &#xC815;&#xD655;&#xB3C4;&#xB97C; &#xD3C9;&#xAC00;&#xD558;&#xAE30; &#xC704;&#xD568; &#xB3C4;&#xAD6C;&#xB2E4;. h(x) &#xD568;&#xC218;&#xAC00; <script type="math/tex; ">  h_\theta(x) = \theta_0 + \theta_1x  </script> &#xB77C;&#xACE0; &#xD560;&#xB54C;, <script type="math/tex; ">\theta_0</script> <script type="math/tex; ">\theta_1</script> &#xC744; &#xC5B4;&#xB5BB;&#xAC8C; &#xC120;&#xD0DD;&#xD558;&#xB290;&#xB0D0;&#xC5D0; &#xB530;&#xB77C; <script type="math/tex; ">h(x)</script>&#xB294; &#xC544;&#xB798;&#xC758; &#xADF8;&#xB798;&#xD504;&#xB97C; &#xAC16;&#xAC8C; &#xB41C;&#xB2E4;. &#xBE44;&#xC6A9;&#xD568;&#xC218;&#xB294; &#xC8FC;&#xC5B4;&#xC9C4; &#xB370;&#xC774;&#xD130;(training set)&#xB97C; &#xAC00;&#xC9C0;&#xACE0; X&#xC5D0; &#xC0C1;&#xC751;&#xD558;&#xB294; Y&#xB97C; &#xC815;&#xD655;&#xD788; &#xC608;&#xCE21;&#xD558;&#xB294; &#xD568;&#xC218; h&#xB97C; &#xCC3E;&#xC744;&#xB54C; &#xD544;&#xC694;&#xD558;&#xB2E4;. </p>
 <p><img src="img/h2.png" alt="">    </p>
 <p>&#xADF8;&#xB798;&#xD504;&#xC5D0;&#xC11C; &#xBCFC;&#xC218; &#xC788;&#xB4EF;&#xC774; &#xC5B4;&#xB5A4; <script type="math/tex; ">\theta_0</script> <script type="math/tex; ">\theta_1</script> &#xAC12;&#xC744; &#xC120;&#xD0DD;&#xD558;&#xB290;&#xB0D0;&#xC5D0; &#xB530;&#xB77C;&#xC11C; &#xC9C1;&#xC120;&#xC758; &#xAE30;&#xC6B8;&#xAE30;&#xAC00; &#xB2EC;&#xB77C;&#xC9C4;&#xB2E4;. <script type="math/tex; ">\theta_0</script> <script type="math/tex; ">\theta_1</script>&#xC744; &#xC801;&#xC808;&#xD558;&#xAC8C; &#xC120;&#xD0DD;&#xD558;&#xC5EC; &#xB9CC;&#xB4E0; h(x)&#xC758; &#xAC12;&#xACFC;, &#xC2E4;&#xC81C; &#xACB0;&#xACFC;&#xAC12; y&#xC640; &#xC5BC;&#xB9C8;&#xB098; &#xCC28;&#xC774;&#xAC00; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xB294;&#xAC83;&#xC774; cost function&#xC774;&#xB2E4;. &#xC774; &#xCC28;&#xC774;&#xAC00; &#xC801;&#xC744; &#xC218;&#xB85D; &#xC6B0;&#xB9AC;&#xB294; &#xC815;&#xD655;&#xD55C; &#xAC00;&#xC124;&#xD568;&#xC218;h(x)&#xB97C; &#xCC3E;&#xC740;&#xAC83;&#xC774;&#xB2E4;. &#xADF8;&#xB807;&#xAC8C; &#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; (&#xC608;&#xCE21;&#xAC12; - &#xC2E4;&#xC81C;&#xAC12;)&#xC758; &#xCC28;&#xC774;&#xAC00; &#xCD5C;&#xC18C;&#xD654;&#xAC00; &#xB418;&#xB3C4;&#xB85D;&#xD558;&#xB294; <script type="math/tex; ">\theta_0</script> <script type="math/tex; ">\theta_1</script> &#xCC3E;&#xC73C;&#xBA74; &#xB418;&#xB294;&#xAC83;&#xC774;&#xB2E4;.  &#xADF8;&#xAC83;&#xC744; &#xACF5;&#xC2DD;&#xD654;&#xD558;&#xBA74; &#xC544;&#xB798;&#xC640; &#xAC19;&#xB2E4;. &#xC774;&#xAC83;&#xC774; Cost Function&#xC774;&#xB2E4;. <script type="math/tex; ">J(\theta_0</script> <script type="math/tex; ">\theta_1)</script>&#xB85C; &#xD45C;&#xD604;&#xB418;&#xB294; &#xC774; Cost Function&#xC740; &#xC624;&#xCC28;&#xD568;&#xC218;&#xC758; &#xC81C;&#xACF1;&#xC774;&#xB77C;&#xB3C4;&#xACE0; &#xBD88;&#xB9B0;&#xB2E4;. &#xC774; &#xC81C;&#xACF1;&#xD568;&#xC218;&#xB294; &#xD68C;&#xADC0;&#xBD84;&#xC11D;(regression)&#xC5D0;&#xC11C; &#xAC00;&#xC7A5; &#xB9CE;&#xC774; &#xC0AC;&#xC6A9;&#xB41C;&#xB2E4;. (&#xC81C;&#xACF1;&#xC744; &#xD558;&#xB294; &#xC774;&#xC720;&#xB294; &#xC74C;&#xC218;, &#xB610;&#xB294; &#xBBF8;&#xBD84;&#xC744; &#xD574;&#xC57C;&#xD558;&#xAE30; &#xB54C;&#xBB38;)     </p>
@@ -705,7 +722,7 @@ h_\theta(x) 정확도 \propto {1 \over J(\theta_0, \theta_1)}
 <p>&#xBA3C;&#xC800; &#xC2E4;&#xC81C; &#xB370;&#xC774;&#xD130;(Training data) <code>X</code>&#xAC00; x-y&#xD3C9;&#xBA74;&#xC5D0; &#xD769;&#xBFCC;&#xB824;&#xC838; &#xC788;&#xB2E4;.(&#xADF8;&#xB9BC;&#xACFC; &#xB2E4;&#xB974;&#xAC8C; &#xB354; &#xBD88;&#xADDC;&#xCE59;&#xD560; &#xC218; &#xC788;&#xC74C;) &#xC6B0;&#xB9AC; &#xBAA9;&#xC801;&#xC740; &#xCD5C;&#xB300;&#xD55C; &#xADF8; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC798; &#xBAA8;&#xC0AC; &#xD560; &#xC218; &#xC788;&#xB294; &#xC9C1;&#xC120;<script type="math/tex; ">h_\theta(x)</script>&#xC744; &#xCC3E;&#xB294;&#xAC83;&#xC774;&#xB2E4;.     </p>
 </blockquote>
 <p>&#xC774;&#xC81C; <script type="math/tex; ">\theta_1</script>&#xC758; &#xAC12;&#xC5D0; &#xB530;&#xB978; &#xAC00;&#xC124;&#xD568;&#xC218;&#xC640; cost &#xD568;&#xC218;&#xC758; &#xAD00;&#xACC4;&#xAC00; &#xC5B4;&#xB5BB;&#xAC8C; &#xBCC0;&#xD654;&#xD558;&#xB294;&#xC9C0; &#xC0B4;&#xD3B4;&#xBCF4;&#xC790;.     </p>
-<h2 id="theta1--1-&#xC77C;&#xB54C;"><script type="math/tex; ">\theta_1 = 1</script> &#xC77C;&#xB54C;</h2>
+<h3 id="theta1--1-&#xC77C;&#xB54C;"><script type="math/tex; ">\theta_1 = 1</script> &#xC77C;&#xB54C;</h3>
 <p>&#xACB0;&#xB860;&#xC801;&#xC73C;&#xB85C; <script type="math/tex; ">h_\theta(x^{(i)})</script> &#xC740; &#xC2E4;&#xC81C; &#xB370;&#xC774;&#xD130;(Training data)&#xC640; &#xC815;&#xD655;&#xD788; &#xC77C;&#xCE58;&#xD558;&#xAC8C; &#xB418;&#xACE0;, &#xC774; &#xC608;&#xC2DC; &#xB370;&#xC774;&#xD130;&#xC5D0;&#xC11C; <script type="math/tex; "> J(1) </script>&#xC740;  0&#xC73C;&#xB85C; &#xC6B0;&#xB9AC;&#xC758; &#xBAA9;&#xC801;&#xC778; &#xCD5C;&#xC18C;&#xAC12;&#xC774; &#xB41C;&#xB2E4;. (&#xC608;&#xCE21;&#xAC12; - &#xC2E4;&#xC81C;&#xAC12;)&#xC774; 0&#xC774; &#xB41C;&#xB2E4;.     </p>
 <p><img src="img/h_j_graph.png" alt="">    </p>
 <blockquote>
@@ -723,12 +740,12 @@ J(0) &=& {1 \over 2 \times 3} \times ((0 - 1)^2 + (0 - 2)^2 +(0 - 3)^2) \\
 \end{matrix}    
 </script>  </p>
 </blockquote>
-<h2 id="theta1--05-&#xC77C;&#xB54C;"><script type="math/tex; ">\theta_1 = 0.5</script> &#xC77C;&#xB54C;</h2>
+<h3 id="theta1--05-&#xC77C;&#xB54C;"><script type="math/tex; ">\theta_1 = 0.5</script> &#xC77C;&#xB54C;</h3>
 <p><img src="img/h_j_graph3.png" alt="">    </p>
 <blockquote>
 <p>&#xAC00;&#xB839; &#xC9D1; &#xD06C;&#xAE30;(x)&#xAC00; 2&#xC77C;&#xB54C; &#xC608;&#xCE21;&#xD55C; &#xC9D2;&#xAC12;(y)&#xC740; 1&#xC774;&#xC5C8;&#xB294;&#xB370;, &#xC2E4;&#xC81C; &#xC9D1;&#xAC12;&#xC740; 2&#xC5C8;&#xB2E4;&#xB294; &#xC758;&#xBBF8;    </p>
 </blockquote>
-<h2 id="theta1--0-&#xADF8;&#xB9AC;&#xACE0;--theta1--n&#xC77C;&#xB54C;"><script type="math/tex; ">\theta_1 = 0</script> &#xADF8;&#xB9AC;&#xACE0;  <script type="math/tex; ">\theta_1 = n</script>&#xC77C;&#xB54C;</h2>
+<h3 id="theta1--0-&#xADF8;&#xB9AC;&#xACE0;--theta1--n&#xC77C;&#xB54C;"><script type="math/tex; ">\theta_1 = 0</script> &#xADF8;&#xB9AC;&#xACE0;  <script type="math/tex; ">\theta_1 = n</script>&#xC77C;&#xB54C;</h3>
 <p><img src="img/h_j_graph4.png" alt="">    </p>
 <h2 id="126-cost-function-of-linear-regression">1.2.6. Cost function of Linear Regression</h2>
 <p>&#xC774;&#xC81C; <script type="math/tex; ">\theta_0</script> &#xB97C; &#xC0AC;&#xC6A9;&#xD55C; &#xC2E4;&#xC81C; Cost function &#xC744; &#xC0B4;&#xD3B4;&#xBCF4;&#xC790;. <script type="math/tex; ">\theta_0</script> &#xACFC; <script type="math/tex; ">\theta_1</script> &#xC774; &#xBAA8;&#xB450; &#xC874;&#xC7AC;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; Cost function <script type="math/tex; "> J(\theta_0, \theta_1) </script> &#xB294; &#xADF8;&#xB9BC;&#xACFC; &#xAC19;&#xC774; 3&#xCC28;&#xC6D0; &#xADF8;&#xB798;&#xD504;&#xAC00; &#xB420; &#xAC83;&#xC774;&#xB2E4;.<br><img src="img/cost_func_3d.png" alt="">    </p>
@@ -789,7 +806,7 @@ J(0) &=& {1 \over 2 \times 3} \times ((0 - 1)^2 + (0 - 2)^2 +(0 - 3)^2) \\
 <p>&#xCD08;&#xAE30;&#xC5D0; &#xC8FC;&#xC5B4;&#xC9C4; <script type="math/tex; ">\theta_0</script>, <script type="math/tex; ">\theta_1</script> &#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xBAA8;&#xB4E0; training set&#xC758; <script type="math/tex; ">h(x^i) = \theta_0 + \theta_1x^i</script> &#xC640; <script type="math/tex; ">y</script>&#xCC28;&#xC758; &#xD569;&#xC744; &#xAD6C;&#xD55C;&#xB2E4;. &#xACF5;&#xC2DD;&#xC5D0; &#xB530;&#xB77C; &#xBA3C;&#xC800; <script type="math/tex; ">\theta_0</script>, <script type="math/tex; ">\theta_1</script>&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xAC12;&#xC744; &#xAD6C;&#xD55C;&#xB4A4; &#xADF8;&#xB2E4;&#xC74C;&#xC5D0; <script type="math/tex; ">\theta_0</script>, <script type="math/tex; ">\theta_1</script> &#xC5D0; &#xAC01;&#xAC01; &#xB300;&#xC785;&#xD55C;&#xB2E4;. &#xADF8;&#xB807;&#xAC8C; &#xB450;&#xBC88;&#xC9F8; <script type="math/tex; ">\theta_0</script>, <script type="math/tex; ">\theta_1</script> &#xAC12;&#xC744; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB294;&#xAC83;&#xC774;&#xB2E4;. &#xC774;&#xAC83;&#xC744; <strong>&#xBC18;&#xBCF5;</strong>&#xD558;&#xB2E4;&#xBCF4;&#xBA74; &#xC544;&#xB798; &#xADF8;&#xB9BC;&#xACFC; &#xAC19;&#xC774; cost function <script type="math/tex; ">J(\theta_0, \theta_1)</script>&#xAC00; &#xCD5C;&#xC18C;&#xAC12;&#xC774; &#xB418;&#xB294; <script type="math/tex; ">\theta_0</script>, <script type="math/tex; ">\theta_1</script> &#xC9C0;&#xC810;&#xC5D0; &#xC810;&#xCC28; &#xC218;&#xB834;&#xD558;&#xAC8C; &#xB41C;&#xB2E4;(&#xBAA9;&#xC801; &#xB2EC;&#xC131;). &#xB2F9;&#xC5F0;&#xD788; <script type="math/tex; ">\theta_0</script>, <script type="math/tex; ">\theta_1</script>&#xAC00; &#xBC14;&#xB014;&#xB54C;&#xB9C8;&#xB2E4; hypotheis function <script type="math/tex; ">h(x)</script>&#xB3C4; &#xB2EC;&#xB77C;&#xC9C4;&#xB2E4;. (&#xC8FC;&#xC758;&#xD560; &#xC0AC;&#xD56D;&#xC740; &#xC774; &#xB450;&#xAC12;&#xC774; &#xB3D9;&#xC2DC;&#xC5D0;(simultaneously) update &#xB418;&#xC5B4;&#xC57C;&#xD55C;&#xB2E4;&#xB294; &#xC810;&#xC774;&#xB2E4; <script type="math/tex; ">\theta_0</script>, <script type="math/tex; ">\theta_1</script>&#xC774; &#xBC14;&#xB014;&#xB54C; &#xB9C8;&#xB2E4; &#xAC00;&#xC124; &#xD568;&#xC218;&#xB3C4; &#xBC14;&#xB00C;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;.  <script type="math/tex; ">h(x) = \theta_0 + \theta_1x</script>)    </p>
 <p><img src="img/gradient_descent_g.png" alt="">    </p>
 <p>&#xC774; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xB2E4;&#xB978;&#xB9D0;&#xB85C; <strong>Batch Gradient Descent</strong> &#xB77C;&#xACE0; &#xBD80;&#xB978;&#xB2E4;. &#xC9C0;&#xAE08; &#xBC30;&#xC6B4;&#xAC83;&#xC740; cost function J&#xC758; &#xCD5C;&#xC18C;&#xAC12;&#xC744; &#xAD6C;&#xD558;&#xAE30; &#xC704;&#xD574; &#xBC18;&#xBCF5;&#xC801; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xC0AC;&#xC6A9;&#xD588;&#xB2E4;. &#xCC38;&#xACE0;&#xB85C; &#xB098;&#xC911;&#xC5D0;&#xB294; &#xBC18;&#xBCF5;&#xC774; &#xC5C6;&#xC774;&#xB3C4; J&#xC758; &#xCD5C;&#xC18C;&#xAC12;&#xC744; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB294; &#xBC29;&#xBC95;&#xC5D0; &#xB300;&#xD574; &#xC54C;&#xC544;&#xBCFC; &#xAC83;&#xC774;&#xB2E4;. &#xC774;&#xB85C;&#xC368; Gradient Descent &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC774;&#xB77C;&#xB294; &#xCCAB;&#xBC88;&#xC9F8; &#xAE30;&#xACC4;&#xD559;&#xC2B5; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xBC30;&#xC6E0;&#xB2E4;.      </p>
-<p><code>&#xCC38;&#xACE0;1</code>: (a) -&gt; (c) &#xD3B8;&#xBBF8;&#xBD84; &#xD480;&#xC774;&#xACFC;&#xC815;<br><img src="img/linear_regression_f3.png" alt=""><br><code>&#xCC38;&#xACE0;2</code>: Linear regression&#xC5D0;&#xC11C;&#xB294; cost function J&#xC758; &#xCD5C;&#xC18C;&#xC810;&#xC774; &#xBB34;&#xC870;&#xAC74; 1&#xAC1C;&#xC774;&#xB2E4;. &#xADF8;&#xB798;&#xD504;&#xC758; &#xBAA8;&#xC591;&#xC740; bowl-shape&#xC774;&#xB2E4;. &#xC774;&#xB97C;  convex quadratic function &#xC774;&#xB77C;&#xACE0; &#xBD80;&#xB984;.    </p>
+<p><code>&#xCC38;&#xACE0;1</code>: (a) -&gt; (c) &#xD3B8;&#xBBF8;&#xBD84; &#xD480;&#xC774;&#xACFC;&#xC815;<br><img src="img/linear_regression_f3.png" alt=""><br><code>&#xCC38;&#xACE0;2</code>: Linear regression&#xC5D0;&#xC11C;&#xB294; cost function J&#xC758; &#xCD5C;&#xC18C;&#xC810;&#xC774; &#xBB34;&#xC870;&#xAC74; 1&#xAC1C;&#xC774;&#xB2E4;. &#xADF8;&#xB798;&#xD504;&#xC758; &#xBAA8;&#xC591;&#xC740; bowl-shape&#xC774;&#xB2E4;. &#xC774;&#xB97C;  convex quadratic function &#xC774;&#xB77C;&#xACE0; &#xBD80;&#xB984;.</p>
 
                                 
                                 </section>
@@ -833,7 +850,7 @@ J(0) &=& {1 \over 2 \times 3} \times ((0 - 1)^2 + (0 - 2)^2 +(0 - 3)^2) \\
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2 Linear regression with one variable.md","level":"2.1.2","depth":2,"next":{"title":"1.3 Linear algebra review.md","level":"2.1.3","depth":2,"path":"markdowns/1.3-linear-algebra-review.md","ref":"markdowns/1.3-linear-algebra-review.md","articles":[]},"previous":{"title":"1.1 Introduction.md","level":"2.1.1","depth":2,"path":"markdowns/1.1-introduction.md","ref":"markdowns/1.1-introduction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/1.2-linear-regression-with-one-variable.md","mtime":"2019-08-11T07:56:20.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2 Linear regression with one variable.md","level":"2.1.2","depth":2,"next":{"title":"1.3 Linear algebra review.md","level":"2.1.3","depth":2,"path":"markdowns/1.3-linear-algebra-review.md","ref":"markdowns/1.3-linear-algebra-review.md","articles":[]},"previous":{"title":"1.1 Introduction.md","level":"2.1.1","depth":2,"path":"markdowns/1.1-introduction.md","ref":"markdowns/1.1-introduction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/1.2-linear-regression-with-one-variable.md","mtime":"2019-08-11T09:14:09.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -852,6 +869,14 @@ J(0) &=& {1 \over 2 \times 3} \times ((0 - 1)^2 + (0 - 2)^2 +(0 - 3)^2) \\
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

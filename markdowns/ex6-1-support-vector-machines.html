@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -60,7 +64,7 @@
     <link rel="next" href="ex6-2-spam-classification.html" />
     
     
-    <link rel="prev" href="ex5.html" />
+    <link rel="prev" href="ex5-regularized-LR-bias-variance.html" />
     
 
     </head>
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -624,6 +628,14 @@
 
 <h1 id="ex6-1-support-vector-machines">ex6-1. support vector machines</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#1-try-different-value-of-c">1. Try different value of C</a></li>
+<li><a href="#2-gaussian-kernel">2. Gaussian Kernel</a></li>
+<li><a href="#3-gaussian-kernel-for-non-linear">3. Gaussian Kernel for non-linear</a></li>
+<li><a href="#4-find-best-c-and-sigma">4. Find best C and Sigma</a></li>
+</ul>
+<!-- tocstop -->
 <h2 id="1-try-different-value-of-c">1. Try different value of C</h2>
 <hr>
 <pre><code class="lang-matlab"><span class="hljs-comment">% You should try to change the C value below and see how the decision  </span>
@@ -730,7 +742,7 @@ sigma = res_sigma;
 
             
                 
-                <a href="ex5.html" class="navigation navigation-prev " aria-label="Previous page: ex5">
+                <a href="ex5-regularized-LR-bias-variance.html" class="navigation navigation-prev " aria-label="Previous page: ex5 Regularized Linear Regression and Bias-Variance">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -746,7 +758,7 @@ sigma = res_sigma;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex6 1 Support vector machines","level":"3.8","depth":1,"next":{"title":"ex6 2 Spam classification","level":"3.9","depth":1,"path":"markdowns/ex6-2-spam-classification.md","ref":"markdowns/ex6-2-spam-classification.md","articles":[]},"previous":{"title":"ex5","level":"3.7","depth":1,"path":"markdowns/ex5.md","ref":"markdowns/ex5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex6-1-support-vector-machines.md","mtime":"2019-08-11T07:58:41.046Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex6 1 Support vector machines","level":"3.8","depth":1,"next":{"title":"ex6 2 Spam classification","level":"3.9","depth":1,"path":"markdowns/ex6-2-spam-classification.md","ref":"markdowns/ex6-2-spam-classification.md","articles":[]},"previous":{"title":"ex5 Regularized Linear Regression and Bias-Variance","level":"3.7","depth":1,"path":"markdowns/ex5-regularized-LR-bias-variance.md","ref":"markdowns/ex5-regularized-LR-bias-variance.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex6-1-support-vector-machines.md","mtime":"2019-08-11T09:18:49.633Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -765,6 +777,14 @@ sigma = res_sigma;
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

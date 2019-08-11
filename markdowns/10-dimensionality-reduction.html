@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -623,6 +627,17 @@
 
 
 <h1 id="10-dimensionality-reduction">10. Dimensionality Reduction</h1>
+<hr>
+<!-- toc -->
+<ul>
+<li><a href="#101-pca-principal-component-analysis">10.1. PCA (Principal Component Analysis)</a></li>
+<li><a href="#102-pca-data-pre-processing">10.2. PCA, Data pre-processing</a></li>
+<li><a href="#103-pca-algorithm">10.3. PCA algorithm</a></li>
+<li><a href="#104-reconstruction-from-compressed-representation">10.4. Reconstruction from Compressed Representation</a></li>
+<li><a href="#105-choosing-the-number-of-principal-components">10.5. Choosing the Number of Principal Components</a></li>
+<li><a href="#106-supervised-learning-speedup">10.6. Supervised Learning Speedup</a></li>
+</ul>
+<!-- tocstop -->
 <p>Dimensionality Reduction&#xC740; Unsupervised Learning&#xC758; &#xB450;&#xBC88;&#xC9F8; type &#xC774;&#xB2E4;. &#xB9D0;&#xADF8;&#xB300;&#xB85C; &#xCC28;&#xC6D0;&#xC744; &#xC904;&#xC774;&#xB294;&#xBC29;&#xBC95;.   &#xC774;&#xAC83;&#xC73C;&#xB85C; Data&#xB97C; &#xC808;&#xC57D;&#xD560; &#xC218; &#xC788;&#xACE0;, &#xC27D;&#xAC8C; visualizing&#xD558;&#xC5EC; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC880; &#xB354; &#xC9C1;&#xAD00;&#xC801;&#xC73C;&#xB85C; &#xC774;&#xD574;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD574;&#xC900;&#xB2E4;. (4 &#xCC28;&#xC6D0;&#xC774;&#xC0C1;&#xC758; feature&#xB294; visulizing &#xD558;&#xAE30; &#xC5B4;&#xB835;&#xB2E4;.)  </p>
 <p><img src="img/dr.png" alt="">  </p>
 <p>&#xC5C4;&#xCCAD; &#xB9CE;&#xC740;feature&#xAC00; &#xC788;&#xB2E4;&#xACE0; &#xD588;&#xC744;&#xB54C;, &#xC5F0;&#xAD00;&#xC131;&#xC774; &#xBB34;&#xCC99; &#xB192;&#xC740; feature &#xB450;&#xAC1C;&#xB97C; &#xD558;&#xB098;&#xB85C; reduce &#xD560; &#xC218; &#xC788;&#xB2E4;. &#xC704; &#xC608;&#xC5D0;&#xC11C;&#xB294; &#xD558;&#xB098;&#xB294; cm&#xB2E8;&#xC704;&#xC758; &#xAE38;&#xC774;&#xC774;&#xACE0; &#xD558;&#xB098;&#xB294; inch &#xB2E8;&#xC704;&#xC758; &#xAE38;&#xC774;&#xC774;&#xB2E4;. &#xB458;&#xB2E4; &#xAE38;&#xC774;&#xC5D0; &#xB300;&#xD55C; feature&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC5F0;&#xAD00;&#xC131;&#xC774; &#xBB34;&#xCC99; &#xB192;&#xB2E4;.   &#xC774;&#xAC83;&#xC744; feature 2&#xAC1C;&#xC778; 2demension &#xC5D0;&#xC11C; 1&#xCC28;&#xC6D0;&#xC73C;&#xB85C; &#xCC28;&#xC6D0;&#xC744; &#xC904;&#xC5EC;&#xC11C; &#xD569;&#xCE60; &#xC218; &#xC788;&#xB294;&#xAC83;&#xC774;&#xB2E4;.    </p>
@@ -687,7 +702,7 @@ X_{approx} = U_{reduce} z
 <p>&#xB9CE;&#xC740; &#xC0AC;&#xB78C;&#xB4E4;&#xC774; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC808;&#xCC28;&#xB97C; &#xB530;&#xB77C; ML system &#xC744; design&#xD55C;&#xB2E4;.   </p>
 <p><img src="img/pca18.png" alt="">  </p>
 <p>&#xADF8;&#xB7F0;&#xB370; &#xBA3C;&#xC800; PCA &#xC5C6;&#xC774; original feature&#xB85C; &#xBA3C;&#xC800; &#xB3D9;&#xC791;&#xC2DC;&#xCF1C;&#xBCFC; &#xD544;&#xC694;&#xAC00; &#xC788;&#xB2E4;. &#xADF8;&#xB798;&#xC11C; &#xC6D0;&#xD558;&#xB294; &#xACB0;&#xACFC;&#xAC00; &#xB098;&#xC624;&#xC9C0; &#xC54A;&#xC744;&#xB54C;&#xB9CC; PCA&#xB97C; &#xC0AC;&#xC6A9;&#xD560;&#xAC83;&#xC744; &#xACE0;&#xB824;&#xD558;&#xB294;&#xAC83;&#xC774; &#xB354; &#xC88B;&#xC740; &#xBC29;&#xBC95;&#xC774;&#xB2E4;.   </p>
-<p><img src="img/pca19.png" alt="">  </p>
+<p><img src="img/pca19.png" alt=""></p>
 
                                 
                                 </section>
@@ -731,7 +746,7 @@ X_{approx} = U_{reduce} z
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"10 Dimensionality reduction.md","level":"2.10","depth":1,"next":{"title":"11 Anormaly detection.md","level":"2.11","depth":1,"path":"markdowns/11-anormaly-detection.md","ref":"markdowns/11-anormaly-detection.md","articles":[]},"previous":{"title":"9 Unsupervised learning  dimensionality reduction.md","level":"2.9","depth":1,"path":"markdowns/9-unsupervised-learning--dimensionality-reduction.md","ref":"markdowns/9-unsupervised-learning--dimensionality-reduction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/10-dimensionality-reduction.md","mtime":"2019-08-10T10:00:09.315Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10 Dimensionality reduction.md","level":"2.10","depth":1,"next":{"title":"11 Anormaly detection.md","level":"2.11","depth":1,"path":"markdowns/11-anormaly-detection.md","ref":"markdowns/11-anormaly-detection.md","articles":[]},"previous":{"title":"9 Unsupervised learning  dimensionality reduction.md","level":"2.9","depth":1,"path":"markdowns/9-unsupervised-learning--dimensionality-reduction.md","ref":"markdowns/9-unsupervised-learning--dimensionality-reduction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/10-dimensionality-reduction.md","mtime":"2019-08-11T09:16:34.981Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -750,6 +765,14 @@ X_{approx} = U_{reduce} z
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

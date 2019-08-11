@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -623,6 +627,18 @@
 
 <h1 id="31-logistic-regression">3.1. Logistic Regression</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#311-classfication">3.1.1. Classfication</a></li>
+<li><a href="#312-logistic-regression">3.1.2. Logistic Regression</a></li>
+<li><a href="#313-decision-boundary">3.1.3. Decision Boundary</a></li>
+<li><a href="#314-non-linear-decision-boundary">3.1.4. Non-linear Decision Boundary</a></li>
+<li><a href="#315-cost-function">3.1.5. Cost function</a></li>
+<li><a href="#316-simplified-cost-function-and-gradient-descent">3.1.6. Simplified Cost Function and Gradient Descent</a></li>
+<li><a href="#317-advanced-optimization">3.1.7. Advanced Optimization</a></li>
+<li><a href="#318-multi-class-classification">3.1.8. Multi-Class Classification</a></li>
+</ul>
+<!-- tocstop -->
 <p>Logistic regression is a method for classifying data into discrete outcomes. For example, we might use logistic regression to classify an email as spam or not spam.  </p>
 <h2 id="311-classfication">3.1.1. Classfication</h2>
 <hr>
@@ -753,7 +769,7 @@ P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
 \begin{align*}& y \in \lbrace0, 1 ... n\rbrace \newline& h_\theta^{(0)}(x) = P(y = 0 | x ; \theta) \newline& h_\theta^{(1)}(x) = P(y = 1 | x ; \theta) \newline& \cdots \newline& h_\theta^{(n)}(x) = P(y = n | x ; \theta) \newline& \mathrm{prediction} = \max_i( h_\theta ^{(i)}(x) )\newline\end{align*}  
 </script>  </p>
 <blockquote>
-<p><script type="math/tex; ">h_\theta^{(0)}(x)</script> &#xBD80;&#xD130;  <script type="math/tex; ">h_\theta^{(n)}(x)</script> &#xAE4C;&#xC9C0; &#xB2E4; &#xB3CC;&#xB824;&#xBCF4;&#xACE0; &#xADF8;&#xC911;&#xC5D0; &#xAC00;&#xC7A5; &#xD070;&#xAC12;&#xC744; &#xAC16;&#xB294; i&#xB97C; &#xC120;&#xD0DD;&#xD558;&#xBA74; &#xB41C;&#xB2E4;.    </p>
+<p><script type="math/tex; ">h_\theta^{(0)}(x)</script> &#xBD80;&#xD130;  <script type="math/tex; ">h_\theta^{(n)}(x)</script> &#xAE4C;&#xC9C0; &#xB2E4; &#xB3CC;&#xB824;&#xBCF4;&#xACE0; &#xADF8;&#xC911;&#xC5D0; &#xAC00;&#xC7A5; &#xD070;&#xAC12;&#xC744; &#xAC16;&#xB294; i&#xB97C; &#xC120;&#xD0DD;&#xD558;&#xBA74; &#xB41C;&#xB2E4;.</p>
 </blockquote>
 
                                 
@@ -798,7 +814,7 @@ P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"next":{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]},"previous":{"title":"3 Logistic regression regularization.md","level":"2.3","depth":1,"path":"markdowns/3-logistic-regression-regularization.md","ref":"markdowns/3-logistic-regression-regularization.md","articles":[{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"path":"markdowns/3.1-logistic-regression.md","ref":"markdowns/3.1-logistic-regression.md","articles":[]},{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/3.1-logistic-regression.md","mtime":"2019-08-11T07:57:14.339Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"next":{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]},"previous":{"title":"3 Logistic regression regularization.md","level":"2.3","depth":1,"path":"markdowns/3-logistic-regression-regularization.md","ref":"markdowns/3-logistic-regression-regularization.md","articles":[{"title":"3.1 Logistic regression.md","level":"2.3.1","depth":2,"path":"markdowns/3.1-logistic-regression.md","ref":"markdowns/3.1-logistic-regression.md","articles":[]},{"title":"3.2 Regularization and overfitting problem.md","level":"2.3.2","depth":2,"path":"markdowns/3.2-regularization-and-overfitting-problem.md","ref":"markdowns/3.2-regularization-and-overfitting-problem.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/3.1-logistic-regression.md","mtime":"2019-08-11T09:17:50.577Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -817,6 +833,14 @@ P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

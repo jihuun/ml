@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ex5 · GitBook</title>
+        <title>ex5 Regularized Linear Regression and Bias-Variance · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
 
     
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.7" data-path="ex5.html">
+        <li class="chapter active" data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -593,7 +597,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ex5</a>
+        <a href=".." >ex5 Regularized Linear Regression and Bias-Variance</a>
     </h1>
 </div>
 
@@ -622,8 +626,19 @@
 
 
 
-<h1 id="ex5">ex5</h1>
+<h1 id="ex5--regularized-linear-regression-and-bias-variance">ex5 : Regularized Linear Regression and Bias-Variance</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#part-2-regularized-linear-regression-cost">Part 2: Regularized Linear Regression Cost</a></li>
+<li><a href="#part-3-regularized-linear-regression-gradient">Part 3: Regularized Linear Regression Gradient</a></li>
+<li><a href="#part-4-train-linear-regression">Part 4: Train Linear Regression</a></li>
+<li><a href="#part-5-learning-curve-for-linear-regression">Part 5: Learning Curve for Linear Regression</a></li>
+<li><a href="#part-6-feature-mapping-for-polynomial-regression">Part 6: Feature Mapping for Polynomial Regression</a></li>
+<li><a href="#part-7-learning-curve-for-polynomial-regression">Part 7: Learning Curve for Polynomial Regression</a></li>
+<li><a href="#part-8-validation-for-selecting-lambda">Part 8: Validation for Selecting Lambda</a></li>
+</ul>
+<!-- tocstop -->
 <h2 id="part-2-regularized-linear-regression-cost">Part 2: Regularized Linear Regression Cost</h2>
 <pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[J, grad]</span> = <span class="hljs-title">linearRegCostFunction</span><span class="hljs-params">(X, y, theta, lambda)</span>  </span>
 
@@ -765,7 +780,7 @@ X_poly = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">nu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ex5","level":"3.7","depth":1,"next":{"title":"ex6 1 Support vector machines","level":"3.8","depth":1,"path":"markdowns/ex6-1-support-vector-machines.md","ref":"markdowns/ex6-1-support-vector-machines.md","articles":[]},"previous":{"title":"ex4 2 Backpropagation","level":"3.6","depth":1,"path":"markdowns/ex4-2-backpropagation.md","ref":"markdowns/ex4-2-backpropagation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex5.md","mtime":"2019-08-11T07:58:33.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ex5 Regularized Linear Regression and Bias-Variance","level":"3.7","depth":1,"next":{"title":"ex6 1 Support vector machines","level":"3.8","depth":1,"path":"markdowns/ex6-1-support-vector-machines.md","ref":"markdowns/ex6-1-support-vector-machines.md","articles":[]},"previous":{"title":"ex4 2 Backpropagation","level":"3.6","depth":1,"path":"markdowns/ex4-2-backpropagation.md","ref":"markdowns/ex4-2-backpropagation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/ex5-regularized-LR-bias-variance.md","mtime":"2019-08-11T09:26:14.153Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -784,6 +799,14 @@ X_poly = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">nu
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

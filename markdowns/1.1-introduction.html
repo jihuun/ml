@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -94,7 +98,7 @@
                 <a href="../">
             
                     
-                    Machine Learning
+                    Machine Learning 정리
             
                 </a>
             
@@ -416,7 +420,7 @@
 
     
         
-        <li class="divider"></li>
+        <li class="header">Exercises</li>
         
         
     
@@ -498,12 +502,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="ex5.html">
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
             
-                <a href="ex5.html">
+                <a href="ex5-regularized-LR-bias-variance.html">
             
                     
-                    ex5
+                    ex5 Regularized Linear Regression and Bias-Variance
             
                 </a>
             
@@ -623,6 +627,16 @@
 
 <h1 id="11-introduction">1.1. Introduction</h1>
 <hr>
+<!-- toc -->
+<ul>
+<li><a href="#111-ml%EC%9D%98-%EB%91%90%EA%B0%80%EC%A7%80-%EC%A0%95%EC%9D%98">1.1.1. ML&#xC758; &#xB450;&#xAC00;&#xC9C0; &#xC815;&#xC758;</a></li>
+<li><a href="#112-ml-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A2%85%EB%A5%98">1.1.2. ML &#xC54C;&#xACE0;&#xB9AC;&#xC998; &#xC885;&#xB958;</a></li>
+<li><a href="#113-%EC%9D%91%EC%9A%A9%EB%B6%84%EC%95%BC">1.1.3. &#xC751;&#xC6A9;&#xBD84;&#xC57C;</a></li>
+<li><a href="#114-supervised-learning-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5">1.1.4. Supervised Learning (&#xC9C0;&#xB3C4; &#xD559;&#xC2B5;)</a></li>
+<li><a href="#115-unsupervised-learning-%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5">1.1.5. Unsupervised Learning (&#xBE44;&#xC9C0;&#xB3C4; &#xD559;&#xC2B5;)</a></li>
+<li><a href="#116-%EC%B0%B8%EA%B3%A0-reinforcement-learning">1.1.6. &#xCC38;&#xACE0;: Reinforcement Learning</a></li>
+</ul>
+<!-- tocstop -->
 <h2 id="111-ml&#xC758;-&#xB450;&#xAC00;&#xC9C0;-&#xC815;&#xC758;">1.1.1. ML&#xC758; &#xB450;&#xAC00;&#xC9C0; &#xC815;&#xC758;</h2>
 <ul>
 <li><p>&#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xAC8C; &#xD2B9;&#xC815;&#xD55C; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5C6;&#xC774;&#xB3C4; &#xC2A4;&#xC2A4;&#xB85C; &#xD559;&#xC2B5;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC8FC;&#xB294; &#xC5F0;&#xAD6C;<br>&quot;Machine learning as the field of study that gives computers the ability to learn without being explicitly learned.&quot;     </p>
@@ -672,7 +686,7 @@
 <p>&#xBE44;&#xC2B7;&#xD55C; &#xC885;&#xB958;&#xC758; &#xC720;&#xC804;&#xC790;&#xB07C;&#xB9AC; &#xBD84;&#xB958;&#xAC00; &#xB428;    </p>
 </blockquote>
 <h2 id="116-&#xCC38;&#xACE0;-reinforcement-learning">1.1.6. &#xCC38;&#xACE0;: Reinforcement Learning</h2>
-<p>&#xAC15;&#xD654;&#xD559;&#xC2B5;&#xC740; &#xC5D0;&#xC774;&#xC804;&#xD2B8;&#xAC00; &#xC8FC;&#xC5B4;&#xC9C4; &#xD658;&#xACBD;(state)&#xC5D0; &#xB300;&#xD574; &#xC5B4;&#xB5A4; &#xD589;&#xB3D9;(action)&#xC744; &#xCDE8;&#xD558;&#xACE0; &#xC774;&#xB85C;&#xBD80;&#xD130; &#xC5B4;&#xB5A4; &#xBCF4;&#xC0C1;(reward)&#xC744; &#xC5BB;&#xC73C;&#xBA74;&#xC11C; &#xD559;&#xC2B5;&#xC744; &#xC9C4;&#xD589;&#xD55C;&#xB2E4;. &#xC774;&#xB54C;, &#xC5D0;&#xC774;&#xC804;&#xD2B8;&#xB294; &#xBCF4;&#xC0C1;(reward)&#xC744; &#xCD5C;&#xB300;&#xD654;(maximize)&#xD558;&#xB3C4;&#xB85D; &#xD559;&#xC2B5;&#xC774; &#xC9C4;&#xD589;&#xB41C;&#xB2E4;    </p>
+<p>&#xAC15;&#xD654;&#xD559;&#xC2B5;&#xC740; &#xC5D0;&#xC774;&#xC804;&#xD2B8;&#xAC00; &#xC8FC;&#xC5B4;&#xC9C4; &#xD658;&#xACBD;(state)&#xC5D0; &#xB300;&#xD574; &#xC5B4;&#xB5A4; &#xD589;&#xB3D9;(action)&#xC744; &#xCDE8;&#xD558;&#xACE0; &#xC774;&#xB85C;&#xBD80;&#xD130; &#xC5B4;&#xB5A4; &#xBCF4;&#xC0C1;(reward)&#xC744; &#xC5BB;&#xC73C;&#xBA74;&#xC11C; &#xD559;&#xC2B5;&#xC744; &#xC9C4;&#xD589;&#xD55C;&#xB2E4;. &#xC774;&#xB54C;, &#xC5D0;&#xC774;&#xC804;&#xD2B8;&#xB294; &#xBCF4;&#xC0C1;(reward)&#xC744; &#xCD5C;&#xB300;&#xD654;(maximize)&#xD558;&#xB3C4;&#xB85D; &#xD559;&#xC2B5;&#xC774; &#xC9C4;&#xD589;&#xB41C;&#xB2E4;</p>
 
                                 
                                 </section>
@@ -716,7 +730,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.1 Introduction.md","level":"2.1.1","depth":2,"next":{"title":"1.2 Linear regression with one variable.md","level":"2.1.2","depth":2,"path":"markdowns/1.2-linear-regression-with-one-variable.md","ref":"markdowns/1.2-linear-regression-with-one-variable.md","articles":[]},"previous":{"title":"1 Introduction","level":"2.1","depth":1,"path":"markdowns/1-introduction.md","ref":"markdowns/1-introduction.md","articles":[{"title":"1.1 Introduction.md","level":"2.1.1","depth":2,"path":"markdowns/1.1-introduction.md","ref":"markdowns/1.1-introduction.md","articles":[]},{"title":"1.2 Linear regression with one variable.md","level":"2.1.2","depth":2,"path":"markdowns/1.2-linear-regression-with-one-variable.md","ref":"markdowns/1.2-linear-regression-with-one-variable.md","articles":[]},{"title":"1.3 Linear algebra review.md","level":"2.1.3","depth":2,"path":"markdowns/1.3-linear-algebra-review.md","ref":"markdowns/1.3-linear-algebra-review.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/1.1-introduction.md","mtime":"2019-08-11T07:56:03.730Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T08:20:46.127Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.1 Introduction.md","level":"2.1.1","depth":2,"next":{"title":"1.2 Linear regression with one variable.md","level":"2.1.2","depth":2,"path":"markdowns/1.2-linear-regression-with-one-variable.md","ref":"markdowns/1.2-linear-regression-with-one-variable.md","articles":[]},"previous":{"title":"1 Introduction","level":"2.1","depth":1,"path":"markdowns/1-introduction.md","ref":"markdowns/1-introduction.md","articles":[{"title":"1.1 Introduction.md","level":"2.1.1","depth":2,"path":"markdowns/1.1-introduction.md","ref":"markdowns/1.1-introduction.md","articles":[]},{"title":"1.2 Linear regression with one variable.md","level":"2.1.2","depth":2,"path":"markdowns/1.2-linear-regression-with-one-variable.md","ref":"markdowns/1.2-linear-regression-with-one-variable.md","articles":[]},{"title":"1.3 Linear algebra review.md","level":"2.1.3","depth":2,"path":"markdowns/1.3-linear-algebra-review.md","ref":"markdowns/1.3-linear-algebra-review.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-144728298-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/1.1-introduction.md","mtime":"2019-08-11T08:44:02.066Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T11:08:32.812Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -735,6 +749,14 @@
     
         
         <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         
