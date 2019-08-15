@@ -1,13 +1,20 @@
 {
-    "plugins": ["ga", "mathjax", "theme-darkblue", "simple-page-toc", "disqus", "back-to-top-button"],
+    "plugins": ["ga", "mathjax", "theme-darkblue", "simple-page-toc", "disqus", "back-to-top-button", "edit-link", "github"],
     "pluginsConfig": {
-	"disqus": {
+        "disqus": {
             "shortName": "jihuun"
         },
         "simple-page-toc": {
             "maxDepth": 2,
             "skipFirstH1": true
-   	},
+        },
+        "edit-link": {
+            "base": "https://github.com/jihuun/ml/edit/master",
+            "label": "Edit"
+        },
+        "github": {
+            "url": "https://github.com/jihuun/ml"
+        },
         "ga": {
             "token": "UA-145404461-1"
         }
