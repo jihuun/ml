@@ -1,0 +1,856 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6 Advice for applying machine learning.md · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="7-machine-learning-system-design.html" />
+    
+    
+    <link rel="prev" href="5-neural-networks-learning.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Machine Learning 정리
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1-introduction.html">
+            
+                <a href="1-introduction.html">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="1.1-introduction.html">
+            
+                <a href="1.1-introduction.html">
+            
+                    
+                    1.1 Introduction.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="1.2-linear-regression-with-one-variable.html">
+            
+                <a href="1.2-linear-regression-with-one-variable.html">
+            
+                    
+                    1.2 Linear regression with one variable.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="1.3-linear-algebra-review.html">
+            
+                <a href="1.3-linear-algebra-review.html">
+            
+                    
+                    1.3 Linear algebra review.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2-linear-regression-with-multiple-variables.html">
+            
+                <a href="2-linear-regression-with-multiple-variables.html">
+            
+                    
+                    2 Linear regression with multiple variables.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="2.1-multivariate-linear-regression.html">
+            
+                <a href="2.1-multivariate-linear-regression.html">
+            
+                    
+                    2.1 Multivariate linear regression.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="2.2-computing-parameters-analytically.html">
+            
+                <a href="2.2-computing-parameters-analytically.html">
+            
+                    
+                    2.2 Computing parameters analytically.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="3-logistic-regression-regularization.html">
+            
+                <a href="3-logistic-regression-regularization.html">
+            
+                    
+                    3 Logistic regression regularization.md
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="3.1-logistic-regression.html">
+            
+                <a href="3.1-logistic-regression.html">
+            
+                    
+                    3.1 Logistic regression.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="3.2-regularization-and-overfitting-problem.html">
+            
+                <a href="3.2-regularization-and-overfitting-problem.html">
+            
+                    
+                    3.2 Regularization and overfitting problem.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="4-neural-networks.html">
+            
+                <a href="4-neural-networks.html">
+            
+                    
+                    4 Neural networks.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="5-neural-networks-learning.html">
+            
+                <a href="5-neural-networks-learning.html">
+            
+                    
+                    5 Neural networks learning.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.6" data-path="6-advice-for-applying-machine-learning.html">
+            
+                <a href="6-advice-for-applying-machine-learning.html">
+            
+                    
+                    6 Advice for applying machine learning.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="7-machine-learning-system-design.html">
+            
+                <a href="7-machine-learning-system-design.html">
+            
+                    
+                    7 Machine learning system design.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="8-support-vector-machines.html">
+            
+                <a href="8-support-vector-machines.html">
+            
+                    
+                    8 Support vector machines.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="9-unsupervised-learning--dimensionality-reduction.html">
+            
+                <a href="9-unsupervised-learning--dimensionality-reduction.html">
+            
+                    
+                    9 Unsupervised learning  dimensionality reduction.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="10-dimensionality-reduction.html">
+            
+                <a href="10-dimensionality-reduction.html">
+            
+                    
+                    10 Dimensionality reduction.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="11-anormaly-detection.html">
+            
+                <a href="11-anormaly-detection.html">
+            
+                    
+                    11 Anormaly detection.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="12-recommander-systems.html">
+            
+                <a href="12-recommander-systems.html">
+            
+                    
+                    12 Recommander systems.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="13-large-scale-machine-learning.html">
+            
+                <a href="13-large-scale-machine-learning.html">
+            
+                    
+                    13 Large scale machine learning.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="14-application-example-photo-ocr.html">
+            
+                <a href="14-application-example-photo-ocr.html">
+            
+                    
+                    14 Application example photo ocr.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="15-vectorized-implementations-in-octave.html">
+            
+                <a href="15-vectorized-implementations-in-octave.html">
+            
+                    
+                    15 Vectorized implementations in octave.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Exercises</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="ex2.1-logistic-regression.html">
+            
+                <a href="ex2.1-logistic-regression.html">
+            
+                    
+                    ex2.1 Logistic regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="ex2.2-regularized-logistic-regression.html">
+            
+                <a href="ex2.2-regularized-logistic-regression.html">
+            
+                    
+                    ex2.2 Regularized logistic regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="ex3-1-multi-class-classification.html">
+            
+                <a href="ex3-1-multi-class-classification.html">
+            
+                    
+                    ex3 1 Multi class classification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="ex3-2-neural-networks.html">
+            
+                <a href="ex3-2-neural-networks.html">
+            
+                    
+                    ex3 2 Neural networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="ex4-1-neural-networks.html">
+            
+                <a href="ex4-1-neural-networks.html">
+            
+                    
+                    ex4 1 Neural networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="ex4-2-backpropagation.html">
+            
+                <a href="ex4-2-backpropagation.html">
+            
+                    
+                    ex4 2 Backpropagation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="ex5-regularized-LR-bias-variance.html">
+            
+                <a href="ex5-regularized-LR-bias-variance.html">
+            
+                    
+                    ex5 Regularized Linear Regression and Bias-Variance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="ex6-1-support-vector-machines.html">
+            
+                <a href="ex6-1-support-vector-machines.html">
+            
+                    
+                    ex6 1 Support vector machines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="ex6-2-spam-classification.html">
+            
+                <a href="ex6-2-spam-classification.html">
+            
+                    
+                    ex6 2 Spam classification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="ex7-k-means-clustering-and-pca.html">
+            
+                <a href="ex7-k-means-clustering-and-pca.html">
+            
+                    
+                    ex7 K-means clustering and pca
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="ex8-recommander-system.html">
+            
+                <a href="ex8-recommander-system.html">
+            
+                    
+                    ex8 Recommander system
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6 Advice for applying machine learning.md</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ]
+    }
+    });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script> MathJax.Hub.Queue(["Typeset",MathJax.Hub]); </script>
+
+
+
+
+<h1 id="6-advice-for-applying-machine-learning">6. Advice for Applying Machine Learning</h1>
+<hr>
+<!-- toc -->
+<ul>
+<li><a href="#61-evaluating-a-hypothesis">6.1. Evaluating a Hypothesis</a></li>
+<li><a href="#62-model-selection-and-trainvalidationtest-sets">6.2. Model Selection and Train/Validation/Test Sets</a></li>
+<li><a href="#63diagnosing-bias-vs-variance">6.3.Diagnosing Bias vs. Variance</a></li>
+<li><a href="#64-regularization-and-biasvariance">6.4. Regularization and Bias/Variance</a></li>
+<li><a href="#65-learning-curves">6.5. Learning Curves</a></li>
+<li><a href="#66-deciding-what-to-do-next-revisited">6.6. Deciding What to Do Next Revisited</a></li>
+</ul>
+<!-- tocstop -->
+<p><img src="img/w6_1.png" alt="">  </p>
+<p>&#xB9CC;&#xC57D; housing price &#xBB38;&#xC81C;&#xB97C; ML&#xB85C; &#xD574;&#xACB0;&#xD55C;&#xB2E4;&#xACE0; &#xD560;&#xB54C;, &#xC131;&#xB2A5; &#xAC1C;&#xC120;&#xC744; &#xC704;&#xD574;&#xC11C; &#xC704;&#xC640;&#xAC19;&#xC740; &#xC804;&#xB7B5;&#xB4E4;&#xC744; &#xC2DC;&#xB3C4;&#xD574;&#xBCFC; &#xC218; &#xC788;&#xC744;&#xAC83;&#xC774;&#xB2E4;.   &#xADF8;&#xB7EC;&#xB098; &#xC774; &#xBC29;&#xBC95;&#xB4E4;&#xC744; &#xBB34;&#xC791;&#xC815; &#xC2DC;&#xB3C4;&#xD558;&#xAE30;&#xBCF4;&#xB2E4;&#xB294; &#xCCB4;&#xACC4;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xAC83;&#xC774; &#xD6A8;&#xC728;&#xC801;&#xC77C; &#xAC83;&#xC774;&#xB2E4;. 6&#xC7A5;&#xC5D0;&#xC11C;&#xB294; &#xB2E4;&#xC74C; &#xB450;&#xAC00;&#xC9C0;&#xB85C; &#xC5B4;&#xB5BB;&#xAC8C; &#xCCB4;&#xACC4;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD560;&#xC218; &#xC788;&#xB294;&#xC9C0; &#xC54C;&#xC544;&#xBCF8;&#xB2E4;.   </p>
+<ol>
+<li>how to evaluate learning algorithm  </li>
+<li>ML diagnostic  </li>
+</ol>
+<h2 id="61-evaluating-a-hypothesis">6.1. Evaluating a Hypothesis</h2>
+<hr>
+<p>&#xC774;&#xBC88;&#xCC55;&#xD130;&#xC5D0;&#xC11C;&#xB294; Hypothesis &#xC5D0;&#xB300;&#xD574;&#xC11C; &#xD3C9;&#xAC00;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xACFC;, underfitting, overfitting&#xC744; &#xD53C;&#xD560; &#xC218; &#xC788;&#xB294; &#xBC29;&#xBC95;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC54C;&#xC544;&#xBCF8;&#xB2E4;.   </p>
+<p><img src="img/w6_2.png" alt=""><br>70%&#xB97C; training example, 30% &#xB97C; test example&#xB85C; &#xB098;&#xB220;&#xC11C; cost function&#xC744; &#xACC4;&#xC0B0;&#xD574;&#xBCF8;&#xB2E4;.   overfitting &#xC778;&#xACBD;&#xC6B0;&#xB294; training error(cost) <script type="math/tex; ">J(\Theta)</script> &#xB294; &#xB9E4;&#xC6B0; &#xB0AE;&#xACE0;, test error <script type="math/tex; ">J_{test}(\Theta)</script> &#xB294; &#xD074; &#xAC83;&#xC774;&#xB2E4;.  </p>
+<p>&#xC21C;&#xC11C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xB2E4;.   </p>
+<ul>
+<li>Training/ testing procedure for linear regression  <ol>
+<li>Learn parameter &#x3B8; from training data (min. training error <script type="math/tex; ">J(\Theta)</script>)  </li>
+<li>Compute test set error <script type="math/tex; ">J_{test}(\Theta)</script>   </li>
+</ol>
+</li>
+</ul>
+<p>The test set error:<br><img src="img/w6_3.png" alt="">  </p>
+<h2 id="62-model-selection-and-trainvalidationtest-sets">6.2. Model Selection and Train/Validation/Test Sets</h2>
+<hr>
+<p><img src="img/w6_4.png" alt="">  </p>
+<p>training example&#xC5D0;&#xC11C; &#xC801;&#xD569;&#xD55C; &#xBAA8;&#xB378; d=5 &#xB97C; &#xACE8;&#xB790;&#xC9C0;&#xB9CC; &#xC774;&#xAC8C; &#xC815;&#xB9D0;  generalize (&#xB2E4;&#xB978;&#xBB38;&#xC81C;&#xB3C4; &#xC815;&#xD655;&#xD788; &#xC608;&#xCE21;)&#xD560; &#xC218; &#xC788;&#xB294;&#xAC83;&#xC778;&#xC9C0; &#xC5B4;&#xB5BB;&#xAC8C; &#xC54C;&#xC218; &#xC788;&#xC744;&#xAE4C;?  &#xB530;&#xB77C;&#xC11C; &#xC8FC;&#xC5B4;&#xC9C4; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB2E8;&#xC21C;&#xD788; training/test&#xB85C;&#xB9CC; &#xB098;&#xB20C;&#xAC83;&#xC774; &#xC544;&#xB2C8;&#xB77C;, d&#xB97C; fit&#xD558;&#xAE30; &#xC704;&#xD55C; set&#xC5ED;&#xC2DC; &#xB9CC;&#xB4E4;&#xC5B4;&#xC57C;&#xD55C;&#xB2E4;.   </p>
+<p><img src="img/w6_5.png" alt=""><br>&#xC774;&#xB807;&#xAC8C; 3&#xAC1C;&#xB85C; &#xB098;&#xB208;&#xB2E4;. &#xACC4;&#xC0B0;&#xC740; &#xB2E4;&#xC74C;&#xACFC;&#xAC19;&#xC774; &#xD55C;&#xB2E4;.   </p>
+<p><img src="img/w6_6.png" alt="">  </p>
+<p>&#xBC29;&#xBC95;&#xC740;,   </p>
+<ol>
+<li>10 &#xCC28;&#xC6D0; polinormial &#xBAA8;&#xB378;&#xB4E4;&#xC5D0;&#xC11C; &#xAC01; min <script type="math/tex; ">J(\theta)</script>&#xB97C; &#xD1B5;&#xD574;  <script type="math/tex; ">\Theta</script> &#xB97C; &#xAD6C;&#xD55C;&#xB2E4;.   </li>
+<li>&#xD574;&#xB2F9; <script type="math/tex; ">\Theta</script> &#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xBA3C;&#xC800;  <script type="math/tex; ">J_{CV}(\Theta)</script> &#xB97C; &#xAD6C;&#xD574;&#xBCF4;&#xB294;&#xAC83;&#xC774;&#xB2E4;.<br>&#xB9CC;&#xC57D; &#xADF8;&#xB807;&#xAC8C; &#xACC4;&#xC0B0;&#xD588;&#xB354;&#xB2C8; 4&#xCC28;&#xC6D0; poli&#xBAA8;&#xB378;&#xC774; &#xAC00;&#xC7A5; &#xB0AE;&#xC740;&#xAC12;&#xC774; &#xB098;&#xC654;&#xC744;&#xB54C;, <script type="math/tex; ">J_{CV}(\Theta^{(4)})</script>  </li>
+<li>&#xD574;&#xB2F9; &#xBAA8;&#xB378;&#xC744; &#xAC00;&#xC9C0;&#xACE0; <script type="math/tex; ">J_{test}(\Theta^{(4)})</script>&#xB97C; &#xAD6C;&#xD574;&#xBCF8;&#xB2E4;. &#xB2E4;&#xC2DC; &#xB9D0;&#xD574; &#xB2E4;&#xB978; traning set&#xC5D0; &#xACC4;&#xC0B0;&#xC744; &#xD574;&#xBCF4;&#xB294;&#xAC83;&#xC774;&#xB2E4;.    </li>
+</ol>
+<h2 id="63diagnosing-bias-vs-variance">6.3.Diagnosing Bias vs. Variance</h2>
+<hr>
+<blockquote>
+<p>polinormial &#xCC28;&#xC6D0;&#xC218; d&#xC5D0; &#xB530;&#xB77C;&#xC11C;  </p>
+</blockquote>
+<p>learning&#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xB3CC;&#xB9B4;&#xB54C;, &#xC6D0;&#xD558;&#xB294;&#xB300;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xBA74; &#xAC70;&#xC758; &#xB300;&#xBD80;&#xBD84; high Bias&#xBB38;&#xC81C; &#xB610;&#xB294; high Variance &#xBB38;&#xC81C;&#xC774;&#xB2E4;. &#xB2E4;&#xC2DC;&#xB9D0;&#xD574; underfitting &#xBB38;&#xC81C;, &#xB610;&#xB294; overfitting &#xBB38;&#xC81C;&#xB77C;&#xB294; &#xB9D0;&#xC774;&#xB2E4;.<br>&#xC774; &#xAC83;&#xC744; &#xC5B4;&#xB5BB;&#xAC8C; &#xAD6C;&#xBD84;&#xD560; &#xC218; &#xC788;&#xB294;&#xC9C0; &#xC54C;&#xC544;&#xBCF4;&#xC790;.   </p>
+<p><img src="img/w6_7.png" alt="">  </p>
+<blockquote>
+<p>d &#xB294; polinormial degree(&#xCC28;&#xC6D0;)&#xC744; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;.   </p>
+</blockquote>
+<p><img src="img/w6_8.png" alt=""><br>training examples &#xB0B4; &#xC5D0;&#xC11C; &#xAD6C;&#xD55C; train error <script type="math/tex; ">J_{train}(\Theta)</script> &#xB294; d &#xAC00; &#xB9CE;&#xC544;&#xC9C8;&#xC218;&#xB85D; &#xC5D0;&#xB7EC;&#xC728;&#xC774; &#xB0AE;&#xC544;&#xC9C4;&#xB2E4;. &#xBC18;&#xBA74; &#xADF8;&#xB7F4;&#xC218;&#xB85D; &#xB2E4;&#xB978; data set example&#xB85C; &#xAD6C;&#xBD84;&#xD574;&#xB193;&#xC740; Cross validation Set (CV) &#xC5D0;&#xC11C;&#xB294; &#xD574;&#xB2F9; &#xBAA8;&#xB378;&#xB85C;&#xB294; &#xB354;&#xC6B1; &#xB9DE;&#xC9C0; &#xC54A;&#xAC8C; &#xB41C;&#xB2E4;. &#xD574;&#xB2F9; &#xBAA8;&#xB378;&#xC740; training example&#xC5D0;&#xC11C;&#xB9CC; &#xC815;&#xD655;&#xD788; &#xBAA8;&#xC0AC;&#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;(Overfit). &#xADF8;&#xB798;&#xD504;&#xB85C; &#xD45C;&#xD604;&#xD558;&#xBA74; &#xC704;&#xC640; &#xAC19;&#xB2E4;. &#xB530;&#xB77C;&#xC11C;,  </p>
+<p>Underfit(High Bias)&#xC77C; &#xACBD;&#xC6B0;&#xB294; Cost(or error) <script type="math/tex; ">J_{train}(\Theta)</script>&#xAC00; &#xAC12;&#xC774; &#xD06C;&#xACE0; <script type="math/tex; ">J_{CV}(\Theta)</script> &#xB610;&#xD55C; &#xAC12;&#xC774; &#xD06C;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xADF8; &#xB458;&#xAC12;&#xC774; &#xBE44;&#xC2B7;&#xD558;&#xB2E4;.<br>Overfit(High Variance) &#xC778;&#xACBD;&#xC6B0;&#xB294; <script type="math/tex; ">J_{train}(\Theta)</script>&#xC774; &#xB9E4;&#xC6B0; &#xB0AE;&#xACE0;,  <script type="math/tex; ">J_{CV}(\Theta)</script> &#xAC12;&#xC774; &#xC0C1;&#xB300;&#xC801;&#xC73C;&#xB85C; &#xD06C;&#xB2E4;.   </p>
+<ul>
+<li><p><strong>High bias (underfitting)</strong>: both <script type="math/tex; ">J_{train}(\Theta)J</script> and <script type="math/tex; ">J_{CV}(\Theta)J</script>  will be high. Also, <script type="math/tex; ">J_{CV}(\Theta) \approx J_{train}(\Theta)</script>   </p>
+</li>
+<li><p><strong>High variance (overfitting)</strong>: <script type="math/tex; ">J_{train}(\Theta)</script>  will be low and <script type="math/tex; ">J_{CV}(\Theta)</script> will be much greater than <script type="math/tex; ">J_{train}(\Theta)</script>  </p>
+</li>
+</ul>
+<p><img src="img/w6_9.png" alt="">  </p>
+<h2 id="64-regularization-and-biasvariance">6.4. Regularization and Bias/Variance</h2>
+<hr>
+<blockquote>
+<p><script type="math/tex; ">\lambda</script> &#xD06C;&#xAE30;&#xC5D0; &#xB530;&#xB77C;&#xC11C;   </p>
+</blockquote>
+<p>Linear regression &#xC758;  regularization &#xD558;&#xB294; &#xACBD;&#xC6B0;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB3C4; &#xC54C;&#xC544;&#xBCF4;&#xC790;.   </p>
+<p><img src="img/w6_10.png" alt="">  </p>
+<blockquote>
+<p><script type="math/tex; ">\lambda</script> &#xD06C;&#xAE30;&#xC5D0; &#xB530;&#xB77C;&#xC11C; bias &#xAC00; &#xB420; &#xC218; &#xC788;&#xACE0;, variance&#xAC00; &#xB420; &#xC218; &#xC788;&#xB2E4;.   </p>
+</blockquote>
+<p>&#xADF8;&#xB807;&#xB2E4;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xC801;&#xC808;&#xD55C; <script type="math/tex; ">\lambda</script>&#xB97C; &#xC120;&#xD0DD;&#xD560; &#xC218; &#xC788;&#xC744;&#xAE4C;?  </p>
+<p><img src="img/w6_11.png" alt="">  </p>
+<ol>
+<li>&#xBA3C;&#xC800; <script type="math/tex; ">\lambda</script> &#xB294; 0&#xBD80;&#xD130; 0.01 &#xC744; &#xC81C;&#xACF1;&#xD574;&#xC11C; &#xB298;&#xB824;&#xAC00;&#xBA70; 12&#xBC88; try&#xD55C;&#xB2E4;.  &#xADF8;&#xB807;&#xAC8C;  &#xAC01; min <script type="math/tex; ">J(\theta)</script>&#xB97C; &#xD1B5;&#xD574;  <script type="math/tex; ">\Theta</script> &#xB97C; &#xAD6C;&#xD55C;&#xB2E4;.   </li>
+<li>&#xD574;&#xB2F9; <script type="math/tex; ">\Theta</script> &#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xBA3C;&#xC800;  <script type="math/tex; ">J_{CV}(\Theta)</script> &#xB97C; &#xAD6C;&#xD574;&#xBCF8;&#xB2E4;.  &#xB9CC;&#xC57D; &#xADF8;&#xB807;&#xAC8C; &#xACC4;&#xC0B0;&#xD588;&#xB354;&#xB2C8; 5&#xBC88;&#xC9F8; <script type="math/tex; ">\lambda</script> &#xB97C; &#xC0AC;&#xC6A9;&#xD55C; regularized model&#xC774; &#xAC00;&#xC7A5; &#xB0AE;&#xC740;&#xAC12;&#xC774; &#xB098;&#xC654;&#xC744;&#xB54C;, <script type="math/tex; ">J_{CV}(\Theta^{(5)})</script>  </li>
+<li>&#xD574;&#xB2F9; &#xBAA8;&#xB378;&#xC744; &#xAC00;&#xC9C0;&#xACE0; <script type="math/tex; ">J_{test}(\Theta^{(5)})</script>&#xB97C; &#xAD6C;&#xD574;&#xBCF8;&#xB2E4;.   </li>
+</ol>
+<p>(&#xC704;&#xC758; &#xBC29;&#xBC95;&#xACFC; &#xB9E4;&#xC6B0; &#xC720;&#xC0AC;)  </p>
+<p><img src="img/w6_12.png" alt="">  </p>
+<p><script type="math/tex; ">\lambda</script> &#xAC00; &#xC791;&#xC73C;&#xBA74;  <script type="math/tex; ">J(\theta)</script>&#xB3C4; &#xC791;&#xC544;&#xC9D0;&#xC5D0; &#xC720;&#xC758;  </p>
+<h2 id="65-learning-curves">6.5. Learning Curves</h2>
+<hr>
+<blockquote>
+<p>Training Example &#xC218; m &#xC5D0; &#xB530;&#xB77C;&#xC11C;  </p>
+</blockquote>
+<p><img src="img/w6_13.png" alt=""><br>&#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; m&#xC774; &#xC801;&#xC744;&#xB54C;&#xB294; <script type="math/tex; ">J_{train}(\Theta)</script> &#xB294; training examples&#xB97C; &#xC815;&#xD655;&#xD788; &#xBAA8;&#xC0AC;&#xD55C;&#xB2E4;. &#xADF9;&#xB2E8;&#xC801;&#xC73C;&#xB85C; m=1,2,3&#xC77C;&#xB54C; &#xD0C0;&#xC6D0;&#xC758; &#xACE1;&#xC120;&#xC740; 3&#xC810;&#xC744; &#xC9C0;&#xB098;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; cost&#xAC00; 0&#xC774;&#xB2E4;. &#xBC18;&#xBA74; &#xC774; &#xBAA8;&#xB378;&#xB85C; cross validate set &#xB370;&#xC774;&#xD130;&#xC5D0; &#xC801;&#xC6A9;&#xD574;&#xBD24;&#xC744;&#xB54C;&#xB294; &#xC624;&#xCC28;&#xAC00; &#xBC1C;&#xC0DD;&#xD55C;&#xB2E4;.   </p>
+<ul>
+<li>High bias (underfit)  </li>
+</ul>
+<p><img src="img/w6_14.png" alt=""><br>&#xC6B0;&#xCE21;&#xC0C1;&#xB2E8; &#xACF5;&#xC2DD;&#xCC98;&#xB7FC; high bias&#xC778; hypothesis (&#xC9C1;&#xC120;,linear) &#xAC00; &#xC788;&#xC744;&#xB54C;, m&#xC774; &#xC791;&#xC73C;&#xBA74; cv set&#xC744; &#xB354; &#xC815;&#xD655;&#xD788; &#xD45C;&#xD604;&#xD560; &#xC218; &#xC5C6;&#xB2E4;. (&#xD30C;&#xB780;&#xC0C9; &#xADF8;&#xB798;&#xD504;) &#xADF8;&#xB9AC;&#xACE0; m &#xC774; &#xB354; &#xB298;&#xC5B4;&#xB09C;&#xB2E4;&#xACE0; &#xD558;&#xB354;&#xB77C;&#xB3C4;, &#xC808;&#xB300;&#xC801; <script type="math/tex; ">J_{CV}(\Theta)</script> &#xD06C;&#xAE30;&#xB294; &#xD06C;&#xAC8C; &#xB5A8;&#xC5B4;&#xC9C0;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;. &#xAE08;&#xBC29; flattened &#xB418;&#xC5B4;&#xBC84;&#xB9B0;&#xB2E4;.  </p>
+<p><script type="math/tex; ">J_{train}(\Theta)</script> &#xC740; m&#xC774; &#xC801;&#xC744;&#xB54C; &#xBB34;&#xCC99; &#xB0AE;&#xB2E4;&#xAC00; &#xC0AC;&#xC774;&#xC988;&#xAC00; &#xCEE4;&#xC9C8;&#xC218;&#xB85D; &#xB192;&#xC544;&#xC9C0;&#xB294;&#xB370; &#xAE08;&#xBC29; Cross validation error &#xAC12;&#xC5D0; &#xC218;&#xB834;&#xD55C;&#xB2E4;. &#xC774;&#xC720;&#xB294; &#xC801;&#xC740; &#xC218;&#xC758; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB85C;  &#xB9CE;&#xC740; &#xC591;&#xC758; &#xB370;&#xC774;&#xD130;&#xB97C; &#xD45C;&#xD604;&#xD558;&#xAE30;&#xC5D0;&#xB294; &#xD55C;&#xACC4;&#xAC00; &#xD06C;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;.  </p>
+<p>&#xB610;&#xD55C; &#xD765;&#xBBF8;&#xB85C;&#xC6B4;&#xC810;&#xC740;, &#xB7EC;&#xB2DD; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC774; high bias(underfit) &#xC778; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xB354; &#xB9CE;&#xC740; training data&#xB97C; &#xBAA8;&#xC544;&#xBD24;&#xC790;, &#xBCC4; &#xB3C4;&#xC6C0;&#xC774; &#xC548;&#xB41C;&#xB2E4;&#xB294; &#xAC83;&#xC774;&#xB2E4;. &#xC65C;&#xB0D0;&#xD558;&#xBA74; &#xADF8;&#xB798;&#xD504;&#xC5D0;&#xC11C; &#xBCFC; &#xC218; &#xC788;&#xB4EF;&#xC774;, m &#xC774;&#xB298;&#xC5B4;&#xB098;&#xB3C4; <script type="math/tex; ">J_{CV}(\Theta)</script>&#xB294; &#xD06C;&#xAC8C; &#xC791;&#xC544;&#xC9C0;&#xC9C0; &#xC54A;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;. (it`s basically fattened up)  </p>
+<p>&#xB9CC;&#xC57D; <strong>&#xC801;&#xC740;&#xC218;&#xC758; feature&#xAC2F;&#xC218;&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xBAA8;&#xB378;&#xC744; &#xB9CC;&#xB4E4;&#xACE0; &#xC608;&#xCE21;&#xD560; &#xC608;&#xC815;&#xC774;&#xB77C;&#xBA74; &#xAD73;&#xC774; &#xB9CE;&#xC740; &#xC591;&#xC758; training data&#xB97C; &#xC218;&#xC9D1;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xB2E4;&#xB294; &#xB73B;&#xC774;&#xB2E4;.</strong> &#xC5B4;&#xCC28;&#xD53C; &#xC624;&#xCC28;&#xC728;&#xC774; &#xB192;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xBAA8;&#xB378;&#xC774; &#xC815;&#xBC00;&#xD558;&#xAC8C; &#xC608;&#xCE21;&#xD558;&#xAE30; &#xD798;&#xB4E4;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; .   </p>
+<ul>
+<li>High variance (overfit)  </li>
+</ul>
+<p><img src="img/w6_15.png" alt=""><br>Training example&#xC5D0;&#xC11C; &#xB9CE;&#xC740; &#xC218;&#xC758; feature&#xAC00; &#xC788;&#xC744;&#xB54C;(&#xB192;&#xC740; degree&#xC758; polinormial &#xD53C;&#xCCD0;&#xB4F1;) m&#xC758; &#xD06C;&#xAE30;&#xAC00; &#xCEE4;&#xC9C8;&#xC218;&#xB85D; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC815;&#xD655;&#xD788; &#xB098;&#xD0C0;&#xB0B4;&#xAE30;&#xB294; &#xD798;&#xB4E4;&#xC9C0;&#xB9CC; &#xADF8;&#xB798;&#xB3C4; &#xD06C;&#xAC8C; &#xD2C0;&#xB9AC;&#xC9C0;&#xB294; &#xC54A;&#xB294;&#xB2E4;. (&#xC801;&#xC5B4;&#xB3C4; training data&#xB0B4;&#xC5D0;&#xC11C;&#xB294;) &#xADF8;&#xB798;&#xC11C; <script type="math/tex; ">J_{train}(\Theta)</script>&#xB294; &#xD06C;&#xAC8C; &#xAC00;&#xD30C;&#xB974;&#xC9C0; &#xC54A;&#xAC8C; &#xC99D;&#xAC00;&#xD55C;&#xB2E4;.  &#xBC18;&#xBA74;, <script type="math/tex; ">J_{CV}(\Theta)</script>&#xB294; high bias&#xC640; &#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;&#xB85C; m&#xC774; &#xCEE4;&#xC9C8;&#xC218;&#xB85D; &#xB0AE;&#xC544;&#xC9C4;&#xB2E4;. overfit&#xC778;&#xB370; m&#xC774; &#xCEE4;&#xC9C8;&#xC218;&#xB85D; error&#xAC12;&#xC774; &#xB354; &#xCEE4;&#xC9C0;&#xC9C0; &#xC54A;&#xB294; &#xC774;&#xC720;&#xB294; cross validate set &#xD06C;&#xAE30;&#xB3C4; &#xC5B4;&#xB290;&#xC815;&#xB3C4; &#xD06C;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; training set&#xACFC; &#xD06C;&#xAC8C; &#xCC28;&#xC774;&#xAC00; &#xC5C6;&#xC744; &#xAC83;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;.   &#xB530;&#xB7EC;&#xC11C;, m&#xC774; &#xC791;&#xB2E4;&#xBA74; &#xC774; &#xB458;&#xC774; &#xC218;&#xB834;&#xD558;&#xB294; &#xAC12;(gap)&#xC758; &#xCC28;&#xC774;&#xAC00; &#xD070;&#xD3B8;&#xC774;&#xACE0; m&#xC774; &#xCEE4;&#xC9C8;&#xC218;&#xB85D; &#xB458;&#xC758; &#xCC28;&#xC774;&#xAC00; &#xC904;&#xC5B4;&#xB4E0;&#xB2E4;.  &#xB530;&#xB77C;&#xC11C; <strong>High variance&#xC778; &#xACBD;&#xC6B0;, &#xB2E4;&#xC2DC;&#xB9D0;&#xD574; feature&#xAC00; &#xB9CE;&#xC544;&#xC11C; overfitting&#xC758; &#xC704;&#xD5D8;&#xC774; &#xC788;&#xB294; &#xBAA8;&#xB378;&#xC778; &#xACBD;&#xC6B0;, training example&#xC744; &#xB354; &#xB9CE;&#xC774; &#xBAA8;&#xC744; &#xC218;&#xB85D; &#xC800; &#xC815;&#xD655;&#xD788; &#xC608;&#xCE21;&#xD560;&#xC218; &#xC788;&#xB2E4;.</strong>  &#xC9C8;&#xBB38;: feature &#xB97C; &#xB298;&#xB9B4;&#xB54C;, polinormial feature&#xBC16;&#xC5D0; &#xCD94;&#xAC00;&#xB97C; &#xBABB;&#xD558;&#xB294;&#xC9C0;? &#xAC00;&#xB839; &#xB85C;&#xADF8;&#xD568;&#xC218;&#xB098;, &#xC81C;&#xACF1;&#xADFC;&#xD568;&#xC218; &#xB4F1;&#xC740; &#xC0AC;&#xC6A9;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xB098;? -&gt; &#xC218;&#xCE58;&#xD574;&#xC11D;&#xC5D0; &#xB530;&#xB974;&#xBA74; &#xBAA8;&#xB4E0; &#xBBF8;&#xBD84;&#xAC00;&#xB2A5;&#xD55C; &#xD568;&#xC218;&#xB294; &#xB2E4;&#xD56D;&#xC2DD;&#xC758; &#xD569;&#xC73C;&#xB85C; &#xADFC;&#xC0AC;&#xD560; &#xC218; &#xC788;&#xB2E4;(Taylor Series)    </p>
+<h2 id="66-deciding-what-to-do-next-revisited">6.6. Deciding What to Do Next Revisited</h2>
+<hr>
+<p>&#xC9C0;&#xAE08;&#xAE4C;&#xC9C0;&#xB97C; &#xC815;&#xB9AC;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xB2E4;.   </p>
+<p><img src="img/w6_16.png" alt="">  </p>
+<p>&#xADF8;&#xB9AC;&#xACE0; &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; NN&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB3C4; &#xC54C;&#xC544;&#xBCF4;&#xC790;.   </p>
+<p><img src="img/w6_17.png" alt="">  </p>
+<p>&#xC801;&#xC740;&#xC218;&#xC758; parameter&#xC640; layer&#xC218;&#xB294; underfitting &#xC774;&#xACE0; &#xB9CE;&#xC740; &#xC218;&#xB294; &#xADF8;&#xBC18;&#xB300;.  </p>
+<p>hidden unit layer&#xAC2F;&#xC218;&#xC5D0; &#xB530;&#xB77C; &#xC5B4;&#xB5BB;&#xAC8C; &#xB2EC;&#xB77C;&#xC9C8;&#xAE4C;?  </p>
+<p>Model Complexity Effects:  </p>
+<ul>
+<li>Lower-order polynomials (low model complexity) have high bias and low variance. In this case, the model fits poorly consistently.  </li>
+<li><p>Higher-order polynomials (high model complexity) fit the training data extremely well and the test data extremely poorly. These have low bias on the training data, but very high variance.  </p>
+</li>
+<li><p>In reality, we would want to choose a model somewhere in between, that can generalize well but also fits the data reasonably well.</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="5-neural-networks-learning.html" class="navigation navigation-prev " aria-label="Previous page: 5 Neural networks learning.md">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="7-machine-learning-system-design.html" class="navigation navigation-next " aria-label="Next page: 7 Machine learning system design.md">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6 Advice for applying machine learning.md","level":"2.6","depth":1,"next":{"title":"7 Machine learning system design.md","level":"2.7","depth":1,"path":"markdowns/7-machine-learning-system-design.md","ref":"markdowns/7-machine-learning-system-design.md","articles":[]},"previous":{"title":"5 Neural networks learning.md","level":"2.5","depth":1,"path":"markdowns/5-neural-networks-learning.md","ref":"markdowns/5-neural-networks-learning.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"http://soopsaram.com/platform_dd/"},"plugins":["ga","mathjax","theme-darkblue","simple-page-toc","disqus","back-to-top-button","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"jihuun"},"livereload":{},"simple-page-toc":{"maxDepth":2,"skipFirstH1":true},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-darkblue":{},"highlight":{},"back-to-top-button":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-145404461-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdowns/6-advice-for-applying-machine-learning.md","mtime":"2019-08-11T09:18:07.415Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-15T11:34:57.947Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

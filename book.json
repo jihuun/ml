@@ -1,0 +1,18 @@
+{
+    "plugins": ["ga", "mathjax", "theme-darkblue", "simple-page-toc", "disqus", "back-to-top-button"],
+    "pluginsConfig": {
+	"disqus": {
+            "shortName": "jihuun"
+        },
+        "simple-page-toc": {
+            "maxDepth": 2,
+            "skipFirstH1": true
+   	},
+        "ga": {
+            "token": "UA-145404461-1"
+        }
+    },
+    "variables": {
+        "BASE_URL": "http://soopsaram.com/platform_dd/"
+    }
+}
