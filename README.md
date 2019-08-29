@@ -1,7 +1,8 @@
 # Machine Learning 정리
-> 작성: 김지훈 (jihuun.k@gmail.com)  
+[![Build Status](https://travis-ci.org/jihuun/ml.svg?branch=master)](https://travis-ci.org/jihuun/ml)  
 
 이 문서는 Andrew Ng 교수의 Coursera 강의 [Machine Learning](https://www.coursera.org/learn/machine-learning)에서 배운 내용을 정리한 문서이다.  
+> 작성: 김지훈 (jihuun.k@gmail.com)  
 
 
 

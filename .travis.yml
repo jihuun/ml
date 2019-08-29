@@ -1,0 +1,15 @@
+language: generic
+install:
+- npm install gitbook-cli -g
+- gitbook --version
+- git config --global user.name "Ji-Hun Kim (with Travis)"
+- git config --global user.email "jihuun.k@gmail.com"
+before_script:
+- gitbook install
+- gitbook build ./ --log=debug --debug
+script:
+- "./scripts/deploy_gitbook.sh"
+
+env:
+  global:
+    secure: lsF+kQ1CnLO98xLeg8Zn6rsR6broabW+wCLdyF3VnGsGz9Ee9FMqUhmDtS23Id7IOXZYxnQMNsP7Nd9Gut6cNc5rsvbUfpLa6RSUlBAbUne5CAeMDxS3JnWmgMYrtgJ8/gFpQKCOoxvDydx0NZgc3pp3xIoaSakw0pSBAxHPuhssVRl1yvPHSSFLe0Yg4JOyIWujBIuk+ebbsvcGDQjCRH1UBeHmRfPF1dtoNtPgHFS2PErXbGw0ljtf5XGg2PeUoi8tEdYsWjkE45JfmV6rzRO7c7TpTrDx3tX46jYQW9mIGGUuhQTt1lhDXm755Jbv74kSyffYVDWhSSLLoLFR1zeV2CxW1UD0nss9JJ5V0E6ZrAyVh5wPzZaQEDUucWG46mAtYf5KSHw+kOburiUnSBFZeik0EsrHwIwtmg9OV6K/XlvB/Nc0JQjMjaTEgPxulcQ1AHRZJFM4yY6qZoYX4fSMSqXTo3m7ZMKPmDIH0v4GT8Zqh1ERssYyFizHYWoz7Z/0rnIMoqiD+leQyN2eH+MIRnEE3WtQ7toD0chCvSVhNU+0sqk2SKD52Kk1gZbXD0axWepd0yhyB3mjz5cVKP+qRQ9lblG0b4qdutkHhS9u26RVvm+sTmwjg8O3gqIFL8zGW43/jxGlRu+iHD3bcppwbpxa7hYXa6/SNH9cAVs=
